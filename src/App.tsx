@@ -1,32 +1,19 @@
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { useLocation } from "react-router-dom"; // Rimosso Routes e Route per ora
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import Hero from "./components/Hero";
 
 
 export default function App() {
-  const location = useLocation()
-  const state = location.state as { backgroundLocation?: Location } | undefined
-  const background = state?.backgroundLocation
+  const location = useLocation();
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-1">
-        <Routes location={background ?? location}>
-          <Route path="/" element={<Home />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-        
-        {/* Modal route overlay - solo quando c'è background */}
-        {background && (
-          <Routes>
-            <Route path="/projects/:slug" element={<ProjectModal />} />
-          </Routes>
-        )}
+        {location.pathname === "/" && <Hero />}
       </main>
       <Footer />
     </div>
-  )
+  );
 }
