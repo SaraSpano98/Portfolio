@@ -1,65 +1,113 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import Pattern from '../styles/Pattern';
 
 const Hero = () => {
-  const [percent, setPercent] = useState(50);
+  const mouseX = useMotionValue(0.5);
+  const mouseY = useMotionValue(0.5);
+
+  const springConfig = { damping: 45, stiffness: 120, mass: 1 };
+  const smoothX = useSpring(mouseX, springConfig);
+  const smoothY = useSpring(mouseY, springConfig);
+
+  const percent = useTransform(smoothX, [0, 1], [0, 100]);
+  
+  const designerClip = useTransform(percent, (p) => `inset(0 ${100 - p}% 0 0)`);
+  const coderClip = useTransform(percent, (p) => `inset(0 0 0 ${p}%)`);
+  
+  // OPACITÀ REGOLATA: non scende mai sotto lo 0.25 (25%) per restare visibile
+  const designerOpacity = useTransform(smoothX, [0, 0.5, 1], [1, 1, 0.25]);
+  const coderOpacity = useTransform(smoothX, [0, 0.5, 1], [0.25, 1, 1]);
+
+  const designerTextX = useTransform(smoothX, [0, 0.5, 1], ["0%", "-5%", "-20%"]);
+  const coderTextX = useTransform(smoothX, [0, 0.5, 1], ["20%", "5%", "0%"]);
+  
+  const imgX = useTransform(smoothX, [0, 1], [-20, 20]);
+  const imgY = useTransform(smoothY, [0, 1], [-15, 15]);
 
   const handleMouseMove = (e: React.MouseEvent) => {
-    const { clientX, currentTarget } = e;
-    const { width, left } = currentTarget.getBoundingClientRect();
-    const x = ((clientX - left) / width) * 100;
-    setPercent(x);
+    const { clientX, clientY, currentTarget } = e;
+    const { width, height, left, top } = currentTarget.getBoundingClientRect();
+    mouseX.set((clientX - left) / width);
+    mouseY.set((clientY - top) / height);
   };
 
   return (
     <section 
-      className="relative w-full h-screen overflow-hidden bg-white cursor-col-resize pt-[100px]"
       onMouseMove={handleMouseMove}
-      onMouseLeave={() => setPercent(50)}
+      onMouseLeave={() => { mouseX.set(0.5); mouseY.set(0.5); }}
+      className="relative w-full h-screen overflow-hidden bg-white select-none cursor-col-resize"
     >
-      <div className="absolute inset-0 z-0 opacity-40">
-        <Pattern />
-      </div>
-
-      {/* LATO DESIGNER */}
-      <div 
-        className="absolute inset-0 z-10"
-        style={{ clipPath: `inset(0 ${100 - percent}% 0 0)` }}
+      {/* --- LATO DESIGNER --- */}
+      <motion.div 
+        style={{ clipPath: designerClip, opacity: designerOpacity }}
+        className="absolute inset-0 z-10 bg-white"
       >
-        <div className="absolute left-[10%] top-1/2 -translate-y-1/2 z-30 pointer-events-none">
-          <h2 className="text-7xl font-black text-slate-800 uppercase tracking-tighter">Designer</h2>
+        <div className="absolute inset-0 z-0 opacity-40 pointer-events-none">
+          <Pattern />
         </div>
-        <img 
+        
+        <motion.div 
+          style={{ x: designerTextX, y: "-50%" }} 
+          className="absolute left-[12%] lg:left-[15%] top-1/2 z-30 pointer-events-none flex flex-col"
+        >
+          <h2 className="text-6xl md:text-7xl font-bold text-slate-800 lowercase tracking-tighter leading-none">
+            designer
+          </h2>
+          <p className="mt-4 text-slate-500 text-sm md:text-base max-w-[260px] leading-relaxed font-medium">
+            Product designer specializzata in UI design, sistemi creativi e colori.
+          </p>
+        </motion.div>
+
+        <motion.img 
           src="/images/designer.png" 
-          alt="Designer" 
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-full w-auto object-contain scale-[1.8]"
+          alt="designer"
+          style={{ x: imgX, y: imgY, left: "50%", top: "58%", translateX: "-50%", translateY: "-50%" }}
+          className="absolute h-[80%] md:h-[85%] w-auto object-contain"
         />
-      </div>
+      </motion.div>
 
-      {/* LATO CODER */}
-      <div 
-        className="absolute inset-0 z-20"
-        style={{ clipPath: `inset(0 0 0 ${percent}%)` }}
+      {/* --- LATO CODER --- */}
+      <motion.div 
+        style={{ clipPath: coderClip, opacity: coderOpacity }}
+        className="absolute inset-0 z-20 bg-white"
       >
-        <div className="absolute right-[10%] top-1/2 -translate-y-1/2 z-30 text-right pointer-events-none">
-          <h2 className="text-7xl font-black text-slate-900 uppercase tracking-tighter">{"<Coder>"}</h2>
+        {/* CODICE GHOST: alzato al 30% di opacità per farlo vedere bene */}
+        <div className="absolute right-[20%] md:right-[24%] bottom-[18%] opacity-30 font-mono text-sm md:text-base text-slate-900 text-left leading-relaxed">
+           <pre className="drop-shadow-sm">{`const developer = {
+  name: 'Sara Spano',
+  role: 'Frontend Enthusiast',
+  skills: ['React', 'Tailwind'],
+  motto: 'Clean code & art'
+};`}</pre>
         </div>
-        <img 
-          src="/images/coder.png" 
-          alt="Coder" 
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 h-full w-auto object-contain scale-[1.8]"
-          style={{ transform: 'translate(-50%, -46.5%)' }} 
-        />
-      </div>
 
-      {/* LINEA ROSA */}
-      <div 
-        className="absolute top-0 bottom-0 z-40 w-[2px] bg-pink-500 shadow-[0_0_15px_rgba(236,144,230,0.7)]"
-        style={{ left: `${percent}%` }}
+        <motion.div 
+          style={{ x: coderTextX, y: "-50%" }} 
+          className="absolute right-[12%] lg:right-[15%] top-1/2 z-30 text-right pointer-events-none flex flex-col items-end"
+        >
+          <h2 className="text-6xl md:text-7xl font-bold text-slate-900 lowercase tracking-tighter leading-none">
+            &lt;coder&gt;
+          </h2>
+          <p className="mt-4 text-slate-500 text-sm md:text-base max-w-[260px] leading-relaxed font-medium">
+            Sviluppatrice front-end che ama scrivere codice pulito, elegante ed efficiente.
+          </p>
+        </motion.div>
+
+        <motion.img 
+          src="/images/coder.png" 
+          alt="coder"
+          style={{ x: imgX, y: imgY, left: "50%", top: "58%", translateX: "-50%", translateY: "-50%" }}
+          className="absolute h-[80%] md:h-[85%] w-auto object-contain grayscale brightness-110"
+        />
+      </motion.div>
+
+      <motion.div 
+        style={{ left: useTransform(percent, (p) => `${p}%`) }}
+        className="absolute top-0 bottom-0 z-40 w-[1px] bg-slate-200"
       />
     </section>
   );
 };
 
 export default Hero;
-
