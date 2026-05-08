@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import Hero from "./components/Hero";
+import Home from "./pages/Home";
 
 export default function App() {
   const location = useLocation();
@@ -10,7 +10,7 @@ export default function App() {
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-1 relative flex flex-col z-10"> 
-        {location.pathname === "/" && <Hero />}
+        {location.pathname === "/" && <Home />}
       </main>
       <Footer />
     </div>
