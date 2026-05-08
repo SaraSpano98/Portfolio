@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 
 import Hero from "../components/Hero";
-import { Seo } from "../lib/seo";
+import SEO  from "../lib/seo";
 
 export default function Home() {
     const location = useLocation();
@@ -20,8 +20,8 @@ export default function Home() {
 
     return (
         <>
-            <Seo title="Home" path="/" />
-            
+            <SEO title="Home" path="/" />
+
             {/* HERO */}
             <motion.div>
                 <Hero />
