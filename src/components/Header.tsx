@@ -7,7 +7,7 @@ const Header = () => {
   const location = useLocation();
   const [isTechOpen, setIsTechOpen] = useState(false);
 
-  // Abbiamo rimosso "Skills" da qui per spostarlo a destra
+  
   const navLinks = [
     { name: 'About', path: '/' },
     { name: 'Projects', path: '/projects' },
