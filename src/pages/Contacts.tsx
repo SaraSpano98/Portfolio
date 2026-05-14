@@ -1,10 +1,12 @@
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import React from 'react'; 
 import SEO from "../lib/seo";
+
+import KeyPoints from '../components/KeyPoints';
 
 const Contacts = () => {
     const [time, setTime] = useState(new Date().toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' }));
-    const [activeFaq, setActiveFaq] = useState(null);
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -15,7 +17,7 @@ const Contacts = () => {
 
     const revealVariant = {
         hidden: { y: "100%" },
-        visible: { y: 0, transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] } }
+        visible: { y: 0, transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] as const } }
     };
 
     return (
@@ -52,7 +54,7 @@ const Contacts = () => {
                                 className="flex flex-col gap-8 lg:ml-[8px]"
                             >
                                 <p className="text-xl md:text-2xl text-slate-500 max-w-2xl leading-relaxed italic border-l-4 border-slate-100 pl-8 font-medium">
-                                    "Credo che la comunicazione sia la base di ogni grande prodotto digitale. Trasformo le tue idee in esperienze utente fluide e codice solido."
+                                    "Credo che la comunicazione sia la base di ogni grande prodotto digitale. Trasformo le tue idee in experiences utente fluide e codice solido."
                                 </p>
 
                                 {/* TOUCH UMANO: CURRENT STATUS */}
@@ -77,7 +79,7 @@ const Contacts = () => {
                     {/* 2. IL MIO PROCESSO */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-32 border-t border-slate-100 pt-20 lg:ml-[8px]">
                         {[
-                            { step: "01", title: "Discovery", desc: "Analizziamo il brief, definiamo gli obiettivi e tracciamo la rotta del progetto." },
+                            { step: "01", title: "Discovery", desc: "Analizziamo the brief, definiamo gli obiettivi e tracciamo la rotta del progetto." },
                             { step: "02", title: "Design & Dev", desc: "Progetto l'interfaccia pixel-perfect e la trasformo in codice scalabile e pulito." },
                             { step: "03", title: "Delivery", desc: "Ottimizzazione, test rigorosi e lancio del prodotto finito nel mondo digitale." }
                         ].map((item, i) => (
@@ -114,7 +116,12 @@ const Contacts = () => {
                         </div>
                     </div>
 
-                    {/* 4. AREA CONTATTI E SOCIAL */}
+                    {/* 4. KEY POINTS: CAROUSEL DINAMICO */}
+                    <motion.div>
+                        <KeyPoints />
+                    </motion.div>
+
+                    {/* 5. AREA CONTATTI E SOCIAL */}
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 mb-40 border-t border-slate-50 pt-20">
                         <div className="lg:col-span-7 lg:ml-[8px]">
                             <h3 className="text-2xl font-black text-slate-900 uppercase tracking-tighter mb-12 italic">Direct Inquiry</h3>
@@ -147,32 +154,14 @@ const Contacts = () => {
                         </div>
                     </div>
 
-                    {/* 5. SEZIONE FAQ: DUBBI RISOLTI */}
-                    <div className="mb-40 lg:ml-[8px]">
-                        <h3 className="text-4xl font-black text-slate-900 tracking-tighter lowercase mb-16">Domande <span className="text-pink-500">comuni</span></h3>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 border-t border-slate-100 pt-16">
-                            {[
-                                { q: "Lavori da remoto?", a: "Sì, opero totalmente in remoto collaborando con team e clienti in tutto il mondo grazie a strumenti come Slack e Zoom." },
-                                { q: "Qual è il tuo stack?", a: "Sviluppo principalmente in React e Next.js, utilizzando Tailwind CSS per lo styling e Framer Motion per le animazioni." },
-                                { q: "Quanto tempo serve?", a: "Ogni progetto è unico. Un sito web professionale richiede solitamente dalle 3 alle 6 settimane di lavoro." },
-                                { q: "Fai manutenzione?", a: "Certamente. Offro pacchetti di supporto post-lancio per garantire che il tuo sito rimanga sempre aggiornato." }
-                            ].map((faq, i) => (
-                                <div key={i} className="flex flex-col">
-                                    <h4 className="text-slate-900 font-bold mb-4 uppercase tracking-widest text-xs">/ {faq.q}</h4>
-                                    <p className="text-slate-500 text-sm leading-loose max-w-md">{faq.a}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-
                     {/* 6. RIQUADRO SLOGAN FINALE CON EFFETTO TORCIA */}
                     <motion.div 
                         initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-                        onMouseMove={(e) => {
-                            const { currentTarget, clientX, clientY } = e;
+                        onMouseMove={(e: React.MouseEvent<HTMLDivElement>) => { 
+                            const currentTarget = e.currentTarget;
                             const { left, top } = currentTarget.getBoundingClientRect();
-                            currentTarget.style.setProperty("--x", `${clientX - left}px`);
-                            currentTarget.style.setProperty("--y", `${clientY - top}px`);
+                            currentTarget.style.setProperty("--x", `${e.clientX - left}px`);
+                            currentTarget.style.setProperty("--y", `${e.clientY - top}px`);
                         }}
                         className="relative w-full bg-slate-900 rounded-[3rem] p-12 md:p-24 overflow-hidden shadow-2xl group lg:ml-[4px]"
                     >
@@ -197,4 +186,3 @@ const Contacts = () => {
 };
 
 export default Contacts;
-
