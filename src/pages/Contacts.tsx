@@ -1,9 +1,9 @@
-import { motion, } from 'framer-motion';
-import { useEffect, useState } from 'react';
-import React from 'react'; 
+import React, { useEffect, useState, useRef } from 'react';
+import { motion } from 'framer-motion';
 import SEO from "../lib/seo";
-
+import { Player } from '@lordicon/react';
 import KeyPoints from '../components/KeyPoints';
+import { LordIcons, fetchIconData } from '../components/Lordicons';
 
 const Contacts = () => {
     const [time, setTime] = useState(new Date().toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' }));
@@ -20,18 +20,47 @@ const Contacts = () => {
         visible: { y: 0, transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] as const } }
     };
 
+    // Riferimenti per attivare l'animazione di ciascuna icona al passaggio del mouse
+    const emailRef = useRef<Player>(null);
+    const whatsappRef = useRef<Player>(null);
+    const telephoneRef = useRef<Player>(null);
+    const meetingRef = useRef<Player>(null);
+    const globeRef = useRef<Player>(null);
+    const linkedinRef = useRef<Player>(null);
+    const githubRef = useRef<Player>(null);
+
+    // Stato per memorizzare gli oggetti JSON reali letti asincronamente
+    const [loadedIcons, setLoadedIcons] = useState<{ [key: string]: any }>({});
+
+    // Carica tutti i file JSON memorizzati nella cartella public all'avvio del componente
+    useEffect(() => {
+        const loadAllIcons = async () => {
+            const email = await fetchIconData(LordIcons.email);
+            const whatsapp = await fetchIconData(LordIcons.whatsapp);
+            const telephone = await fetchIconData(LordIcons.telephone);
+            const meeting = await fetchIconData(LordIcons.meeting);
+            const globe = await fetchIconData(LordIcons.globe);
+            const linkedin = await fetchIconData(LordIcons.linkedin);
+            const github = await fetchIconData(LordIcons.github);
+
+            setLoadedIcons({ email, whatsapp, telephone, meeting, globe, linkedin, github });
+        };
+        loadAllIcons();
+    }, []);
+
     return (
         <>
             <SEO title="Contatti" description="Parliamo del tuo prossimo progetto digitale." path="/contacts" />
 
             <main className="w-full min-h-screen bg-white pt-[140px] pb-32 cursor-none overflow-x-hidden">
-                <div className="max-w-7xl mx-auto px-10">
+                {/* Contenitore principale limitato geometricamente a max-w-6xl per allinearsi perfettamente all'header */}
+                <div className="max-w-6xl mx-auto px-6 md:px-12">
 
                     {/* 1. HERO SECTION & CURRENT STATUS */}
                     <div className="flex flex-col lg:flex-row justify-between gap-16 mb-40">
                         <div className="lg:w-2/3">
                             <div className="overflow-hidden mb-6">
-                                <motion.p 
+                                <motion.p
                                     initial="hidden" animate="visible" variants={revealVariant}
                                     className="text-pink-500 font-black uppercase tracking-[0.4em] text-[10px] flex items-center gap-3"
                                 >
@@ -41,17 +70,17 @@ const Contacts = () => {
                             </div>
 
                             <div className="overflow-hidden mb-10">
-                                <motion.h1 
+                                <motion.h1
                                     initial="hidden" animate="visible" variants={revealVariant}
                                     className="text-6xl md:text-[110px] font-black text-slate-900 tracking-tighter leading-[0.85] lowercase"
                                 >
                                     Mettiamoci in <br /> <span className="text-pink-500">contatto</span>
                                 </motion.h1>
                             </div>
-                            
-                            <motion.div 
+
+                            <motion.div
                                 initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.6 }}
-                                className="flex flex-col gap-8 lg:ml-[8px]"
+                                className="flex flex-col gap-8"
                             >
                                 <p className="text-xl md:text-2xl text-slate-500 max-w-2xl leading-relaxed italic border-l-4 border-slate-100 pl-8 font-medium">
                                     "Credo che la comunicazione sia la base di ogni grande prodotto digitale. Trasformo le tue idee in experiences utente fluide e codice solido."
@@ -77,9 +106,9 @@ const Contacts = () => {
                     </div>
 
                     {/* 2. IL MIO PROCESSO */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-32 border-t border-slate-100 pt-20 lg:ml-[8px]">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-32 border-t border-slate-100 pt-20">
                         {[
-                            { step: "01", title: "Discovery", desc: "Analizziamo the brief, definiamo gli obiettivi e tracciamo la rotta del progetto." },
+                            { step: "01", title: "Discovery", desc: "Analizziamo the brief, definiaimo gli obiettivi e tracciamo la rotta del progetto." },
                             { step: "02", title: "Design & Dev", desc: "Progetto l'interfaccia pixel-perfect e la trasformo in codice scalabile e pulito." },
                             { step: "03", title: "Delivery", desc: "Ottimizzazione, test rigorosi e lancio del prodotto finito nel mondo digitale." }
                         ].map((item, i) => (
@@ -92,7 +121,7 @@ const Contacts = () => {
                     </div>
 
                     {/* 3. PREREQUISITI: CHE COSA MI SERVE */}
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 mb-40 bg-slate-900 rounded-[3rem] p-12 md:p-20 text-white lg:ml-[8px]">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 mb-40 bg-slate-900 rounded-[3rem] p-12 md:p-20 text-white">
                         <div>
                             <h3 className="text-3xl md:text-5xl font-black tracking-tighter leading-none mb-6 lowercase">Prima di <span className="text-pink-500">iniziare</span></h3>
                             <p className="text-slate-400 leading-relaxed max-w-sm">
@@ -106,7 +135,7 @@ const Contacts = () => {
                                 { t: "Budget e Timeline", d: "Aiuta a definire lo scope e la complessità tecnica fattibile." }
                             ].map((p, i) => (
                                 <div key={i} className="flex items-start gap-5 border-l border-white/10 pl-6 group">
-                                    <span className="text-pink-500 font-bold tabular-nums">0{i+1}.</span>
+                                    <span className="text-pink-500 font-bold tabular-nums">0{i + 1}.</span>
                                     <div>
                                         <h5 className="font-bold text-lg group-hover:text-pink-500 transition-colors">{p.t}</h5>
                                         <p className="text-slate-400 text-sm">{p.d}</p>
@@ -117,56 +146,174 @@ const Contacts = () => {
                     </div>
 
                     {/* 4. KEY POINTS: CAROUSEL DINAMICO */}
-                    <motion.div>
+                    <motion.div className="mb-40">
                         <KeyPoints />
                     </motion.div>
 
-                    {/* 5. AREA CONTATTI E SOCIAL */}
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 mb-40 border-t border-slate-50 pt-20">
-                        <div className="lg:col-span-7 lg:ml-[8px]">
-                            <h3 className="text-2xl font-black text-slate-900 uppercase tracking-tighter mb-12 italic">Direct Inquiry</h3>
-                            <div className="flex flex-col gap-16">
-                                <motion.div whileHover={{ x: 15 }} className="group">
-                                    <span className="text-[10px] font-black uppercase tracking-[0.4em] text-pink-500 mb-4 block">Email Diretta</span>
-                                    <a href="mailto:saraspano@live.it" className="text-3xl md:text-5xl font-black text-slate-900 tracking-tighter hover:text-pink-500 transition-all block mb-3">saraspano@live.it</a>
-                                    <p className="text-slate-400 text-base max-w-lg leading-relaxed italic">"Il canale preferito per preventivi formali e brief di progetto dettagliati."</p>
-                                    <div className="h-[2px] w-0 group-hover:w-full bg-pink-500 transition-all duration-700 mt-6" />
-                                </motion.div>
-                                <motion.div whileHover={{ x: 15 }} className="group">
-                                    <span className="text-[10px] font-black uppercase tracking-[0.4em] text-pink-500 mb-4 block">WhatsApp Business</span>
-                                    <a href="#" className="text-3xl md:text-5xl font-black text-slate-900 tracking-tighter hover:text-pink-500 transition-all block mb-3">Chat Rapida</a>
-                                    <p className="text-slate-400 text-base max-w-lg leading-relaxed italic">"Per una comunicazione immediata, feedback veloci o semplici domande tecniche."</p>
-                                    <div className="h-[2px] w-0 group-hover:w-full bg-pink-500 transition-all duration-700 mt-6" />
-                                </motion.div>
+                    {/* 5. AREA CONTATTI E SOCIAL (Strutturata in griglia bilanciata 2x2 a sinistra) */}
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 xl:gap-20 mb-40 border-t border-slate-100 pt-20">
+
+                        {/* COLONNA SINISTRA: DIRECT INQUIRY */}
+                        <div className="lg:col-span-8 flex flex-col justify-between">
+                            <div>
+                                <h3 className="text-2xl font-black text-slate-900 uppercase tracking-tighter mb-12 italic">Direct Inquiry</h3>
+
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-14">
+
+                                    {/* EMAIL DIRETTA */}
+                                    <motion.div
+                                        whileHover={{ x: 10 }}
+                                        className="group cursor-pointer flex flex-col justify-between"
+                                        onMouseEnter={() => emailRef.current?.playFromBeginning()}
+                                    >
+                                        <div>
+                                            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-pink-500 mb-3 block">Email Diretta</span>
+                                            <a href="mailto:saraspano@live.it" className="flex items-center gap-3 mb-3">
+                                                {loadedIcons.email && (
+                                                    <Player ref={emailRef} icon={loadedIcons.email} size={40} colors="primary:#5c0632,secondary:#e6399b" />
+                                                )}
+                                                <span className="text-xl md:text-2xl xl:text-3xl font-black text-slate-900 tracking-tighter hover:text-pink-500 transition-all block truncate">
+                                                    saraspano@live.it
+                                                </span>
+                                            </a>
+                                            <p className="text-slate-400 text-sm leading-relaxed italic max-w-sm">"Il canale preferito per preventivi formali e brief di progetto dettagliati."</p>
+                                        </div>
+                                        <div className="h-[2px] w-0 group-hover:w-full bg-pink-500 transition-all duration-700 mt-6" />
+                                    </motion.div>
+
+                                    {/* WHATSAPP BUSINESS */}
+                                    <motion.div
+                                        whileHover={{ x: 10 }}
+                                        className="group cursor-pointer flex flex-col justify-between"
+                                        onMouseEnter={() => whatsappRef.current?.playFromBeginning()}
+                                    >
+                                        <div>
+                                            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-pink-500 mb-3 block">WhatsApp Business</span>
+                                            <a href="https://wa.me" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 mb-3">
+                                                {loadedIcons.whatsapp && (
+                                                    <Player ref={whatsappRef} icon={loadedIcons.whatsapp} size={40} colors="primary:#5c0632,secondary:#e6399b" />
+                                                )}
+                                                <span className="text-xl md:text-2xl xl:text-3xl font-black text-slate-900 tracking-tighter hover:text-pink-500 transition-all block">
+                                                    Chat Rapida
+                                                </span>
+                                            </a>
+                                            <p className="text-slate-400 text-sm leading-relaxed italic max-w-sm">"Per una comunicazione immediata, feedback veloci o semplici domande tecniche."</p>
+                                        </div>
+                                        <div className="h-[2px] w-0 group-hover:w-full bg-pink-500 transition-all duration-700 mt-6" />
+                                    </motion.div>
+
+                                    {/* CONTATTO TELEFONICO */}
+                                    <motion.div
+                                        whileHover={{ x: 10 }}
+                                        className="group cursor-pointer flex flex-col justify-between"
+                                        onMouseEnter={() => telephoneRef.current?.playFromBeginning()}
+                                    >
+                                        <div>
+                                            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-pink-500 mb-3 block">Contatto Telefonico</span>
+                                            <a href="tel:+393123456789" className="flex items-center gap-3 mb-3">
+                                                {loadedIcons.telephone && (
+                                                    <Player ref={telephoneRef} icon={loadedIcons.telephone} size={40} colors="primary:#5c0632,secondary:#e6399b" />
+                                                )}
+                                                <span className="text-xl md:text-2xl xl:text-3xl font-black text-slate-900 tracking-tighter hover:text-pink-500 transition-all block">
+                                                    +39 312 345 6789
+                                                </span>
+                                            </a>
+                                            <p className="text-slate-400 text-sm leading-relaxed italic max-w-sm">"Disponibile per chiamate dirette e allineamenti rapidi sui progetti."</p>
+                                        </div>
+                                        <div className="h-[2px] w-0 group-hover:w-full bg-pink-500 transition-all duration-700 mt-6" />
+                                    </motion.div>
+
+                                    {/* VIDEO CALL / MEETING */}
+                                    <motion.div
+                                        whileHover={{ x: 10 }}
+                                        className="group cursor-pointer flex flex-col justify-between"
+                                        onMouseEnter={() => meetingRef.current?.playFromBeginning()}
+                                    >
+                                        <div>
+                                            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-pink-500 mb-3 block">Video Call</span>
+                                            <a href="https://calendly.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 mb-3">
+                                                {loadedIcons.meeting && (
+                                                    <Player ref={meetingRef} icon={loadedIcons.meeting} size={40} colors="primary:#5c0632,secondary:#e6399b" />
+                                                )}
+                                                <span className="text-xl md:text-2xl xl:text-3xl font-black text-slate-900 tracking-tighter hover:text-pink-500 transition-all block">
+                                                    Prenota una Call
+                                                </span>
+                                            </a>
+                                            <p className="text-slate-400 text-sm leading-relaxed italic max-w-sm">"Pianifica una sessione conoscitiva su Meet o Zoom per il tuo brief."</p>
+                                        </div>
+                                        <div className="h-[2px] w-0 group-hover:w-full bg-pink-500 transition-all duration-700 mt-6" />
+                                    </motion.div>
+
+                                </div>
                             </div>
                         </div>
 
-                        <div className="lg:col-span-5 bg-slate-50 p-12 rounded-[3rem]">
-                            <h3 className="text-xl font-black text-slate-900 uppercase tracking-widest mb-10">Network</h3>
+                        {/* COLONNA DESTRA: NETWORK SOCIAL */}
+                        <div className="lg:col-span-4 bg-slate-50 p-10 xl:p-12 rounded-[2.5rem] self-start">
+                            <div 
+                                className="flex items-center gap-3 mb-10 cursor-pointer w-fit"
+                                onMouseEnter={() => globeRef.current?.playFromBeginning()}
+                            >
+                                <h3 className="text-xl font-black text-slate-900 uppercase tracking-widest">Network</h3>
+                                {loadedIcons.globe && (
+                                    <Player ref={globeRef} icon={loadedIcons.globe} size={26} colors="primary:#5c0632,secondary:#e6399b" />
+                                )}
+                            </div>
+                            
                             <div className="flex flex-col gap-8">
-                                {["LinkedIn", "GitHub", "Behance"].map((social) => (
-                                    <motion.a key={social} href="#" whileHover={{ x: 10 }} className="flex justify-between items-center group border-b border-slate-200 pb-6">
-                                        <span className="text-xl font-bold text-slate-900 group-hover:text-pink-500 transition-colors uppercase tracking-tighter">{social}</span>
-                                        <div className="w-10 h-10 rounded-full border border-slate-300 flex items-center justify-center group-hover:bg-slate-900 group-hover:text-white transition-all">→</div>
-                                    </motion.a>
-                                ))}
+                                {/* LINKEDIN */}
+                                <motion.a
+                                    href="#"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    whileHover={{ x: 10 }}
+                                    onMouseEnter={() => linkedinRef.current?.playFromBeginning()}
+                                    className="flex justify-between items-center group border-b border-slate-200 pb-6"
+                                >
+                                    <div className="flex items-center gap-4">
+                                        {loadedIcons.linkedin && (
+                                            <Player ref={linkedinRef} icon={loadedIcons.linkedin} size={36} colors="primary:#5c0632,secondary:#e6399b" />
+                                        )}
+                                        <span className="text-lg font-bold text-slate-900 group-hover:text-pink-500 transition-colors uppercase tracking-tighter">LinkedIn</span>
+                                    </div>
+                                    <div className="w-9 h-9 rounded-full border border-slate-300 flex items-center justify-center group-hover:bg-slate-900 group-hover:text-white transition-all text-sm">→</div>
+                                </motion.a>
+
+                                {/* GITHUB */}
+                                <motion.a
+                                    href="#"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    whileHover={{ x: 10 }}
+                                    onMouseEnter={() => githubRef.current?.playFromBeginning()}
+                                    className="flex justify-between items-center group border-b border-slate-200 pb-6"
+                                >
+                                    <div className="flex items-center gap-4">
+                                        {loadedIcons.github && (
+                                            <Player ref={githubRef} icon={loadedIcons.github} size={36} colors="primary:#5c0632,secondary:#e6399b" />
+                                        )}
+                                        <span className="text-lg font-bold text-slate-900 group-hover:text-pink-500 transition-colors uppercase tracking-tighter">GitHub</span>
+                                    </div>
+                                    <div className="w-9 h-9 rounded-full border border-slate-300 flex items-center justify-center group-hover:bg-slate-900 group-hover:text-white transition-all text-sm">→</div>
+                                </motion.a>
                             </div>
                         </div>
+
                     </div>
 
                     {/* 6. RIQUADRO SLOGAN FINALE CON EFFETTO TORCIA */}
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-                        onMouseMove={(e: React.MouseEvent<HTMLDivElement>) => { 
+                        onMouseMove={(e: React.MouseEvent<HTMLDivElement>) => {
                             const currentTarget = e.currentTarget;
                             const { left, top } = currentTarget.getBoundingClientRect();
                             currentTarget.style.setProperty("--x", `${e.clientX - left}px`);
                             currentTarget.style.setProperty("--y", `${e.clientY - top}px`);
                         }}
-                        className="relative w-full bg-slate-900 rounded-[3rem] p-12 md:p-24 overflow-hidden shadow-2xl group lg:ml-[4px]"
+                        className="relative w-full bg-slate-900 rounded-[3rem] p-12 md:p-24 overflow-hidden shadow-2xl group"
                     >
                         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                             style={{ background: `radial-gradient(600px circle at var(--x) var(--y), rgba(236, 72, 153, 0.2), transparent 40%)` }} />
+                            style={{ background: `radial-gradient(600px circle at var(--x) var(--y), rgba(236, 72, 153, 0.2), transparent 40%)` }} />
 
                         <div className="relative z-10 max-w-4xl mx-auto text-center">
                             <h2 className="text-4xl md:text-7xl font-black text-white tracking-tighter leading-[0.9] mb-8 lowercase">
@@ -179,6 +326,7 @@ const Contacts = () => {
                         </div>
                         <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#ec4899 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
                     </motion.div>
+
                 </div>
             </main>
         </>
@@ -186,3 +334,4 @@ const Contacts = () => {
 };
 
 export default Contacts;
+
