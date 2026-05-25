@@ -28,7 +28,7 @@ const ContactHero = ({ time, revealVariant }: ContactHeroProps) => {
                         <div className="mb-12">
                             <motion.h1
                                 initial="hidden" animate="visible" variants={revealVariant}
-                                className="text-4xl sm:text-5xl lg:text-6xl xl:text-[68px] font-black text-slate-900 tracking-tighter leading-none lowercase whitespace-nowrap"
+                                className="text-4xl sm:text-5xl lg:text-6xl xl:text-[68px] font-black text-slate-900 tracking-tighter leading-none whitespace-nowrap"
                             >
                                 Mettiamoci in <span className="text-pink-500">contatto</span>
                             </motion.h1>

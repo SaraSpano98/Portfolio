@@ -4,26 +4,22 @@ import { motion } from 'framer-motion';
 import Pattern from '../styles/Pattern';
 
 const Hero = () => {
-  // CORREZIONE 1: Tipizzazione esplicita dello stato per permettere stringhe o null
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
 
-  // CORREZIONE 2: Rimosso completamente lo stato windowSize e il relativo useEffect 
-  // poiché generavano l'errore ESLint e non venivano utilizzati nel layout.
-
   const getBgColor = () => {
-    if (hoveredLink === 'designer') return '#fff5f7'; 
-    if (hoveredLink === 'coder') return '#0f172a';    
-    return '#ffffff';                                  
+    if (hoveredLink === 'designer') return '#fff5f7';
+    if (hoveredLink === 'coder') return '#0f172a';
+    return '#ffffff';
   };
 
   return (
     <motion.section
       animate={{ backgroundColor: getBgColor() }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
-      className="relative w-full h-screen overflow-hidden select-none transition-colors duration-500 z-10"
+      className="relative w-full h-screen overflow-hidden select-none transition-colors duration-500 z-10 pt-[140px]"
     >
       {/* SFONDO PATTERN AMBIENTALE */}
-      <div 
+      <div
         className="absolute inset-0 z-0 opacity-12 pointer-events-none"
         style={{ opacity: hoveredLink === 'coder' ? 0.03 : 0.12 }}
       >
@@ -31,23 +27,23 @@ const Hero = () => {
       </div>
 
       {/* STRUTTURA TESTI LATERALI INTERATTIVI */}
-      <div className="absolute inset-0 z-30 grid grid-cols-2 w-full h-full pointer-events-none">
-        
+      <div className="absolute inset-0 z-30 grid grid-cols-2 w-full h-full pointer-events-none pt-16">
+
         {/* LATO SINISTRO: DESIGNER */}
-        <div className="relative w-full h-full px-6 sm:px-12 max-w-6xl mx-auto flex items-center justify-start">
+        <div className="relative w-full h-full px-24 flex items-center justify-start">
           <div className="pointer-events-auto flex flex-col items-start group">
-            <Link 
-              to="/designer" 
+            <Link
+              to="/designer"
               onMouseEnter={() => setHoveredLink('designer')}
               onMouseLeave={() => setHoveredLink(null)}
               className="relative block outline-none cursor-pointer"
             >
               <motion.span
-                animate={{ 
+                animate={{
                   color: hoveredLink === 'coder' ? '#475569' : (hoveredLink === 'designer' ? '#ec4899' : '#0f172a'),
                   opacity: hoveredLink === 'designer' ? 1 : (hoveredLink === 'coder' ? 0.6 : [0.75, 0.95, 0.75]),
-                  textShadow: hoveredLink === 'designer' 
-                    ? '0 0 25px rgba(236,72,153,0.5)' 
+                  textShadow: hoveredLink === 'designer'
+                    ? '0 0 25px rgba(236,72,153,0.5)'
                     : '0 0 8px rgba(236,72,153,0.15)'
                 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
@@ -57,8 +53,8 @@ const Hero = () => {
               </motion.span>
               <div className="absolute bottom-[-6px] left-0 w-0 h-[3px] bg-pink-500 group-hover:w-full transition-all duration-300 ease-out" />
             </Link>
-            
-            <motion.h5 
+
+            <motion.h5
               animate={{ color: hoveredLink === 'coder' ? '#64748b' : '#475569' }}
               transition={{ duration: 0.3 }}
               className="mt-6 text-xs sm:text-sm md:text-lg max-w-[180px] sm:max-w-[250px] md:max-w-[320px] font-medium leading-relaxed border-l-4 border-pink-500 pl-4 sm:pl-5 italic transition-colors"
@@ -66,12 +62,12 @@ const Hero = () => {
               Product designer specializzata in UI design, sistemi creativi e colori.
             </motion.h5>
 
-            <motion.span 
+            <motion.span
               animate={{ color: hoveredLink === 'coder' ? '#64748b' : (hoveredLink === 'designer' ? '#ec4899' : '#94a3b8') }}
               className="mt-4 flex items-center gap-2 text-[10px] sm:text-xs font-black uppercase tracking-widest transition-colors duration-300 pl-5"
             >
               esplora progetti
-              <motion.span 
+              <motion.span
                 animate={hoveredLink === 'designer' ? { x: 5 } : { x: 0 }}
                 transition={hoveredLink === 'designer' ? { duration: 0.2 } : { repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
               >
@@ -82,20 +78,20 @@ const Hero = () => {
         </div>
 
         {/* LATO DESTRO: CODER */}
-        <div className="relative w-full h-full px-6 sm:px-12 max-w-6xl mx-auto flex items-center justify-end">
+        <div className="relative w-full h-full px-24 flex items-center justify-end">
           <div className="pointer-events-auto text-right flex flex-col items-end group">
-            <Link 
-              to="/coder" 
+            <Link
+              to="/coder"
               onMouseEnter={() => setHoveredLink('coder')}
               onMouseLeave={() => setHoveredLink(null)}
               className="relative block outline-none cursor-pointer"
             >
               <motion.span
-                animate={{ 
+                animate={{
                   color: hoveredLink === 'coder' ? '#38bdf8' : (hoveredLink === 'designer' ? '#475569' : '#0f172a'),
                   opacity: hoveredLink === 'coder' ? 1 : (hoveredLink === 'designer' ? 0.5 : [0.75, 0.95, 0.75]),
-                  textShadow: hoveredLink === 'coder' 
-                    ? '0 0 30px rgba(56,189,248,0.6)' 
+                  textShadow: hoveredLink === 'coder'
+                    ? '0 0 30px rgba(56,189,248,0.6)'
                     : '0 0 8px rgba(14,165,233,0.15)'
                 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
@@ -105,8 +101,8 @@ const Hero = () => {
               </motion.span>
               <div className="absolute bottom-[-6px] right-0 w-0 h-[3px] bg-sky-400 group-hover:w-full transition-all duration-300 ease-out" />
             </Link>
-            
-            <motion.h5 
+
+            <motion.h5
               animate={{ color: hoveredLink === 'coder' ? '#94a3b8' : '#475569' }}
               transition={{ duration: 0.3 }}
               className="mt-6 text-xs sm:text-sm md:text-lg max-w-[180px] sm:max-w-[250px] md:max-w-[320px] font-medium leading-relaxed border-r-4 border-pink-500 pr-4 sm:pr-5 italic transition-colors"
@@ -114,11 +110,11 @@ const Hero = () => {
               Sviluppatrice front-end che ama scrivere codice pulito, elegante ed efficiente.
             </motion.h5>
 
-            <motion.span 
+            <motion.span
               animate={{ color: hoveredLink === 'coder' ? '#38bdf8' : (hoveredLink === 'designer' ? '#475569' : '#94a3b8') }}
               className="mt-4 flex items-center gap-2 text-[10px] sm:text-xs font-black uppercase tracking-widest transition-colors duration-300 pr-5"
             >
-              <motion.span 
+              <motion.span
                 animate={hoveredLink === 'coder' ? { x: -5 } : { x: [0, -4, 0] }}
                 transition={hoveredLink === 'coder' ? { duration: 0.2 } : { repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
               >
@@ -132,11 +128,11 @@ const Hero = () => {
       </div>
 
       {/* SEZIONE IMMAGINI CENTRALI */}
-      <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none pt-[5%]">
+      <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none pt-[12%] sm:pt-[10%]">
         <div className="relative h-[55%] sm:h-[70%] md:h-[75%] aspect-[4/5]">
           <motion.img
             src="/images/designer.png"
-            animate={{ 
+            animate={{
               opacity: hoveredLink === 'coder' ? 0.2 : 1,
               filter: hoveredLink === 'designer' ? 'brightness(1.08) contrast(1.02)' : 'brightness(1) contrast(1)'
             }}
@@ -145,10 +141,10 @@ const Hero = () => {
             className="absolute top-0 left-1/2 w-full h-full object-contain -translate-x-1/2"
             alt="Designer Half"
           />
-          
+
           <motion.img
             src="/images/coder.png"
-            animate={{ 
+            animate={{
               opacity: hoveredLink === 'designer' ? 0.15 : 1,
               filter: hoveredLink === 'coder' ? 'saturate(1.15) contrast(1.05)' : 'saturate(1) contrast(1)'
             }}
@@ -158,13 +154,13 @@ const Hero = () => {
             alt="Coder Half"
           />
 
-          <div className="absolute top-0 left-1/2 w-[1px] h-full bg-slate-100 -translate-x-1/2 pointer-events-none overflow-hidden">
-            <motion.div 
-              animate={{ 
+          <div className="absolute top-1/2 left-1/2 w-[1px] h-[50%] bg-slate-100/20 opacity-30 -translate-x-1/2 -translate-y-1/2 pointer-events-none overflow-hidden">
+            <motion.div
+              animate={{
                 top: ["-100%", "100%"],
                 opacity: hoveredLink ? 0 : [0.2, 0.6, 0.2]
               }}
-              transition={{ 
+              transition={{
                 top: { repeat: Infinity, duration: 3, ease: "linear" },
                 opacity: { repeat: Infinity, duration: 3, ease: "linear" }
               }}
@@ -175,9 +171,9 @@ const Hero = () => {
       </div>
 
       {/* NOME SARA SPANO */}
-      <div className="absolute top-[12%] sm:top-[16%] left-0 right-0 w-full z-40 flex flex-col items-center justify-center pointer-events-none px-4">
+      <div className="absolute top-[150px] sm:top-[160px] left-0 right-0 w-full z-40 flex flex-col items-center justify-center pointer-events-none px-4">
         <div className="w-full text-center">
-          <motion.h1 
+          <motion.h1
             animate={{ color: hoveredLink === 'coder' ? '#ffffff' : '#0f172a' }}
             transition={{ duration: 0.3 }}
             className="text-xl sm:text-2xl md:text-4xl font-black tracking-[0.3em] sm:tracking-[0.5em] uppercase block w-full text-center"

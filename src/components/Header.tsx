@@ -29,7 +29,7 @@ const Header = () => {
         )}
       </AnimatePresence>
 
-      <header className="fixed top-0 left-0 w-full h-[100px] flex items-center justify-between z-[100] px-10 bg-white/80 backdrop-blur-sm shadow-sm">
+      <header className="fixed top-0 left-0 w-full h-[100px] flex items-center justify-between z-[100] px-24 bg-white/80 backdrop-blur-sm shadow-sm">
         
         {/* 1. LOGO (A SINISTRA) */}
         <div className="relative z-[110]">
