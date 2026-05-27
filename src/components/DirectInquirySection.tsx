@@ -4,7 +4,7 @@ import { Player } from '@lordicon/react';
 
 // Interfaccia TypeScript per tutte le Props del componente
 interface DirectInquirySectionProps {
-    loadedIcons: { [key: string]: any };
+    loadedIcons: { [key: string]: object };
     refs: {
         emailRef: React.RefObject<Player | null>;
         whatsappRef: React.RefObject<Player | null>;

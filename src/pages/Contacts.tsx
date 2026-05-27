@@ -3,8 +3,7 @@ import SEO from "../lib/seo";
 import { Player } from '@lordicon/react';
 import { fetchIconData, LordIcons } from '../components/Lordicons';
 
-
-{/* ICONS */}
+{/* COMPONENTS */}
 import ContactHero from '../components/ContactHero';
 import ProcessSection from '../components/ProcessSection';
 import PrerequisitiSection from '../components/PrerequisitiSection';
@@ -13,7 +12,7 @@ import DirectInquirySection from '../components/DirectInquirySection';
 import SloganContacts from '../components/SloganContacts';
 
 const Contacts = () => {
-    {/* 1. STATO DELL'ORARIO (Richiesto da ContactHero) */} 
+    {/* 1. STATO DELL'ORARIO (Richiesto da ContactHero) */}
     const [time, setTime] = useState(new Date().toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' }));
 
     useEffect(() => {
@@ -26,10 +25,11 @@ const Contacts = () => {
     {/* 2. LOGICA VARIANTI ANIMAZIONE (Richiesta da ContactHero) */}
     const revealVariant = {
         hidden: { y: "100%" },
-        visible: { y: 0, transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] } }
+        visible: { y: 0, transition: { duration: 0.8, ease: [0.42, 0, 0.58, 1] } }
     };
 
-    {/* 3. RIFERIMENTI PER CONTROLLO ANIMAZIONI LORICON (Richiesti da DirectInquirySection) */}
+    {/* 3. RIFERIMENTI PER CONTROLLO ANIMAZIONI LORDICON */}
+    // DirectInquirySection Refs
     const emailRef = useRef<Player>(null);
     const whatsappRef = useRef<Player>(null);
     const telephoneRef = useRef<Player>(null);
@@ -38,11 +38,23 @@ const Contacts = () => {
     const linkedinRef = useRef<Player>(null);
     const githubRef = useRef<Player>(null);
 
-    {/* 4. LOGICA CARICAMENTO ASINCRONO ICONE JSON */} 
-    const [loadedIcons, setLoadedIcons] = useState<{ [key: string]: any }>({});
+    // ProcessSection Refs
+    const searchRef = useRef<Player>(null); 
+    const computerRef = useRef<Player>(null); 
+    const rocketRef = useRef<Player>(null);
+
+    // KeyPoints Refs
+    const starRef = useRef<Player>(null);
+    const toolRef = useRef<Player>(null);
+    const clockRef = useRef<Player>(null);
+    const consultationRef = useRef<Player>(null);
+
+    {/* 4. LOGICA CARICAMENTO ASINCRONO ICONE JSON */}
+    const [loadedIcons, setLoadedIcons] = useState<{ [key: string]: object}>({});
 
     useEffect(() => {
         const loadAllIcons = async () => {
+            // Contatti e Social
             const email = await fetchIconData(LordIcons.email);
             const whatsapp = await fetchIconData(LordIcons.whatsapp);
             const telephone = await fetchIconData(LordIcons.telephone);
@@ -51,33 +63,70 @@ const Contacts = () => {
             const linkedin = await fetchIconData(LordIcons.linkedin);
             const github = await fetchIconData(LordIcons.github);
 
-            setLoadedIcons({ email, whatsapp, telephone, meeting, globe, linkedin, github });
+            // Processo di lavoro
+            const search = await fetchIconData(LordIcons.search); 
+            const computer = await fetchIconData(LordIcons.computer); 
+            const rocket = await fetchIconData(LordIcons.rocket); 
+
+            // Punti Chiave
+            const star = await fetchIconData(LordIcons.star);
+            const tool = await fetchIconData(LordIcons.tool);
+            const clock = await fetchIconData(LordIcons.clock);
+            const consultation = await fetchIconData(LordIcons.consultation);
+
+            // Salvataggio globale nello stato
+            setLoadedIcons({ 
+                email, whatsapp, telephone, meeting, globe, linkedin, github, 
+                search, computer, rocket, 
+                star, tool, clock, consultation 
+            });
         };
         loadAllIcons();
     }, []);
+
+    {/* 🚀 AUTOMAZIONE ICONE DI CONTATTO: Forza l'avvio immediato in loop di tutti i canali diretti */}
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            if (emailRef.current) emailRef.current.playFromBeginning();
+            if (whatsappRef.current) whatsappRef.current.playFromBeginning();
+            if (telephoneRef.current) telephoneRef.current.playFromBeginning();
+            if (meetingRef.current) meetingRef.current.playFromBeginning();
+            if (globeRef.current) globeRef.current.playFromBeginning();
+            if (linkedinRef.current) linkedinRef.current.playFromBeginning();
+            if (githubRef.current) githubRef.current.playFromBeginning();
+        }, 150);
+
+        return () => clearTimeout(timer);
+    }, [loadedIcons]);
 
     return (
         <>
             <SEO title="Contatti" description="Parliamo del tuo prossimo progetto digitale." path="/contacts" />
 
-            <main className="w-full min-h-screen bg-white pt-44 pb-32 overflow-x-hidden relative flex flex-col">
+            <main className="w-full min-h-screen bg-white pt-44 pb-32 px-6 md:px-16 lg:px-24 overflow-x-hidden relative flex flex-col">
                 
-                {/* 1. HERO CONTATTI (Riceve l'orario e le animazioni) */}
+                {/* 1. HERO CONTATTI */}
                 <ContactHero time={time} revealVariant={revealVariant} />
 
                 {/* 2. PROCESSO DI LAVORO */}
-                <ProcessSection />
+                <ProcessSection 
+                    loadedIcons={loadedIcons} 
+                    refs={{ searchRef, computerRef, rocketRef }} 
+                />
 
                 {/* 3. PREREQUISITI PROGETTO */}
                 <PrerequisitiSection />
 
                 {/* 4. KEY POINTS: CAROUSEL DINAMICO */}
-                <KeyPoints />
+                <KeyPoints 
+                    loadedIcons={loadedIcons}
+                    refs={{ starRef, toolRef, clockRef, consultationRef }}
+                />
 
                 {/* 5. CONTATTI DIRETTI E SOCIAL */}
-                <DirectInquirySection 
-                    loadedIcons={loadedIcons} 
-                    refs={{ emailRef, whatsappRef, telephoneRef, meetingRef, globeRef, linkedinRef, githubRef }} 
+                <DirectInquirySection
+                    loadedIcons={loadedIcons}
+                    refs={{ emailRef, whatsappRef, telephoneRef, meetingRef, globeRef, linkedinRef, githubRef }}
                 />
 
                 {/* 6. SLOGAN CONTATTI */}
@@ -89,3 +138,4 @@ const Contacts = () => {
 };
 
 export default Contacts;
+
