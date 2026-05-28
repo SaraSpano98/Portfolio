@@ -79,12 +79,9 @@ export default function KeyPoints({ loadedIcons, refs }: KeyPointsProps) {
       if (currentRef && currentRef.current) {
         currentRef.current.playFromBeginning();
       }
-    }, 60);
+    }, 80);
     return () => clearTimeout(timer);
   }, [activeStep, steps, loadedIcons]);
-
-  const currentIconKey = steps[activeStep]?.iconKey;
-  const currentRef = steps[activeStep]?.ref;
 
   return (
     <section className="w-full bg-white pt-10 pb-24">
@@ -154,67 +151,90 @@ export default function KeyPoints({ loadedIcons, refs }: KeyPointsProps) {
             ))}
           </div>
 
-          {/* COLONNA DESTRA: CARD DI DETTAGLIO CONTENUTA COMPLETA */}
+                    {/* COLONNA DESTRA: CARD DI DETTAGLIO CONTENUTA */}
           <div className="lg:col-span-7 h-full w-full">
-            {/* Sfondo tridimensionale sfumato e bordi morbidi */}
             <div className="bg-gradient-to-br from-slate-50/60 via-white to-pink-50/40 border border-slate-100 p-8 md:p-12 rounded-[3rem] shadow-xl shadow-slate-900/[0.01] relative overflow-hidden min-h-[400px] flex flex-col justify-between">
-
-              {/* Effetti luce soffusa interna potenziati */}
+              
               <div className="absolute -top-20 -right-20 w-64 h-64 bg-pink-500/[0.07] rounded-full blur-3xl pointer-events-none" />
               <div className="absolute -bottom-20 -left-20 w-48 h-48 bg-slate-500/[0.03] rounded-full blur-2xl pointer-events-none" />
 
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeStep}
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -15 }}
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
-                  className="w-full flex flex-col gap-6"
-                >
-                  <div className="flex justify-between items-start">
-                    <div>
+              <div className="w-full flex flex-col gap-6 h-full justify-between">
+                
+                {/* BLOCCO SUPERIORE: TITOLI A SINISTRA E ICONA A DESTRA */}
+                <div className="flex justify-between items-start w-full gap-4">
+                  
+                  {/* Testi della card (Step, Titolo, Sottotitolo) */}
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={activeStep}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.25, ease: "easeInOut" }}
+                      className="flex flex-col flex-1 text-left"
+                    >
                       <span className="text-pink-500 text-[11px] font-black uppercase tracking-[0.4em] block mb-3">
-                        {steps[activeStep].step}
+                        // {steps[activeStep].step}
                       </span>
                       <h3 className="text-2xl md:text-4xl font-black text-slate-900 uppercase tracking-tighter mb-2 leading-none">
                         {steps[activeStep].title}
                       </h3>
-                      {/* Sottotitolo colorato coerente con il brand */}
                       <h4 className="text-pink-600/80 text-sm md:text-base font-semibold italic">
                         {steps[activeStep].subtitle}
                       </h4>
-                    </div>
+                    </motion.div>
+                  </AnimatePresence>
 
-                    {/* Icona animata in loop automatico costante e forzato */}
-                    <div className="w-16 h-16 text-pink-500 flex items-center justify-center bg-pink-50/60 border border-pink-100/40 rounded-2xl p-2 shrink-0 shadow-inner">
-                      {loadedIcons[currentIconKey] ? (
-                        <Player
-                          ref={currentRef}
-                          icon={loadedIcons[currentIconKey]}
-                          size={44}
-                          colorize="#ec4899"
-                          onComplete={() => currentRef?.current?.playFromBeginning()}
-
-                        />
-                      ) : (
-                        <div className="w-5 h-5 border-2 border-pink-500 border-t-transparent rounded-full animate-spin" />
-                      )}
-                    </div>
+                  {/* Box dell'icona animata (Fisso a destra dei titoli) */}
+                  <div className="w-16 h-16 text-pink-500 flex items-center justify-center bg-pink-50/60 border border-pink-100/40 rounded-2xl p-2 shrink-0 shadow-inner relative mt-1">
+                    {steps.map((item, index) => (
+                      <div 
+                        key={item.iconKey} 
+                        className={`absolute inset-0 flex items-center justify-center p-2 transition-opacity duration-300 ${
+                          activeStep === index ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+                        }`}
+                      >
+                        {loadedIcons[item.iconKey] ? (
+                          <Player
+                            ref={item.ref}
+                            icon={loadedIcons[item.iconKey]}
+                            size={44}
+                            colorize="#ec4899"
+                            loop={true}
+                            onComplete={() => item.ref?.current?.playFromBeginning()}
+                          />
+                        ) : (
+                          <div className="w-5 h-5 border-2 border-pink-500 border-t-transparent rounded-full animate-spin" />
+                        )}
+                      </div>
+                    ))}
                   </div>
 
-                  {/* Separatore colorato e testo descrittivo ad alto contrasto */}
-                  <p className="text-slate-700 text-base md:text-lg leading-relaxed font-medium border-t border-pink-100/50 pt-6">
-                    {steps[activeStep].desc}
-                  </p>
-                </motion.div>
-              </AnimatePresence>
+                </div>
+
+                {/* BLOCCO INFERIORE: TESTO DESCRITTIVO (Riportato dentro la card) */}
+                <div className="w-full mt-auto">
+                  <AnimatePresence mode="wait">
+                    <motion.p
+                      key={activeStep}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="text-slate-700 text-base md:text-lg leading-relaxed font-medium border-t border-pink-100/50 pt-6 text-left"
+                    >
+                      {steps[activeStep].desc}
+                    </motion.p>
+                  </AnimatePresence>
+                </div>
+
+              </div>
 
             </div>
           </div>
+
         </div>
       </div>
     </section>
   );
 }
-

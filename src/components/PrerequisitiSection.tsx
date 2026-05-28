@@ -10,10 +10,10 @@ const PrerequisitiSection = () => {
 
                     {/* COLONNA TESTO SINISTRA */}
                     <div className="lg:col-span-5 flex flex-col justify-center relative z-10">
-                        <h3 className="text-4xl md:text-5xl font-black tracking-tighter leading-none mb-6 lowercase">
+                        <h3 className="text-4xl md:text-5xl font-black tracking-tighter leading-none mb-6">
                             Prima di <span className="text-pink-500">iniziare</span>
                         </h3>
-                        <p className="text-slate-400 leading-relaxed max-w-sm text-base">
+                        <p className="text-white leading-relaxed max-w-sm text-base">
                             Per garantire la massima qualità e rispettare i tempi, assicurati di avere chiari questi punti fondamentali prima del primo meeting.
                         </p>
                     </div>

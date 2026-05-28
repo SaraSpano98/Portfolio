@@ -31,8 +31,8 @@ const ProcessSection = ({ loadedIcons, refs }: ProcessSectionProps) => {
                 
                 {/* Intestazione principale della sezione */}
                 <div className="mb-20 pb-4">
-                    <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tighter lowercase leading-none">
-                        il mio <span className="text-pink-500">processo</span>
+                    <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tighter leading-none">
+                        Il mio <span className="text-pink-500">processo</span>
                     </h2>
                     <p className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 mt-3">
                         // dall'idea al prodotto finale passo dopo passo
