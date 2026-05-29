@@ -63,8 +63,8 @@ export default function Footer() {
 
   /* MAPPATURA ROTTE CORRETTA */
   const quickLinks = [
-    { name: 'About', path: '/' },
-    { name: 'Skills', path: '/' },
+    { name: 'Home', path: '/' },
+    { name: 'Chi Sono', path: '/about' },
     { name: 'Projects', path: '/projects' },
     { name: 'Experience', path: '/experience' },
     { name: 'Contacts', path: '/contacts' }
