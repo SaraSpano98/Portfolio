@@ -16,6 +16,7 @@ export const LordIcons = {
   telephone: `${basePath}/telephone.json`,
   tool: `${basePath}/tool.json`,
   whatsapp: `${basePath}/whatsapp.json`,
+  hand: `${basePath}/hand.json`,
 };
 
 // Questa funzione scaricherà il vero oggetto JSON partendo dal percorso sopra
