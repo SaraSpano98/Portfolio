@@ -89,7 +89,7 @@ export default function IdentityHero(): React.ReactElement {
 
                     {/* Nuova Descrizione di Contesto */}
                     <p className="text-slate-500 text-lg md:text-xl font-light leading-relaxed max-w-2xl">
-                        Dietro ogni linea di codice c'è un'evoluzione. Questo è un piccolo viaggio interattivo attraverso <span className="text-slate-900 font-medium">le tappe, le sfide e la visione</span> che hanno plasmato il mio approccio allo sviluppo web.
+                        Dietro ogni linea di codice c'è un'evoluzione. Questo è un piccolo viaggio interattivo attraverso <span className="text-slate-900 font-medium">le tappe, le sfide e la visione</span> che hanno plasmato il mio approccio alla programmazione. Il mio non è stato un percorso lineare, ma un intreccio di strade difficili che poi mi hanno portato a mete grandiosamente inaspettate.
                     </p>
 
                 </div>
