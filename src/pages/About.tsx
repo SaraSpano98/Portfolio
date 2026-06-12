@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import SEO from "../lib/seo";
 
 import IdentityHero from '../components/IdentityHero';
+import TechProfileSection from '../components/TechProfileSection';
 
 
 
@@ -13,6 +14,10 @@ export default function About(): React.ReactElement {
 
             <motion.div className="relative z-10">
                 <IdentityHero />
+            </motion.div>
+
+            <motion.div className="relative z-10">
+                <TechProfileSection />
             </motion.div>
 
         </>

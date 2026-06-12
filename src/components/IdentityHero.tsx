@@ -16,7 +16,8 @@ const storyData: StorySlide[] = [
         id: "01",
         tag: "01 / Le Radici",
         title: "La scintilla: dove tutto è iniziato.",
-        text: "Tutto è partito da un ricordo d'infanzia: la prima volta nell'azienda di mio zio. Non sapevo cosa fosse un PC o la tecnologia, ma mi fece giocare con un programma di disegno digitale: Paint. Quella scintilla è rimasta dentro di me per anni, crescendo in silenzio.",
+        text: "Tutto è partito da un ricordo d'infanzia: la prima volta nell'azienda di mio zio. Non sapevo cosa fosse un PC o la tecnologia, ma mi fece giocare con un programma di disegno digitale: Paint. Quella scintilla è rimasta dentro di me per anni, crescendo in silenzio. Inoltre, ho sempre avuto una passione per l'arte e la creatività, ma non sapevo come incanalarla. La tecnologia è diventata il mio mezzo per esprimere quella creatività in modi che non avrei mai immaginato.",
+        quote: "Non è mai troppo tardi per splendere. A volte, seguire un percorso diverso è l'inizio di qualcosa di straordinario.",
         themeColor: "from-[#ec4899] to-[#8b5cf6]",
         glowStyle: "shadow-[0_0_60px_rgba(236,72,153,0.12)] hover:shadow-[0_0_80px_rgba(236,72,153,0.2)]"
     },
@@ -24,8 +25,8 @@ const storyData: StorySlide[] = [
         id: "02",
         tag: "02 / Il Conflitto",
         title: "Il rispetto del proprio potenziale.",
-        text: "Ho attraversato molti settori lavorativi, ma nessuno mi appagava: sentivo che un ambiente statico ristagna, mentre il lavoro deve essere una passione che ci evolve. L'unica cosa che mi faceva sentire viva era l'unione tra logica e creazione.",
-        quote: "Mi dicevano che dovevo scegliere una strada. Mi sono chiesta: perché devo dividermi per forza?",
+        text: "Ho attraversato molti settori lavorativi, ma nessuno mi appagava: sentivo che un ambiente statico ristagna, mentre il lavoro deve essere una passione che ci evolve. L'unica cosa che mi faceva sentire viva era l'unione tra logica e creazione. E soprattutto siamo il nostro lavoro o siamo di più? Dobbiamo seguire la massa? No! Dobbiamo seguire il cosidetto percorso di studi lineare? No! I percorsi diversi, portano cose nuove, non gli stessi. ",
+        quote: "Mi dicevano che dovevo scegliere una strada. Mi sono chiesta: perché devo dividermi per forza? Conta essere sè stessi, non essere un'etichetta.",
         themeColor: "from-[#8b5cf6] to-[#3b82f6]",
         glowStyle: "shadow-[0_0_60px_rgba(139,92,246,0.12)] hover:shadow-[0_0_80px_rgba(139,92,246,0.2)]"
     },
@@ -33,7 +34,8 @@ const storyData: StorySlide[] = [
         id: "03",
         tag: "03 / La Visione",
         title: "Oltre la massa: fare un upgrade.",
-        text: "Credo in un approccio dinamico. Oggi tutti parlano di Intelligenza Artificiale, Automazioni e Agenti AI. Copiare e riprodurre le sese cose è facile, ma chi si distingue realmente? La vera differenza la fanno la personalità e il ragionamento.",
+        text: "Credo in un approccio dinamico. Oggi tutti parlano di Intelligenza Artificiale, Automazioni e Agenti AI, parlandone: certo, è il nuovo upgrade della società. Gli strumenti odierni sono straordinariamente potenti. Copiare e riprodurre le stesse cose è facile, ma chi si distingue realmente? La vera differenza la fanno: la personalità, il ragionamento e la capacità di creare qualcosa di unico. La vera vittoria è sapersi distinguere rimanendo fedeli a sè stessi.",
+        quote: "Il futuro è di chi sa evolversi, non di chi si adatta passivamente, dando il proprio contributo, al dì là di attestati e diplomi.",
         themeColor: "from-[#06b6d4] to-[#10b981]",
         glowStyle: "shadow-[0_0_50px_rgba(6,182,212,0.12)] hover:shadow-[0_0_70px_rgba(6,182,212,0.2)]"
     },
@@ -41,7 +43,8 @@ const storyData: StorySlide[] = [
         id: "04",
         tag: "04 / L'Identità",
         title: "La mia promessa di unicità.",
-        text: "Ho affrontato molti ostacoli tra chi fossi e cosa volessi dare. Ho così tante passioni che è difficile metterle insieme, ma voglio essere unica a modo mio, distinguendomi tra tutti quanti. Io metto al centro la mia testa, la mia filosofia e il mio codice.",
+        text: "Ho affrontato molti ostacoli tra chi fossi e cosa volessi dare. Ho così tante passioni che è difficile metterle insieme, ma voglio essere unica a modo mio, distinguendomi tra tutti quanti. Io metto al centro la mia testa, la mia filosofia, il mio codice e non solo! Voglio creare un ecosistema digitale che rifletta chi sono, con un design unico e un codice che sia una vera espressione di me stessa. Non voglio essere solo una copia, ma un'originale che lascia il segno.",
+        quote:"La curiosità è la chiave per scoprire nuove strade. Non si deve mai smettere di esplorare, perché è lì che si nascondono le vere opportunità.",
         themeColor: "from-[#f59e0b] to-[#e11d48]",
         glowStyle: "shadow-[0_0_50px_rgba(245,158,11,0.12)] hover:shadow-[0_0_70px_rgba(245,158,11,0.2)]"
     }
@@ -50,7 +53,7 @@ const storyData: StorySlide[] = [
 export default function IdentityHero(): React.ReactElement {
     const handRef = useRef<Player>(null);
     const [iconData, setIconData] = useState<object | null>(null);
-    const [activeIndex, setActiveIndex] = useState<number>(0);
+
 
     useEffect(() => {
         fetch('/assets/icons/hand.json')
@@ -65,88 +68,82 @@ export default function IdentityHero(): React.ReactElement {
         }
     }, [iconData]);
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setActiveIndex((prev) => (prev + 1) % storyData.length);
-        }, 6000);
-        return () => clearInterval(interval);
-    }, []);
-
     return (
         <>
-            {/* FIX CRITICO: pt-44 lg:pt-52 e items-center centralizzano tutto e creano il vuoto perfetto sotto l'header */}
-            <section className="w-full bg-white text-slate-900 px-24 pt-44 lg:pt-52 pb-32 select-none overflow-hidden relative flex flex-col items-center justify-start">
+            {/* CORREZIONE STRUTTURALE COMPLETA: pt-32 lg:pt-36 spinge il titolo sotto l'header fisso mantenendo il flusso pulito */}
+            <section className="w-full bg-white text-slate-900 px-6 md:px-12 lg:px-24 pt-32 lg:pt-36 pb-32 select-none overflow-hidden relative">
 
-                {/* 1. TITOLO PRINCIPALE - Centrato perfettamente a schermo tramite justify-center */}
-                <div className="w-full max-w-5xl flex justify-center mb-16">
-                    <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-[68px] font-black uppercase tracking-tighter text-slate-950 flex items-center justify-center gap-5 leading-none text-center">
-                        Ciao, sono Sara!
-                        <span className="inline-block w-16 h-16 bg-slate-50 p-2 rounded-2xl border border-slate-200/60 shadow-sm" style={{ verticalAlign: 'middle' }}>
-                            {iconData && <Player ref={handRef} icon={iconData} size={44} onComplete={() => handRef.current?.playFromBeginning()} />}
-                        </span>
+                {/* 1. BLOCCO TITOLO + NUOVA DESCRIZIONE INTRODUTTIVA */}
+                <div className="w-full max-w-3xl mx-auto mb-20 flex flex-col items-center text-center">
+
+                    {/* Titolo Principale */}
+                    <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-[68px] font-black uppercase tracking-tighter text-slate-950 flex flex-wrap items-center justify-center gap-5 leading-none mb-6">
+                        Ciao, <span className="text-pink-500">sono Sara!</span>
+
+                        <div className="inline-block">
+                            <span className="w-16 h-16 rounded-2xl border border-slate-100 shadow-sm flex items-center justify-center bg-slate-50" style={{ verticalAlign: 'middle' }}>
+                                {iconData && <Player ref={handRef} icon={iconData} size={44} onComplete={() => handRef.current?.playFromBeginning()} />}
+                            </span>
+                        </div>
                     </h1>
+
+                    {/* Nuova Descrizione di Contesto */}
+                    <p className="text-slate-500 text-lg md:text-xl font-light leading-relaxed max-w-2xl">
+                        Dietro ogni linea di codice c'è un'evoluzione. Questo è un piccolo viaggio interattivo attraverso <span className="text-slate-900 font-medium">le tappe, le sfide e la visione</span> che hanno plasmato il mio approccio allo sviluppo web.
+                    </p>
+
                 </div>
 
-                {/* 2. CONTENITORE PORTALE CENTRALE CON PERSPECTIVE ELEVATA */}
-                <div className="w-full flex flex-col items-center justify-center [perspective:1500px] relative min-h-[440px] max-w-5xl mx-auto">
-
-                    {/* IL RETTANGOLO MONUMENTALE ORIZZONTALE */}
-                    <div className="relative w-full max-w-[1000px] h-[420px] shrink-0 group/card">
-                        {storyData.map((slide, index) => {
-                            const offset = index - activeIndex;
-                            const isActive = index === activeIndex;
-
-                            const rotateY = isActive ? 0 : offset * -15;
-                            const rotateX = isActive ? 0 : 4;
-                            const translateZ = isActive ? 0 : -120;
-                            const visibilityClass = isActive
-                                ? 'opacity-100 scale-100 z-20 pointer-events-auto block'
-                                : 'opacity-0 scale-98 pointer-events-none z-0 hidden';
-
+                {/* 2. CONTENITORE BENTO GRID RETTANGOLARE WIDE */}
+                <div className="w-full max-w-7xl mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+                        {storyData.map((slide) => {
                             return (
                                 <div
                                     key={slide.id}
-                                    className={`absolute inset-0 rounded-[3rem] bg-gradient-to-b ${slide.themeColor} ${slide.glowStyle} p-[1.5px] transition-all duration-1000 ease-out transform ${visibilityClass} hover:-translate-y-1`}
-                                    style={{
-                                        transform: `rotateY(${rotateY}deg) rotateX(${rotateX}deg) translateZ(${translateZ}px)`,
-                                        transformStyle: 'preserve-3d',
-                                        transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)'
-                                    }}
+                                    className={`relative rounded-[2rem] bg-gradient-to-b ${slide.themeColor} ${slide.glowStyle} p-[1.5px] transition-all duration-500 ease-out transform hover:-translate-y-1.5 hover:shadow-xl group/card`}
                                 >
-                                    <div className="w-full h-full bg-white/95 rounded-[2.9rem] backdrop-blur-xl flex flex-col items-center justify-between p-10 py-12 border border-white relative overflow-hidden text-center shadow-inner">
+                                    {/* Contenitore Interno Bianco */}
+                                    <div className="w-full h-full bg-white/95 rounded-[1.9rem] backdrop-blur-xl flex flex-col items-start justify-start p-7 py-7 border border-white relative overflow-hidden text-left shadow-sm">
 
-                                        <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000001_1px,transparent_1px),linear-gradient(to_bottom,#00000001_1px,transparent_1px)] bg-[size:28px_28px] pointer-events-none" />
+                                        {/* Pattern Grid di Sfondo */}
+                                        <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000001_1px,transparent_1px),linear-gradient(to_bottom,#00000001_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
 
-                                        <span className="absolute text-[18rem] font-black text-slate-900/[0.012] tracking-tighter select-none -bottom-20 right-10 pointer-events-none z-0">
+                                        {/* ID Gigante sullo sfondo */}
+                                        <span className="absolute text-[11rem] font-black text-slate-900/[0.012] tracking-tighter select-none -bottom-12 -right-4 pointer-events-none z-0 leading-none">
                                             {slide.id}
                                         </span>
 
-                                        <div className="relative z-10 flex flex-col items-center justify-between h-full w-full gap-4">
+                                        {/* Contenuto Principale */}
+                                        <div className="relative z-10 flex flex-col items-start justify-start h-full w-full gap-4">
 
-                                            {/* Icona + Tag */}
-                                            <div className="flex flex-col items-center gap-2.5 shrink-0">
-                                                <div className="w-14 h-14 rounded-2xl bg-slate-50 border border-slate-200/60 flex items-center justify-center text-2xl shadow-sm transition-transform duration-500 group-hover/card:scale-105">
+                                            {/* Gruppo Icona + Tag */}
+                                            <div className="flex items-center gap-3 shrink-0 w-full">
+                                                <div className="w-11 h-11 rounded-xl bg-transparent flex items-center justify-center text-xl shadow-sm transition-transform duration-500 group-hover/card:scale-105">
                                                     {slide.id === "01" && "🎨"}
                                                     {slide.id === "02" && "💻"}
                                                     {slide.id === "03" && "🚀"}
                                                     {slide.id === "04" && "⚡"}
                                                 </div>
-                                                <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#ec4899] bg-[#ec4899]/10 px-4 py-1 rounded-full border border-[#ec4899]/20">
+                                                <span className="text-[10px] font-black uppercase tracking-[0.25em] text-[#ec4899] bg-[#ec4899]/10 px-3 py-1 rounded-full border border-[#ec4899]/20">
                                                     {slide.tag}
                                                 </span>
                                             </div>
 
-                                            <h2 className="text-slate-950 font-black text-2xl sm:text-3xl lg:text-4xl tracking-tight leading-none shrink-0">
+                                            {/* Titolo della Card Ingrandito */}
+                                            <h2 className="text-slate-950 font-black text-xl sm:text-2xl tracking-tight leading-tight shrink-0">
                                                 {slide.title}
                                             </h2>
 
-                                            <p className="text-slate-500 text-[16px] md:text-lg font-light leading-relaxed max-w-[800px] flex-grow pt-1 px-4">
+                                            {/* Paragrafo Descrittivo */}
+                                            <p className="text-slate-500 text-base font-light leading-relaxed w-full">
                                                 {slide.text}
                                             </p>
 
+                                            {/* Blocco Citazione Inferiore */}
                                             {slide.quote && (
-                                                <div className="border-t border-slate-100 pt-3.5 w-full max-w-[640px] shrink-0">
-                                                    <p className="text-slate-700 font-semibold italic text-[15px] leading-relaxed">
+                                                <div className="border-t border-slate-100 pt-3.5 w-full mt-1 shrink-0">
+                                                    <p className="text-slate-700 font-semibold italic text-sm sm:text-[15px] leading-relaxed">
                                                         "{slide.quote}"
                                                     </p>
                                                 </div>
@@ -157,23 +154,6 @@ export default function IdentityHero(): React.ReactElement {
                                 </div>
                             );
                         })}
-                    </div>
-
-                    {/* 3. TIMELINE ORIZZONTALE - Centrata sotto la card monumentale */}
-                    <div className="flex justify-center gap-4 mt-12 max-w-[460px] w-full z-20 relative px-2">
-                        {storyData.map((_, index) => (
-                            <button
-                                key={index}
-                                onClick={() => setActiveIndex(index)}
-                                className="h-[3px] flex-1 bg-slate-200 rounded-full overflow-hidden relative cursor-pointer focus:outline-none"
-                                aria-label={`Vai alla slide ${index + 1}`}
-                            >
-                                <div
-                                    className={`h-full bg-gradient-to-r from-[#ec4899] to-[#8b5cf6] ${index === activeIndex ? 'w-full transition-all duration-[6000ms] ease-linear' : 'w-0 duration-0'
-                                        }`}
-                                />
-                            </button>
-                        ))}
                     </div>
                 </div>
             </section>
