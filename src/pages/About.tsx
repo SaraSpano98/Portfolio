@@ -3,6 +3,8 @@ import SEO from "../lib/seo";
 
 import IdentityHero from '../components/IdentityHero';
 import TechProfileSection from '../components/TechProfileSection';
+import MyValuesSection from '../components/MyValuesSection';
+import CtaExperiencesSection from '../components/CtaExperiencesSection';
 
 
 
@@ -18,6 +20,14 @@ export default function About(): React.ReactElement {
 
             <motion.div className="relative z-10">
                 <TechProfileSection />
+            </motion.div>
+
+            <motion.div className="relative z-10">
+                <MyValuesSection />
+            </motion.div>
+
+            <motion.div className="relative z-10">
+                <CtaExperiencesSection />
             </motion.div>
 
         </>
