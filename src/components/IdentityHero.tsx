@@ -70,10 +70,7 @@ export default function IdentityHero(): React.ReactElement {
 
     return (
         <>
-            {/* CORREZIONE STRUTTURALE COMPLETA: pt-32 lg:pt-36 spinge il titolo sotto l'header fisso mantenendo il flusso pulito */}
-            <section className="w-full bg-white text-slate-900 px-6 md:px-12 lg:px-24 pt-32 lg:pt-36 pb-32 select-none overflow-hidden relative">
-
-                {/* 1. BLOCCO TITOLO + NUOVA DESCRIZIONE INTRODUTTIVA */}
+            <section className="w-full bg-white text-slate-900 px-6 md:px-12 lg:px-24 pt-32 lg:pt-36 pb-28 select-none overflow-hidden relative">
                 <div className="w-full max-w-3xl mx-auto mb-20 flex flex-col items-center text-center">
 
                     {/* Titolo Principale */}
@@ -87,14 +84,14 @@ export default function IdentityHero(): React.ReactElement {
                         </div>
                     </h1>
 
-                    {/* Nuova Descrizione di Contesto */}
+                    {/* Descrizione di Contesto */}
                     <p className="text-slate-500 text-lg md:text-xl font-light leading-relaxed max-w-2xl">
                         Dietro ogni linea di codice c'è un'evoluzione. Questo è un piccolo viaggio interattivo attraverso <span className="text-slate-900 font-medium">le tappe, le sfide e la visione</span> che hanno plasmato il mio approccio alla programmazione. Il mio non è stato un percorso lineare, ma un intreccio di strade difficili che poi mi hanno portato a mete grandiosamente inaspettate.
                     </p>
 
                 </div>
 
-                {/* 2. CONTENITORE BENTO GRID RETTANGOLARE WIDE */}
+                {/* 2. GRIGLIA */}
                 <div className="w-full max-w-7xl mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
                         {storyData.map((slide) => {
@@ -130,7 +127,6 @@ export default function IdentityHero(): React.ReactElement {
                                                 </span>
                                             </div>
 
-                                            {/* Titolo della Card Ingrandito */}
                                             <h2 className="text-slate-950 font-black text-xl sm:text-2xl tracking-tight leading-tight shrink-0">
                                                 {slide.title}
                                             </h2>
