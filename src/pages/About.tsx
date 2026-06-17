@@ -1,6 +1,11 @@
 import { motion } from 'framer-motion';
 import SEO from "../lib/seo";
 
+import WaveBackground from '../components/WaveBackground';
+
+
+
+
 import IdentityHero from '../components/IdentityHero';
 import TechProfileSection from '../components/TechProfileSection';
 import MyValuesSection from '../components/MyValuesSection';
@@ -18,17 +23,23 @@ export default function About(): React.ReactElement {
                 <IdentityHero />
             </motion.div>
 
-            <motion.div className="relative z-10">
-                <TechProfileSection />
+            <motion.div>
+                <WaveBackground />
+
+                <motion.div className="relative z-10">
+                    <TechProfileSection />
+                </motion.div>
+
+                <motion.div className="relative z-10">
+                    <MyValuesSection />
+                </motion.div>
+
+                <motion.div className="relative z-10">
+                    <CtaExperiencesSection />
+                </motion.div>
+
             </motion.div>
 
-            <motion.div className="relative z-10">
-                <MyValuesSection />
-            </motion.div>
-
-            <motion.div className="relative z-10">
-                <CtaExperiencesSection />
-            </motion.div>
 
         </>
 
