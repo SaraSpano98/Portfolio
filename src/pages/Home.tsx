@@ -5,6 +5,7 @@ import Hero from "../components/Hero";
 import FullStackPhilosophy from "../components/FullStackPhilosophy"
 import InfiniteTicker from "../components/InfiniteTicker";
 import KeyProjectsSection from "../components/KeyProjectsSection";
+import NextStepCta from "../components/NextStepCta";
 
 export default function Home(): React.ReactElement {
     return (
@@ -32,6 +33,8 @@ export default function Home(): React.ReactElement {
                 </div>
 
                 <KeyProjectsSection/>
+
+                <NextStepCta/>
             </main>
         </>
     );
