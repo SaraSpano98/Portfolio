@@ -3,6 +3,7 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import About from "./pages/About";
+import Projects from "./pages/Projects";
 import Contacts from "./pages/Contacts";
 
 export default function App() {
@@ -14,6 +15,7 @@ export default function App() {
       <main className="flex-1 relative flex flex-col z-10"> 
         {location.pathname === "/" && <Home />}
         {location.pathname === "/about" && <About />}
+        {location.pathname === "/projects" && <Projects />}
         {location.pathname === "/contacts" && <Contacts />}
       </main>
       <Footer />
