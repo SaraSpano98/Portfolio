@@ -1,16 +1,17 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
+
 import TechStackPopover from './TechStackPopover';
 
 const Header = () => {
   const location = useLocation();
   const [isTechOpen, setIsTechOpen] = useState(false);
 
-  
+
   const navLinks = [
     { name: 'Home', path: '/' },
-    {name: 'Chi sono', path: '/about' },
+    { name: 'Chi sono', path: '/about' },
     { name: 'Projects', path: '/projects' },
     { name: 'Experience', path: '/experience' },
     { name: 'Contacts', path: '/contacts' }
@@ -21,7 +22,7 @@ const Header = () => {
       {/* OVERLAY SFOCATO */}
       <AnimatePresence>
         {isTechOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -31,7 +32,7 @@ const Header = () => {
       </AnimatePresence>
 
       <header className="fixed top-0 left-0 w-full h-[100px] flex items-center justify-between z-[100] px-24 bg-white/80 backdrop-blur-sm shadow-sm">
-        
+
         {/* 1. LOGO (A SINISTRA) */}
         <div className="relative z-[110]">
           <Link to="/" className="flex items-center">
@@ -57,7 +58,7 @@ const Header = () => {
         </nav>
 
         {/* 3. TECH STACK BADGE (A DESTRA - Allineato come il logo) */}
-        <div 
+        <div
           className="relative z-[110]"
           onMouseEnter={() => setIsTechOpen(true)}
           onMouseLeave={() => setIsTechOpen(false)}
@@ -70,7 +71,7 @@ const Header = () => {
           <AnimatePresence>
             {isTechOpen && (
               <div className="absolute top-full right-0 mt-2 pt-4">
-                 <TechStackPopover />
+                <TechStackPopover />
               </div>
             )}
           </AnimatePresence>

@@ -4,7 +4,7 @@ import { Player } from '@lordicon/react';
 import { fetchIconData, LordIcons } from '../components/Lordicons';
 
 {/* COMPONENTS */}
-import ContactHero from '../components/ContactHero';
+import ContactsHero from '../components/ContactsHero';
 import ProcessSection from '../components/ProcessSection';
 import PrerequisitiSection from '../components/PrerequisitiSection';
 import KeyPoints from '../components/KeyPoints';
@@ -106,7 +106,7 @@ const Contacts = () => {
             <main className="w-full min-h-screen bg-white pt-44 pb-32 px-6 md:px-16 lg:px-24 overflow-x-hidden relative flex flex-col">
                 
                 {/* 1. HERO CONTATTI */}
-                <ContactHero time={time} revealVariant={revealVariant} />
+                <ContactsHero time={time} revealVariant={revealVariant} />
 
                 {/* 2. PROCESSO DI LAVORO */}
                 <ProcessSection 
