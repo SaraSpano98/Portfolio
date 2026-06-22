@@ -78,7 +78,7 @@ const Hero = () => {
         </div>
 
         {/* LATO DESTRO: CODER */}
-        <div className="relative w-full h-full px-24 flex items-center justify-end">
+        <div className="relative w-full h-full px-6 sm:px-12 md:px-16 lg:px-24 flex items-center justify-end select-none">
           <div className="pointer-events-auto text-right flex flex-col items-end group">
             <Link
               to="/coder"
@@ -88,18 +88,19 @@ const Hero = () => {
             >
               <motion.span
                 animate={{
-                  color: hoveredLink === 'coder' ? '#38bdf8' : (hoveredLink === 'designer' ? '#475569' : '#0f172a'),
+                  color: hoveredLink === 'coder' ? '#7c3aed' : (hoveredLink === 'designer' ? '#475569' : '#0f172a'),
                   opacity: hoveredLink === 'coder' ? 1 : (hoveredLink === 'designer' ? 0.5 : [0.75, 0.95, 0.75]),
                   textShadow: hoveredLink === 'coder'
-                    ? '0 0 30px rgba(56,189,248,0.6)'
-                    : '0 0 8px rgba(14,165,233,0.15)'
+                    ? '0 0 30px rgba(124, 58, 237, 0.6)'
+                    : '0 0 8px rgba(71, 85, 105, 0.15)'
                 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
                 className="block text-4xl sm:text-5xl md:text-7xl font-black lowercase leading-none"
               >
                 &lt;coder&gt;
               </motion.span>
-              <div className="absolute bottom-[-6px] right-0 w-0 h-[3px] bg-sky-400 group-hover:w-full transition-all duration-300 ease-out" />
+            
+              <div className="absolute bottom-[-6px] right-0 w-0 h-[3px] bg-violet-600 group-hover:w-full transition-all duration-300 ease-out" />
             </Link>
 
             <motion.h5
@@ -111,7 +112,7 @@ const Hero = () => {
             </motion.h5>
 
             <motion.span
-              animate={{ color: hoveredLink === 'coder' ? '#38bdf8' : (hoveredLink === 'designer' ? '#475569' : '#94a3b8') }}
+              animate={{ color: hoveredLink === 'coder' ? '#7c3aed' : (hoveredLink === 'designer' ? '#475569' : '#94a3b8') }}
               className="mt-4 flex items-center gap-2 text-[10px] sm:text-xs font-black uppercase tracking-widest transition-colors duration-300 pr-5"
             >
               <motion.span
@@ -124,6 +125,7 @@ const Hero = () => {
             </motion.span>
           </div>
         </div>
+
 
       </div>
 
