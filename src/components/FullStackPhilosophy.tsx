@@ -4,11 +4,11 @@ export default function FullStackPhilosophy() {
         
             <div className="w-full flex flex-col items-start text-start">
                 <div className="w-full mb-16 md:mb-20 flex flex-col items-start">
-                    <span className="text-pink-500 font-black uppercase tracking-[0.4em] text-[10px] mb-3">
+                    <span className="text-pink-500 font-black uppercase tracking-[0.4em] text-[11px] mb-3">
                         Full-Stack Philosophy
                     </span>
 
-                    <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tighter leading-none">
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter leading-none">
                         Sviluppo <span className="text-pink-500">integrale</span>
                     </h2>
 
@@ -19,8 +19,7 @@ export default function FullStackPhilosophy() {
                 <div className="flex flex-col lg:flex-row justify-between gap-16 w-full items-start">
                     <div className="flex flex-col gap-14 w-full lg:max-w-4xl items-start">
                         
-                        {/* Titolone principale */}
-                        <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 leading-[1.15] tracking-tighter w-full">
+                        <h3 className="text-3xl md:text-3xl lg:text-4xl font-black text-slate-900 leading-[1.15] tracking-tighter w-full">
                             Non scrivo solo codice. Costruisco <span className="text-pink-500 italic font-medium">ecosistemi</span> digitali performanti.
                         </h3>
 
@@ -29,20 +28,20 @@ export default function FullStackPhilosophy() {
                             
                             {/* Scheda 1: VISIONE ARCHITETTURALE */}
                             <div className="flex flex-col gap-3">
-                                <span className="text-pink-500 font-black text-[11px] tracking-widest lowercase">
-                                    Visione architetturale
+                                <span className="text-pink-500 font-black text-[18px] md:text-[17px] lg:text-[16px]  tracking-widest">
+                                    VISIONE ARCHITETTURALE
                                 </span>
-                                <p className="text-slate-500 text-xs md:text-sm leading-relaxed font-medium">
+                                <p className="text-slate-500 text-base leading-relaxed font-medium">
                                     La mia forza risiede nel comprendere l'intero flusso di un'applicazione. Dalla progettazione del database alla gestione delle API, ogni scelta tecnica è finalizzata alla scalabilità e alla sicurezza del prodotto.
                                 </p>
                             </div>
 
                             {/* Scheda 2: ESPERIENZA UTENTE */}
                             <div className="flex flex-col gap-3">
-                                <span className="text-pink-500 font-black text-[11px] tracking-widest lowercase">
-                                    Esperienza utente
+                                <span className="text-pink-500 font-black text-[18px] md:text-[17px] lg:text-[16px] tracking-widest">
+                                    ESPERIENZA UTENTE
                                 </span>
-                                <p className="text-slate-500 text-xs md:text-sm leading-relaxed font-medium">
+                                <p className="text-slate-500 text-base leading-relaxed font-medium">
                                     Essere una sviluppatrice completa significa non sacrificare mai l'estetica per la funzione. Integro design d'avanguardia con logiche di backend complesse, garantendo performance che superano gli standard.
                                 </p>
                             </div>
