@@ -3,20 +3,22 @@ import { Link } from 'react-router-dom';
 
 export default function KeyProjectsSection() {
     return (
-    
-        <section className="w-full bg-white pt-20 pb-24 px-6 sm:px-12 md:px-16 lg:px-24 select-none">
+        <section className="relative w-full bg-white pt-20 pb-24 px-6 sm:px-12 md:px-16 lg:px-24 z-10 select-none">
             
-            <div className="w-full max-w-6xl mx-auto">
-                <div className="flex flex-col gap-16">
+            <div className="w-full flex flex-col items-start text-start">
+                <div className="flex flex-col gap-16 w-full">
 
-                    {/* HEADER DELLA SEZIONE */}
-                    <div className="flex flex-col items-start w-full text-start">
-                        <p className="text-pink-500 font-black uppercase tracking-[0.4em] text-[10px] mb-3">
+                    {/* HEADER DELLA SEZIONE UNIFORMATO ALLA PRECEDENTE */}
+                    <div className="w-full mb-1 flex flex-col items-start">
+                        <span className="text-pink-500 font-black uppercase tracking-[0.4em] text-[11px] mb-3">
                             Engineering & Design
-                        </p>
-                        <h3 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tighter leading-none">
+                        </span>
+
+                        {/* Uniformato a h2 e lg:text-6xl con tracking-tighter */}
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter leading-none">
                             Progetti <span className="text-pink-500">chiave</span>
-                        </h3>
+                        </h2>
+
                         <div className="h-[3px] w-8 bg-pink-500 mt-4" />
                     </div>
 
@@ -44,26 +46,27 @@ export default function KeyProjectsSection() {
                                 </div>
 
                                 {/* Blocco Informazioni sotto la card */}
-                                <div className="flex flex-col gap-2 w-full px-1">
-                                    {/* Riga Orizzontale: Titolo a sinistra e Tag a destra perfettamente in asse */}
+                                <div className="flex flex-col gap-3 w-full pl-0">
+                                    {/* Riga Orizzontale: Titolo e Tag perfettamente bilanciati */}
                                     <div className="flex flex-row justify-between items-center w-full gap-4">
-                                        {/* Titolo forzato in minuscolo come nell'immagine */}
-                                        <h4 className="text-lg md:text-xl font-black text-slate-900 tracking-tighter lowercase">
+                                        {/* Passato a h3 per gerarchia semantica e scalato come i titoli delle schede precedenti */}
+                                        <h3 className="text-lg md:text-xl font-black text-slate-900 tracking-tighter lowercase">
                                             e-commerce engine v.0{project}
-                                        </h4>
+                                        </h3>
 
                                         {/* Tag compatti */}
                                         <div className="flex gap-1.5 flex-wrap shrink-0">
-                                            <span className="text-[8px] font-black uppercase tracking-wider text-slate-400 border border-slate-200 px-2.5 py-0.5 rounded-md bg-slate-50/30">
+                                            <span className="text-[10px] font-black uppercase tracking-widest text-pink-500 border border-slate-100 px-2.5 py-0.5 rounded-md bg-slate-50/30">
                                                 NEXT.JS
                                             </span>
-                                            <span className="text-[8px] font-black uppercase tracking-wider text-slate-400 border border-slate-200 px-2.5 py-0.5 rounded-md bg-slate-50/30">
+                                            <span className="text-[10px] font-black uppercase tracking-widest text-pink-500 border border-slate-100 px-2.5 py-0.5 rounded-md bg-slate-50/30">
                                                 UI/UX
                                             </span>
                                         </div>
                                     </div>
 
-                                    <p className="text-slate-500 text-xs md:text-sm leading-relaxed max-w-xl text-left">
+                                    {/* Uniformato alla dimensione text-base leading-relaxed font-medium delle schede */}
+                                    <p className="text-slate-500 text-base leading-relaxed font-medium text-left">
                                         Un sistema completo sviluppato con Next.js, integrazione Stripe e gestione dinamica dei dati. Design pulito, logica spietata.
                                     </p>
                                 </div>

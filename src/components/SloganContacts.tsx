@@ -14,53 +14,67 @@ const SloganContacts = () => {
 
     return (
         <>
-            <section className="w-full bg-white px-6 sm:px-12 md:px-16 lg:px-24 py-16 select-none">
-
-                <div className="w-full max-w-6xl mx-auto">
+            <section className="relative w-full bg-white px-6 sm:px-12 md:px-16 lg:px-24 pt-12 pb-16 select-none z-10">
+                <div className="w-full">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, ease: "easeOut" }}
+                        whileHover={{ y: -5, scale: 1.005 }}
                         onMouseMove={handleMouseMove}
-                        className="relative w-full bg-slate-900 rounded-[3rem] p-12 md:p-24 overflow-hidden shadow-2xl group border border-white/5"
+                        className="w-full bg-gradient-to-br from-[#11131e] via-[#0c0d14] to-[#161929]  hover:bg-white hover:text-slate-900 rounded-[3rem] py-14 sm:py-16 px-6 md:px-16 flex flex-col items-center text-center relative overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:shadow-[0_20px_50px_rgba(244,114,182,0.15)] border border-white/5 group"
                     >
-                        {/* BAGLIORE ROSA*/}
+                        {/* BAGLIORI COREOGRAFICI FISSI ESATTI SULLO SFONDO */}
+                        <div className="absolute -top-24 -left-24 w-80 h-80 bg-pink-500/10 rounded-full blur-[80px] pointer-events-none" />
+                        <div className="absolute -bottom-24 -right-24 w-80 h-80 bg-violet-600/10 rounded-full blur-[80px] pointer-events-none" />
+
+                        {/* LINEA SOTTILE DI GRADIENTE SUL BORDO SUPERIORE */}
+                        <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-pink-500/30 to-transparent" />
+
+                        {/* BAGLIORE ROSA DINAMICO AL PASSAGGIO DEL MOUSE */}
                         <div
-                            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0"
                             style={{
-                                background: `radial-gradient(600px circle at ${coords.x}px ${coords.y}px, rgba(236, 72, 153, 0.15), transparent 40%)`
+                                background: `radial-gradient(600px circle at ${coords.x}px ${coords.y}px, rgba(236, 72, 153, 0.12), transparent 45%)`
                             }}
                         />
 
-                        {/* GRIGLIA */}
-                        <div className="relative z-10 max-w-4xl mx-auto text-center">
-                            <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-tighter leading-[0.95] mb-8 lowercase">
+                        {/* CONTENUTO PRINCIPALE */}
+                        <div className="relative z-10 max-w-4xl mx-auto text-center w-full flex flex-col items-center">
+                            
+                            {/* TESTO SLOGAN */}
+                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tighter leading-[1.1] mb-8">
                                 Non cerchi solo un dev. <br /> Cerchi <span className="text-pink-500 italic font-medium">visione</span> e <span className="text-pink-500">metodo</span>.
                             </h2>
 
-                            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-12">
+                            {/* CONTENITORE PULSANTI AFFIANCATI */}
+                            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full sm:w-auto mt-4">
+                                
+                                {/* PULSANTE PRINCIPALE*/}
                                 <motion.a
                                     whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.98 }}
+                                    whileTap={{ scale: 0.95 }}
                                     href="mailto:saraspano@live.it"
-                                    className="px-14 py-6 bg-pink-500 text-white rounded-full font-black uppercase tracking-[0.2em] text-[10px] shadow-xl shadow-pink-500/10 hover:shadow-pink-500/30 transition-shadow duration-300"
+                                    className="w-full sm:w-auto inline-flex items-center justify-center bg-pink-500 text-white font-black uppercase text-[10px] sm:text-xs md:text-sm tracking-[0.2em] sm:tracking-[0.3em] px-8 py-4 sm:px-12 sm:py-5 rounded-full shadow-lg shadow-pink-500/20 hover:shadow-pink-500/40 transition-all duration-300 hover:bg-pink-600"
                                 >
                                     Iniziamo il progetto
                                 </motion.a>
 
+                                {/* PULSANTE SECONDARIO */}
                                 <motion.a
-                                    whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,1)", color: "#0f172a" }}
-                                    whileTap={{ scale: 0.98 }}
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
                                     href="#"
-                                    className="px-14 py-6 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-full font-black uppercase tracking-[0.2em] text-[10px] transition-all duration-300"
+                                    className="w-full sm:w-auto inline-flex items-center justify-center bg-[#1e293b]/40 border border-white/10 text-white font-black uppercase text-[10px] sm:text-xs md:text-sm tracking-[0.2em] sm:tracking-[0.3em] px-8 py-4 sm:px-12 sm:py-5 rounded-full transition-all duration-300 hover:bg-white hover:text-slate-900"
                                 >
                                     Prendiamo un caffè? ☕
                                 </motion.a>
                             </div>
                         </div>
 
-                        <div className="absolute inset-0 opacity-[0.04] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#ec4899 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+                        {/* PATTERN GEOMETRICO DI SFONDO*/}
+                        <div className="absolute inset-0 opacity-[0.02] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#ec4899 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
                     </motion.div>
                 </div>
             </section>
@@ -69,3 +83,4 @@ const SloganContacts = () => {
 };
 
 export default SloganContacts;
+
