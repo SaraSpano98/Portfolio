@@ -11,7 +11,8 @@ const InfiniteTicker = () => {
   const duplicatedWords = [...words, ...words, ...words];
 
   return (
-    <div className="w-full bg-white py-14 cursor-none overflow-hidden">
+    /* MODIFICATO: Aumentato il margine negativo a lg:-mt-32 per eliminare l'ultimo vuoto asimmetrico sotto la colonna di testo */
+    <div className="w-full bg-white py-14 cursor-none overflow-hidden lg:-mt-32 relative z-20">
       {/* Container allineato alla Navbar (px-10) */}
       <div className="w-full px-10 relative overflow-hidden">
         

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import SEO from "../lib/seo";
 
-import ProjectsHero from '../components/ProjectsHero';
+import ProjectsHero from '../components/layout/projects/ProjectsHero';
 
 export default function Projects(): React.ReactElement {
     return (

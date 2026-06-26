@@ -1,9 +1,9 @@
 import SEO from "../lib/seo";
 
-import IdentityHero from '../components/IdentityHero';
-import TechProfileSection from '../components/TechProfileSection';
-import MyValuesSection from '../components/MyValuesSection';
-import CtaExperiencesSection from '../components/CtaExperiencesSection';
+import IdentityHero from '../components/layout/about/IdentityHero';
+import TechProfileSection from '../components/layout/about/TechProfileSection';
+import MyValuesSection from '../components/layout/about/MyValuesSection';
+import CtaExperiencesSection from '../components/layout/about/CtaExperiencesSection';
 
 
 export default function About(): React.ReactElement {

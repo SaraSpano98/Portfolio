@@ -15,7 +15,7 @@ const ContactsHero = ({ time, revealVariant }: ContactsHeroProps) => {
                 <div className="w-full mb-20">
                     <div className="flex flex-col lg:flex-row justify-between gap-12 w-full items-start">
 
-                        {/* COLONNA SINISTRA (Allineata perfettamente sotto il logo) */}
+                        {/* COLONNA SINISTRA */}
                         <div className="w-full lg:max-w-2xl flex flex-col items-start text-left">
                             <div className="overflow-hidden mb-4">
                                 <motion.p
@@ -53,7 +53,7 @@ const ContactsHero = ({ time, revealVariant }: ContactsHeroProps) => {
                             </motion.div>
                         </div>
 
-                        {/* COLONNA DESTRA (Allineata perfettamente sotto il tasto "Tech Stack" della navbar) */}
+                        {/* COLONNA DESTRA */}
                         <div className="w-full lg:w-auto flex flex-col items-start lg:items-end text-left lg:text-right shrink-0 lg:mt-24">
                             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }} className="flex flex-col items-start lg:items-end">
                                 <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-500 mb-2 whitespace-nowrap">Local Time / Italy</p>

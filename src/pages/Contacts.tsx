@@ -4,12 +4,13 @@ import { Player } from '@lordicon/react';
 import { fetchIconData, LordIcons } from '../components/Lordicons';
 
 {/* COMPONENTS */}
-import ContactsHero from '../components/ContactsHero';
-import ProcessSection from '../components/ProcessSection';
-import PrerequisitiSection from '../components/PrerequisitiSection';
-import KeyPoints from '../components/KeyPoints';
-import DirectInquirySection from '../components/DirectInquirySection';
-import SloganContacts from '../components/SloganContacts';
+
+import ContactsHero from '../components/layout/contacts/ContactsHero';
+import ProcessSection from '../components/layout/contacts/ProcessSection';
+import PrerequisitiSection from '../components/layout/contacts/PrerequisitiSection';
+import KeyPoints from '../components/layout/contacts/KeyPoints';
+import DirectInquirySection from '../components/layout/contacts/DirectInquirySection';
+import SloganContacts from '../components/layout/contacts/SloganContacts';
 
 const Contacts = () => {
     {/* 1. STATO DELL'ORARIO (Richiesto da ContactHero) */}

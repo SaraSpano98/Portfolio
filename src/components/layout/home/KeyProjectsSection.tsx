@@ -3,13 +3,16 @@ import { Link } from 'react-router-dom';
 
 export default function KeyProjectsSection() {
     return (
-        <section className="relative w-full bg-white pt-20 pb-24 px-6 sm:px-12 md:px-16 lg:px-24 z-10 select-none">
+        /* MODIFICATO: Ridotto pt-20 a pt-4 per compensare la spinta del ticker e bilanciare lo spazio visivo iniziale */
+        <section className="relative w-full bg-white pt-4 pb-24 px-6 sm:px-12 md:px-16 lg:px-24 z-10 select-none">
             
             <div className="w-full flex flex-col items-start text-start">
-                <div className="flex flex-col gap-16 w-full">
+                {/* MODIFICATO: Rimosso flex-col e gap-16 globale che creava scompensi di spaziatura */}
+                <div className="w-full">
 
                     {/* HEADER DELLA SEZIONE UNIFORMATO ALLA PRECEDENTE */}
-                    <div className="w-full mb-1 flex flex-col items-start">
+                    {/* MODIFICATO: Cambiato mb-1 a mb-14 per dare al titolo lo stesso identico respiro che c'è nella sezione superiore prima della griglia */}
+                    <div className="w-full mb-14 flex flex-col items-start">
                         <span className="text-pink-500 font-black uppercase tracking-[0.4em] text-[11px] mb-3">
                             Engineering & Design
                         </span>

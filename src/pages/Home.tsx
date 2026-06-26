@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
 import SEO from "../lib/seo";
 
-import Hero from "../components/Hero";
-import FullStackPhilosophy from "../components/FullStackPhilosophy"
-import InfiniteTicker from "../components/InfiniteTicker";
-import KeyProjectsSection from "../components/KeyProjectsSection";
-import NextStepCta from "../components/NextStepCta";
+import Hero from "../components/layout/home/Hero";
+import FullStackPhilosophy from "../components/layout/home/FullStackPhilosophy"
+import InfiniteTicker from "../components/layout/home/InfiniteTicker";
+import KeyProjectsSection from "../components/layout/home/KeyProjectsSection";
+import NextStepCta from "../components/layout/home/NextStepCta";
 
 export default function Home(): React.ReactElement {
     return (
