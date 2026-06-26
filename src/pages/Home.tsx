@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import SEO from "../lib/seo";
 
 import Hero from "../components/layout/home/Hero";
-import FullStackPhilosophy from "../components/layout/home/FullStackPhilosophy"
+import FullStackPhilosophy from "../components/layout/home/FullStackPhilosophy";
 import InfiniteTicker from "../components/layout/home/InfiniteTicker";
 import KeyProjectsSection from "../components/layout/home/KeyProjectsSection";
 import NextStepCta from "../components/layout/home/NextStepCta";

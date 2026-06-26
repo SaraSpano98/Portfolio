@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import Pattern from '../styles/Pattern';
+import Pattern from "../../../styles/Pattern";
 
 const Hero = () => {
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
