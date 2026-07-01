@@ -93,13 +93,13 @@ export default function IdentityHero(): React.ReactElement {
 
 
     return (
+
         <>
-            {/* CORREZIONE 1: Azzerato completamente il padding laterale (px-0) sulla section esterna */}
-            <section className="w-full bg-white text-slate-900 pt-32 lg:pt-36 pb-28 select-none overflow-hidden relative px-0">
+            {/* I padding laterali (px-6 md:px-12 lg:px-24) sono gli unici che ora decidono la linea esatta dei margini di tutto il sito */}
+            <section className="w-full bg-white text-slate-900 px-6 md:px-12 lg:px-24 pt-32 lg:pt-36 pb-28 select-none overflow-hidden relative">
 
-                {/* 1. CONTENITORE HERO: Mantiene i padding normali per tenere il testo descrittivo compatto al centro */}
-                <div className="w-full max-w-3xl mx-auto mb-20 px-6 md:px-12 flex flex-col items-center text-center">
-
+                {/* 1. CONTENITORE HERO: Rimane compatto al centro per il testo della descrizione */}
+                <div className="w-full max-w-3xl mx-auto mb-20 flex flex-col items-center text-center">
                     {/* Titolo Principale */}
                     <h1 className="text-4xl sm:text-5xl lg:text-7xl xl:text-[68px] font-black uppercase tracking-tighter text-slate-950 flex flex-wrap items-center justify-center gap-5 leading-none mb-6">
                         Ciao, <span className="text-pink-500">sono Sara!</span>
@@ -117,21 +117,23 @@ export default function IdentityHero(): React.ReactElement {
                     </p>
                 </div>
 
-                {/* 2. GRIGLIA ALLINEATA ALLA SEZIONE VIDEO SOTTO */}
-                {/* CORREZIONE 2: Portato a max-w-[90rem] + px-6 md:px-12 lg:px-24 per copiare al 100% la larghezza del resto del sito */}
-                <div className="w-full max-w-[90rem] mx-auto mt-30 px-6 md:px-12 lg:px-24">
-                    {/* Il gap-6 riduce lo spazio in mezzo, costringendo le singole card a espandersi e allargarsi */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 w-full">
+                {/* 2. GRIGLIA FLUIDA A TUTTA LARGHEZZA */}
+                {/* MODIFICA CHIAVE: max-w-full rimuove ogni blocco statico, costringendo le card a viaggiare fino ai margini px della pagina */}
+                <div className="w-full max-w-full mx-auto mt-24">
+
+                    {/* Il gap-x-20 lg:gap-x-28 mantiene le colonne ben distanziate tra loro al centro, evitando l'effetto appiccicato */}
+                    {/* Il gap-y-20 distanzia in modo netto e arioso la prima riga di card dalla seconda */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 lg:gap-x-28 gap-y-16 lg:gap-y-20 w-full">
                         {storyData.map((slide) => {
                             return (
                                 <motion.div
                                     key={slide.id}
-                                    whileHover={{ y: -10, scale: 1.015 }}
+                                    whileHover={{ y: -8, scale: 1.01 }}
                                     transition={{ type: "spring", stiffness: 300, damping: 22 }}
                                     className={`relative rounded-[2rem] bg-gradient-to-b ${slide.themeColor} ${slide.glowStyle} p-[1.5px] transition-all duration-500 ease-out group/card cursor-pointer w-full`}
                                 >
-                                    {/* Contenitore Interno Bianco */}
-                                    <div className="w-full h-full bg-white/95 rounded-[1.9rem] backdrop-blur-xl flex flex-col items-start justify-start p-8 py-9 border border-white relative overflow-hidden text-left shadow-sm">
+                                    {/* Contenitore Interno Bianco - Allargandosi al massimo, il testo si stende e riduce l'altezza verticale */}
+                                    <div className="w-full h-full bg-white/95 rounded-[1.9rem] backdrop-blur-xl flex flex-col items-start justify-between p-8 sm:p-10 border border-white relative overflow-hidden text-left shadow-sm">
 
                                         {/* Pattern Grid di Sfondo */}
                                         <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000001_1px,transparent_1px),linear-gradient(to_bottom,#00000001_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
@@ -165,16 +167,16 @@ export default function IdentityHero(): React.ReactElement {
                                             <p className="text-slate-500 text-base leading-relaxed font-medium">
                                                 {slide.text}
                                             </p>
-
-                                            {/* Blocco Citazione Inferiore */}
-                                            {slide.quote && (
-                                                <div className="border-t border-slate-100 pt-3.5 w-full mt-1 shrink-0">
-                                                    <p className="text-slate-700 font-semibold italic text-sm sm:text-[15px] leading-relaxed">
-                                                        "{slide.quote}"
-                                                    </p>
-                                                </div>
-                                            )}
                                         </div>
+
+                                        {/* Blocco Citazione Inferiore (Attaccato flessibilmente sul fondo) */}
+                                        {slide.quote && (
+                                            <div className="relative z-10 border-t border-slate-100 pt-5 w-full mt-6 shrink-0">
+                                                <p className="text-slate-700 font-semibold italic text-sm sm:text-[15px] leading-relaxed">
+                                                    "{slide.quote}"
+                                                </p>
+                                            </div>
+                                        )}
                                     </div>
                                 </motion.div>
                             );
@@ -184,4 +186,5 @@ export default function IdentityHero(): React.ReactElement {
             </section>
         </>
     );
+
 }
