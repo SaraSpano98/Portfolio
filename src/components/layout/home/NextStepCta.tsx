@@ -24,7 +24,6 @@ export default function NextStepCta() {
                         transition={{ duration: 0.6, ease: "easeOut" }}
                         whileHover={{ y: -5, scale: 1.005 }}
                         onMouseMove={handleMouseMove} 
-                        /* MODIFICATO: Aumentato py-14/sm:py-16 a py-20 sm:py-24 per dare molto più respiro sopra e sotto a tutto il blocco di contenuti */
                         className="w-full bg-gradient-to-br from-[#11131e] via-[#0c0d14] to-[#161929] rounded-[3rem] py-20 sm:py-24 px-6 md:px-16 flex flex-col items-center text-center relative overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:shadow-[0_20px_50px_rgba(244,114,182,0.15)] border border-white/5 group"
                     >
                         <div className="absolute -top-24 -left-24 w-80 h-80 bg-pink-500/10 rounded-full blur-[80px] pointer-events-none" />
@@ -41,17 +40,14 @@ export default function NextStepCta() {
                         {/* LINEA SOTTILE DI GRADIENTE SUL BORDO SUPERIORE */}
                         <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-pink-500/30 to-transparent" />
 
-                        {/* MODIFICATO: Aumentato mb-3 a mb-5 per staccare il micro-titolo dall'H2 */}
                         <span className="text-pink-500 font-black uppercase tracking-[0.4em] text-[11px] mb-5 relative z-10">
                             Next Step
                         </span>
 
-                        {/* MODIFICATO: Cambiato leading-none a leading-[1.15] e aumentato mb-4 a mb-6 per far respirare le righe del titolo principale */}
                         <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tighter leading-[1.15] mb-6 relative z-10">
                             Ingegnerizzare la tua <span className="text-pink-500 relative inline-block">idea.</span>
                         </h2>
-
-                        {/* MODIFICATO: Cambiato mb-8 a mb-12 per allontanare i pulsanti dal testo e creare una transizione d'impatto */}
+                        
                         <p className="text-slate-400 text-base leading-relaxed max-w-2xl mb-12 font-medium relative z-10">
                             Hai in mente un'applicazione complessa, un e-commerce o una piattaforma digitale sartoriale?
                             Uniamo logiche <span className="text-slate-200 font-semibold">full-stack</span> e design <span className="text-slate-200 font-semibold">d'avanguardia</span> per costruire una struttura scalabile, solida e pronta a crescere.

@@ -28,7 +28,7 @@ const Hero = () => {
 
       {/* STRUTTURA TESTI LATERALI INTERATTIVI */}
       <div className="absolute inset-0 z-30 grid grid-cols-2 w-full h-full pointer-events-none pt-16">
-
+        
         {/* LATO SINISTRO: DESIGNER */}
         <div className="relative w-full h-full px-24 flex items-center justify-start">
           <div className="pointer-events-auto flex flex-col items-start group">
@@ -54,13 +54,31 @@ const Hero = () => {
               <div className="absolute bottom-[-6px] left-0 w-0 h-[3px] bg-pink-500 group-hover:w-full transition-all duration-300 ease-out" />
             </Link>
 
-            <motion.h5
-              animate={{ color: hoveredLink === 'coder' ? '#64748b' : '#475569' }}
-              transition={{ duration: 0.3 }}
-              className="mt-6 text-xs sm:text-sm md:text-lg max-w-[180px] sm:max-w-[250px] md:max-w-[320px] font-medium leading-relaxed border-l-4 border-pink-500 pl-4 sm:pl-5 italic transition-colors"
-            >
-              Product designer specializzata in UI design, sistemi creativi e colori.
-            </motion.h5>
+            {/* BLOCCO TESTO + LINEA VERTICALE ANIMATA */}
+            <div className="mt-6 flex items-stretch gap-4 sm:gap-5">
+              {/* Linea verticale */}
+              <motion.div
+                animate={{
+                  backgroundColor: hoveredLink === 'designer'
+                    ? '#7c3aed'
+                    : (hoveredLink === 'coder' ? '#64748b' : '#ec4899')
+                }}
+                transition={{ duration: 0.3 }}
+                className="w-[4px] rounded-full"
+              />
+
+              <motion.h5
+                animate={{
+                  color: hoveredLink === 'designer'
+                    ? '#1e293b'
+                    : (hoveredLink === 'coder' ? '#64748b' : '#475569')
+                }}
+                transition={{ duration: 0.3 }}
+                className="text-xs sm:text-sm md:text-lg max-w-[180px] sm:max-w-[250px] md:max-w-[320px] font-medium leading-relaxed italic transition-colors"
+              >
+                Product designer specializzata in UI design, sistemi creativi e colori.
+              </motion.h5>
+            </div>
 
             <motion.span
               animate={{ color: hoveredLink === 'coder' ? '#64748b' : (hoveredLink === 'designer' ? '#ec4899' : '#94a3b8') }}
@@ -99,17 +117,35 @@ const Hero = () => {
               >
                 &lt;coder&gt;
               </motion.span>
-            
+
               <div className="absolute bottom-[-6px] right-0 w-0 h-[3px] bg-violet-600 group-hover:w-full transition-all duration-300 ease-out" />
             </Link>
 
-            <motion.h5
-              animate={{ color: hoveredLink === 'coder' ? '#94a3b8' : '#475569' }}
-              transition={{ duration: 0.3 }}
-              className="mt-6 text-xs sm:text-sm md:text-lg max-w-[180px] sm:max-w-[250px] md:max-w-[320px] font-medium leading-relaxed border-r-4 border-pink-500 pr-4 sm:pr-5 italic transition-colors"
-            >
-              Sviluppatrice front-end che ama scrivere codice pulito, elegante ed efficiente.
-            </motion.h5>
+            {/* BLOCCO TESTO + LINEA VERTICALE ANIMATA DESTRI */}
+            <div className="mt-6 flex items-stretch gap-4 sm:gap-5 justify-end">
+              <motion.h5
+                animate={{
+                  color: hoveredLink === 'coder'
+                    ? '#f1f5f9' // Slate-100: molto più chiaro e leggibile sullo scuro
+                    : (hoveredLink === 'designer' ? '#475569' : '#475569')
+                }}
+                transition={{ duration: 0.3 }}
+                className="text-xs sm:text-sm md:text-lg max-w-[180px] sm:max-w-[250px] md:max-w-[320px] font-medium leading-relaxed italic transition-colors text-right"
+              >
+                Sviluppatrice front-end che ama scrivere codice pulito, elegante ed efficiente.
+              </motion.h5>
+
+              {/* Linea verticale destra che si adatta all'hover */}
+              <motion.div
+                animate={{
+                  backgroundColor: hoveredLink === 'coder'
+                    ? '#ec4899' // Diventa rosa quando passi su coder
+                    : (hoveredLink === 'designer' ? '#64748b' : '#ec4899')
+                }}
+                transition={{ duration: 0.3 }}
+                className="w-[4px] rounded-full"
+              />
+            </div>
 
             <motion.span
               animate={{ color: hoveredLink === 'coder' ? '#7c3aed' : (hoveredLink === 'designer' ? '#475569' : '#94a3b8') }}
@@ -125,8 +161,6 @@ const Hero = () => {
             </motion.span>
           </div>
         </div>
-
-
       </div>
 
       {/* SEZIONE IMMAGINI CENTRALI */}

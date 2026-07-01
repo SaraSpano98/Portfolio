@@ -7,16 +7,14 @@ const InfiniteTicker = () => {
     "Figma Pro", "Clean Code", "Creative Thinker"
   ];
 
-  // Triplichiamo le parole per un loop infinito senza interruzioni
   const duplicatedWords = [...words, ...words, ...words];
 
   return (
-    /* MODIFICATO: Aumentato il margine negativo a lg:-mt-32 per eliminare l'ultimo vuoto asimmetrico sotto la colonna di testo */
     <div className="w-full bg-white py-14 cursor-none overflow-hidden lg:-mt-32 relative z-20">
-      {/* Container allineato alla Navbar (px-10) */}
+      {/* CONTAINER ALLINEATO ALLA NAVBAR */}
       <div className="w-full px-10 relative overflow-hidden">
         
-        {/* Sfumature laterali per l'effetto dissolvenza */}
+        {/* SFUMATURE LATERALI */}
         <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white via-white/90 to-transparent z-10" />
         <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white via-white/90 to-transparent z-10" />
 
@@ -24,7 +22,7 @@ const InfiniteTicker = () => {
           className="flex whitespace-nowrap gap-20 items-center"
           animate={{ x: [0, -2000] }}
           transition={{
-            duration: 45, // Movimento lento e sofisticato
+            duration: 45, 
             repeat: Infinity,
             ease: "linear",
           }}
@@ -34,7 +32,7 @@ const InfiniteTicker = () => {
               <span className="text-xl md:text-3xl font-bold text-slate-300 uppercase tracking-[0.2em] select-none">
                 {word}
               </span>
-              {/* Separatore: un rombo sottile o un puntino */}
+              {/* SEPARATORE */}
               <div className="w-1.5 h-1.5 bg-pink-500/20 rounded-full" />
             </div>
           ))}
