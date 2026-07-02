@@ -45,14 +45,11 @@ const ProjectsHero = ({ projects = [], revealVariant }: ProjectsHeroProps) => {
 
     return (
         <section className="w-full bg-white text-slate-900 px-6 sm:px-12 md:px-16 lg:px-24 pt-40 lg:pt-48 pb-28 select-none overflow-hidden relative">
-            {/* Sostituito max-w-6xl con mb-20 e w-full: ora eredita i margini globali della section (px-6... lg:px-24) */}
             <div className="w-full mb-20">
-                {/* Struttura Flex a due colonne speculare al ContactHero per toccare i rispettivi margini esterni */}
                 <div className="flex flex-col lg:flex-row justify-between gap-12 w-full items-start">
 
-                    {/* COLONNA SINISTRA (Testo e Card) */}
+                    {/* COLONNA SINISTRA */}
                     <div className="w-full lg:max-w-2xl flex flex-col items-start text-left">
-                        {/* Sopra-titolo animato */}
                         <div className="overflow-hidden mb-4">
                             <motion.p
                                 initial="hidden" animate="visible" variants={revealVariant}
@@ -63,7 +60,6 @@ const ProjectsHero = ({ projects = [], revealVariant }: ProjectsHeroProps) => {
                             </motion.p>
                         </div>
 
-                        {/* Titolo Principale */}
                         <div className="mb-8">
                             <motion.h1
                                 initial="hidden" animate="visible" variants={revealVariant}
@@ -93,8 +89,7 @@ const ProjectsHero = ({ projects = [], revealVariant }: ProjectsHeroProps) => {
                         </motion.div>
                     </div>
 
-                    {/* COLONNA DESTRA (Statistiche in verticale) */}
-                    {/* Allineata specularmente all'estremo margine destro grazie a justify-between e items-end */}
+                    {/* COLONNA DESTRA */}
                     <div className="w-full lg:w-auto flex flex-col items-start lg:items-end text-left lg:text-right shrink-0 lg:mt-24">
                         <motion.div 
                             initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }}
