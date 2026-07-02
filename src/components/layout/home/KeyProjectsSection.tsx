@@ -41,7 +41,7 @@ export default function KeyProjectsSection() {
                                     </div>
                                 </div>
 
-                                {/* Blocco Informazioni sotto la card */}
+                                {/* BLOCCO INFO UNDER CARDS */}
                                 <div className="flex flex-col gap-3 w-full pl-0">
                                     {/* Riga Orizzontale */}
                                     <div className="flex flex-row justify-between items-center w-full gap-4">
@@ -49,7 +49,7 @@ export default function KeyProjectsSection() {
                                             e-commerce engine v.0{project}
                                         </h3>
 
-                                        {/* Tag compatti */}
+                                        {/* TAG COMPATTI */}
                                         <div className="flex gap-1.5 flex-wrap shrink-0">
                                             <span className="text-[10px] font-black uppercase tracking-widest text-pink-500 border border-slate-300 px-2.5 py-0.5 rounded-md bg-slate-50/30">
                                                 NEXT.JS

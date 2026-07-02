@@ -56,7 +56,8 @@ const Hero = () => {
 
             {/* BLOCCO TESTO + LINEA VERTICALE ANIMATA */}
             <div className="mt-6 flex items-stretch gap-4 sm:gap-5">
-              {/* Linea verticale */}
+              
+              {/* Linea verticale sinistra*/}
               <motion.div
                 animate={{
                   backgroundColor: hoveredLink === 'designer'
@@ -126,7 +127,7 @@ const Hero = () => {
               <motion.h5
                 animate={{
                   color: hoveredLink === 'coder'
-                    ? '#f1f5f9' // Slate-100: molto più chiaro e leggibile sullo scuro
+                    ? '#f1f5f9' 
                     : (hoveredLink === 'designer' ? '#475569' : '#475569')
                 }}
                 transition={{ duration: 0.3 }}
@@ -135,11 +136,11 @@ const Hero = () => {
                 Sviluppatrice front-end che ama scrivere codice pulito, elegante ed efficiente.
               </motion.h5>
 
-              {/* Linea verticale destra che si adatta all'hover */}
+              {/* Linea verticale destra */}
               <motion.div
                 animate={{
                   backgroundColor: hoveredLink === 'coder'
-                    ? '#ec4899' // Diventa rosa quando passi su coder
+                    ? '#ec4899' 
                     : (hoveredLink === 'designer' ? '#64748b' : '#ec4899')
                 }}
                 transition={{ duration: 0.3 }}

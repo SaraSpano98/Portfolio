@@ -1,6 +1,5 @@
 import { useState } from 'react';
 
-// --- DEFINIZIONE INTERFACCE TYPESCRIPT ---
 interface SkillCategoryData {
     percentage: string;
     items: { name: string; icon: string }[];
@@ -44,7 +43,6 @@ const coderSkills: ColumnSkills = {
     }
 };
 
-// Rinominato il componente per chiarezza e modularità
 export default function SkillsSelectorCoder() {
     const [activeCoderTab, setActiveCoderTab] = useState<string>("Front-end");
 
@@ -52,9 +50,9 @@ export default function SkillsSelectorCoder() {
         <div className="w-full flex flex-col gap-6 mt-2">
             
             {/* Navigazione Filtri Coder */}
-            <div className="flex flex-col gap-2 w-full">
+            <div className="flex flex-col gap-2 w-full mt-5">
                 <span className="text-[11px] font-black uppercase tracking-[0.25em] text-slate-600">Tech Stack & Frameworks</span>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 mt-4">
                     {Object.keys(coderSkills).map((tab) => (
                         <button
                             key={tab}
@@ -71,11 +69,11 @@ export default function SkillsSelectorCoder() {
                 </div>
             </div>
 
-            {/* Contenuto Dinamico: Lista + Maxi-Badge Blu/Indigo */}
-            <div className="grid grid-cols-1 sm:grid-cols-12 gap-6 w-full mt-2 items-center">
+            {/* CONTENITORE */}
+            <div className="w-full flex items-start justify-between gap-6 mt-4">
                 
-                {/* Lista Voci */}
-                <div className="sm:col-span-7 flex flex-col gap-3.5">
+                {/* Lista Voci Coder */}
+                <div className="flex-1 flex flex-col gap-3.5 justify-start ">
                     {coderSkills[activeCoderTab].items.map((item, i) => (
                         <div key={i} className="flex items-center gap-3 text-slate-700 hover:text-slate-950 transition-colors">
                             <span className="text-xl shrink-0">{item.icon}</span>
@@ -84,9 +82,9 @@ export default function SkillsSelectorCoder() {
                     ))}
                 </div>
 
-                {/* Maxi Rettangolo Arrotondato Indigo/Blu (Competenza) */}
-                <div className="sm:col-span-5 flex justify-center sm:justify-end">
-                    <div className="bg-[#4f46e5] text-white rounded-[2rem] px-8 py-8 w-full max-w-[200px] aspect-square flex flex-col items-center justify-center text-center shadow-lg shadow-indigo-500/20 transform transition-transform duration-500 hover:scale-105">
+                {/* Rettangolo Blu */}
+                <div className="flex shrink-0 items-start justify-end">
+                    <div className="bg-[#4f46e5] text-white rounded-[2rem] px-8 py-8 w-[160px] sm:w-[180px] aspect-square flex flex-col items-center justify-center text-center shadow-lg shadow-indigo-500/20 transform transition-transform duration-500 hover:scale-105">
                         <span className="text-4xl font-black tracking-tight mb-1">
                             {coderSkills[activeCoderTab].percentage}
                         </span>
@@ -100,3 +98,4 @@ export default function SkillsSelectorCoder() {
         </div>
     );
 }
+
