@@ -56,7 +56,7 @@ const valuesData: ValueItem[] = [
 
 export default function MyValuesSection() {
     return (
-        <section className="relative w-full bg-white text-slate-900 pt-20 pb-6 px-6 sm:px-12 md:px-16 lg:px-24 z-10 select-none">
+        <section className="relative w-full bg-white text-slate-900 mt-24 pt-12 pb-6 px-6 sm:px-12 md:px-16 lg:px-24 z-10 select-none">
             <div className="w-full flex flex-col items-start text-start">
                 <div className="w-full mb-14 flex flex-col items-start">
                     <span className="text-pink-500 font-black uppercase tracking-[0.4em] text-[11px] mb-3">

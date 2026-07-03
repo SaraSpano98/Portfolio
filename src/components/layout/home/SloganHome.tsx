@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
-export default function NextStepCta() {
+export default function SloganHome() {
     const [coords, setCoords] = useState({ x: 0, y: 0 });
 
     const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -15,8 +15,8 @@ export default function NextStepCta() {
 
     return (
         <>
-            <section className="relative w-full bg-white pt-12 sm:pt-16 pb-24 sm:pb-32 px-6 sm:px-12 md:px-16 lg:px-24 z-10 select-none">
-                <div className="w-full">
+            <section className="relative w-full bg-white pb-16 pt-0 mt-32 mb-32 select-none z-10">
+                <div className="w-full max-w-8xl mx-auto px-6 sm:px-12 md:px-16 lg:px-24">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}

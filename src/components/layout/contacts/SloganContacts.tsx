@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { ArrowUpRight } from 'lucide-react';
 
 const SloganContacts = () => {
     const [coords, setCoords] = useState({ x: 0, y: 0 });
@@ -41,7 +43,7 @@ const SloganContacts = () => {
                         />
 
                         {/* CONTENUTO PRINCIPALE */}
-                        <div className="relative z-10 max-w-4xl mx-auto text-center w-full flex flex-col items-center">
+                        <div className="z-10 max-w-3xl mx-auto text-center w-full flex flex-col items-center justify-center">
                             
                             {/* TESTO SLOGAN */}
                             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tighter leading-[1.1] mb-8">
@@ -52,24 +54,21 @@ const SloganContacts = () => {
                             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full sm:w-auto mt-4">
                                 
                                 {/* PULSANTE PRINCIPALE*/}
-                                <motion.a
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    href="mailto:saraspano@live.it"
+                                <Link
+                                    to="mailto:saraspano@live.it"
                                     className="w-full sm:w-auto inline-flex items-center justify-center bg-pink-500 text-white font-black uppercase text-[10px] sm:text-xs md:text-sm tracking-[0.2em] sm:tracking-[0.3em] px-8 py-4 sm:px-12 sm:py-5 rounded-full shadow-lg shadow-pink-500/20 hover:shadow-pink-500/40 transition-all duration-300 hover:bg-pink-600"
                                 >
                                     Iniziamo il progetto
-                                </motion.a>
+                                    <ArrowUpRight className="w-4 h-4 shrink-0 stroke-[2.5]" />
+                                </Link>
 
                                 {/* PULSANTE SECONDARIO */}
-                                <motion.a
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    href="#"
+                                <Link
+                                    to="#"
                                     className="w-full sm:w-auto inline-flex items-center justify-center bg-[#1e293b]/40 border border-white/10 text-white font-black uppercase text-[10px] sm:text-xs md:text-sm tracking-[0.2em] sm:tracking-[0.3em] px-8 py-4 sm:px-12 sm:py-5 rounded-full transition-all duration-300 hover:bg-white hover:text-slate-900"
                                 >
                                     Prendiamo un caffè? ☕
-                                </motion.a>
+                                </Link>
                             </div>
                         </div>
 
