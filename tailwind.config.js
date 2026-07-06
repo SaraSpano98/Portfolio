@@ -5,7 +5,16 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+       animation: {
+        'star-rotate': 'star-rotate 4s linear infinite',
+      },
+      keyframes: {
+        'star-rotate': {
+          '100%': { transform: 'rotate(360deg)' },
+        },
+      },
+    },
   },
   plugins: [],
 }
