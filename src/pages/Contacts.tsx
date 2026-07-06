@@ -3,8 +3,6 @@ import SEO from "../lib/seo";
 import { Player } from '@lordicon/react';
 import { fetchIconData, LordIcons } from '../components/Lordicons';
 
-{/* COMPONENTS */}
-
 import ContactsHero from '../components/layout/contacts/ContactsHero';
 import ProcessSection from '../components/layout/contacts/ProcessSection';
 import PrerequisitiSection from '../components/layout/contacts/PrerequisitiSection';
@@ -30,7 +28,6 @@ const Contacts = () => {
     };
 
     {/* 3. RIFERIMENTI PER CONTROLLO ANIMAZIONI LORDICON */}
-    // DirectInquirySection Refs
     const emailRef = useRef<Player>(null);
     const whatsappRef = useRef<Player>(null);
     const telephoneRef = useRef<Player>(null);
@@ -39,12 +36,10 @@ const Contacts = () => {
     const linkedinRef = useRef<Player>(null);
     const githubRef = useRef<Player>(null);
 
-    // ProcessSection Refs
     const searchRef = useRef<Player>(null); 
     const computerRef = useRef<Player>(null); 
     const rocketRef = useRef<Player>(null);
 
-    // KeyPoints Refs
     const starRef = useRef<Player>(null);
     const toolRef = useRef<Player>(null);
     const clockRef = useRef<Player>(null);
@@ -85,7 +80,7 @@ const Contacts = () => {
         loadAllIcons();
     }, []);
 
-    {/* 🚀 AUTOMAZIONE ICONE DI CONTATTO: Forza l'avvio immediato in loop di tutti i canali diretti */}
+    {/* AUTOMAZIONE ICONE DI CONTATT*/}
     useEffect(() => {
         const timer = setTimeout(() => {
             if (emailRef.current) emailRef.current.playFromBeginning();
@@ -104,8 +99,8 @@ const Contacts = () => {
         <>
             <SEO title="Contatti" description="Parliamo del tuo prossimo progetto digitale." path="/contacts" />
 
-            <main className="w-full min-h-screen bg-white pt-44 pb-32 px-6 md:px-16 lg:px-24 overflow-x-hidden relative flex flex-col">
-                
+            <main className="w-full min-h-screen bg-white pt-40 lg:pt-44 pb-32 px-6 md:px-16 lg:px-24 overflow-x-hidden relative flex flex-col">
+
                 {/* 1. HERO CONTATTI */}
                 <ContactsHero time={time} revealVariant={revealVariant} />
 

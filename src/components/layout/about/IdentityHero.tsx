@@ -114,7 +114,7 @@ export default function IdentityHero({ revealVariant }: AboutHeroProps): React.R
                                 </motion.p>
                             </div>
                     
-                    <h1 className="text-4xl sm:text-5xl lg:text-7xl xl:text-[68px] font-black uppercase tracking-tighter text-slate-950 flex flex-wrap items-center justify-center gap-5 leading-none mb-6">
+                    <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-[68px] font-black uppercase tracking-tighter text-slate-950 flex flex-wrap items-center justify-center gap-5 leading-none mb-6">
                         Ciao, <span className="text-pink-500">sono Sara!</span>
 
                         <div className="inline-block">
