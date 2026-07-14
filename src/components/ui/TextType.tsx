@@ -11,18 +11,19 @@ interface TextTypeProps {
 
 export default function TextType({ text, className = '' }: TextTypeProps) {
   const textRef = useRef<HTMLSpanElement | null>(null);
+
   useEffect(() => {
     const words = Array.isArray(text) ? text : [text];
     const element = textRef.current;
     if (!element) return;
-
-    const tl = gsap.timeline({ repeat: -1 });
+    const tl = gsap.timeline({ repeat: 0 });
 
     words.forEach((word) => {
-      tl.to(element, { duration: 1.2, text: { value: word, delimiter: "" }, ease: "none" })
-        .to({}, { duration: 2 })
-        .to(element, { duration: 0.6, text: { value: "", delimiter: "" }, ease: "none" })
-        .to({}, { duration: 0.4 });
+      tl.to(element, { 
+        duration: 1.8, 
+        text: { value: word, delimiter: "" }, 
+        ease: "power1.out" 
+      });
     });
 
     return () => { tl.kill(); };

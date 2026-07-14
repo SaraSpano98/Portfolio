@@ -3,6 +3,8 @@ import lottie from 'lottie-web';
 import { motion } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 
+import TextType from '../../ui/TextType';
+
 
 interface AboutHeroProps {
     revealVariant: Variants;
@@ -99,29 +101,32 @@ export default function IdentityHero({ revealVariant }: AboutHeroProps): React.R
 
 
     return (
-
         <>
             <section className="w-full bg-white text-slate-900 px-6 md:px-12 lg:px-24 pt-32 lg:pt-36 pb-28 select-none overflow-hidden relative">
                 <div className="w-full max-w-3xl mx-auto mb-20 flex flex-col items-center text-center">
-                    
                     <div className="overflow-hidden mb-4">
-                                <motion.p
-                                    initial="hidden" animate="visible" variants={revealVariant}
-                                    className="text-pink-500 font-black uppercase tracking-[0.4em] text-[11px] flex items-center gap-3 mb-3"
-                                >
-                                    <span className="w-2 h-2 bg-pink-500 rounded-full animate-pulse" />
-                                    About Me
-                                </motion.p>
-                            </div>
-                    
-                    <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-[68px] font-black uppercase tracking-tighter text-slate-950 flex flex-wrap items-center justify-center gap-5 leading-none mb-6">
-                        Ciao, <span className="text-pink-500">sono Sara!</span>
+                        <motion.p
+                            initial="hidden" animate="visible" variants={revealVariant}
+                            className="text-pink-500 font-black uppercase tracking-[0.4em] text-[11px] flex items-center gap-3 mb-3"
+                        >
+                            <span className="w-2 h-2 bg-pink-500 rounded-full animate-pulse" />
+                            About Me
+                        </motion.p>
+                    </div>
 
-                        <div className="inline-block">
-                            <span className="w-16 h-16 rounded-2xl border border-pink-500 shadow-sm flex items-center justify-center bg-pink-400/10" style={{ verticalAlign: 'middle' }}>
-                                <div ref={containerRef} className="w-[44px] h-[44px]" />
+                    {/* TITOLO PRINCIPALE */}
+                    <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-[68px] font-black uppercase tracking-tighter text-slate-950 flex flex-row flex-nowrap items-center justify-center gap-x-4 leading-none mb-6 whitespace-nowrap">
+                        <span>CIAO,</span>
+                        <span className="text-pink-500 inline-flex items-center gap-x-4">
+                            <TextType
+                                text="SONO SARA!"
+                                className="inline-flex items-center justify-center m-0 p-0"
+                            />
+                            {/* ICONA MANO */}
+                            <span className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl border border-pink-500 shadow-sm flex items-center justify-center bg-pink-400/10 shrink-0">
+                                <div ref={containerRef} className="w-[32px] h-[32px] sm:w-[44px] sm:h-[44px]" />
                             </span>
-                        </div>
+                        </span>
                     </h1>
 
                     <p className="text-slate-500 text-lg md:text-xl leading-relaxed font-light max-w-2xl mt-4">
@@ -189,7 +194,7 @@ export default function IdentityHero({ revealVariant }: AboutHeroProps): React.R
                         })}
                     </div>
                 </div>
-            </section>
+            </section >
         </>
     );
 

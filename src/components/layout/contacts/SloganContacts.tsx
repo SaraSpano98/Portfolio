@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 
+import ClickSpark from '../../ui/ClickSpark';
+
 const SloganContacts = () => {
     const [coords, setCoords] = useState({ x: 0, y: 0 });
 
@@ -27,7 +29,7 @@ const SloganContacts = () => {
                         onMouseMove={handleMouseMove}
                         className="w-full bg-gradient-to-br from-[#11131e] via-[#0c0d14] to-[#161929]  hover:bg-white hover:text-slate-900 rounded-[3rem] py-14 sm:py-16 px-6 md:px-16 flex flex-col items-center text-center relative overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:shadow-[0_20px_50px_rgba(244,114,182,0.15)] border border-white/5 group"
                     >
-                        {/* BAGLIORI COREOGRAFICI FISSI ESATTI SULLO SFONDO */}
+                        {/* BAGLIORI COREOGRAFICI FISSI SULLO SFONDO */}
                         <div className="absolute -top-24 -left-24 w-80 h-80 bg-pink-500/10 rounded-full blur-[80px] pointer-events-none" />
                         <div className="absolute -bottom-24 -right-24 w-80 h-80 bg-violet-600/10 rounded-full blur-[80px] pointer-events-none" />
 
@@ -44,32 +46,39 @@ const SloganContacts = () => {
 
                         {/* CONTENUTO PRINCIPALE */}
                         <div className="z-10 max-w-3xl mx-auto text-center w-full flex flex-col items-center justify-center">
-                            
-                            {/* TESTO SLOGAN */}
                             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tighter leading-[1.1] mb-8">
                                 Non cerchi solo un dev. <br /> Cerchi <span className="text-pink-500 italic font-medium">visione</span> e <span className="text-pink-500">metodo</span>.
                             </h2>
 
                             {/* CONTENITORE PULSANTI AFFIANCATI */}
                             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full sm:w-auto mt-4">
-                                
-                                {/* PULSANTE PRINCIPALE*/}
-                                <Link
-                                    to="mailto:saraspano@live.it"
-                                    className="w-full sm:w-auto inline-flex items-center justify-center bg-pink-500 text-white font-black uppercase text-[10px] sm:text-xs md:text-sm tracking-[0.2em] sm:tracking-[0.3em] px-8 py-4 sm:px-12 sm:py-5 rounded-full shadow-lg shadow-pink-500/20 hover:shadow-pink-500/40 transition-all duration-300 hover:bg-pink-600"
-                                >
-                                    Iniziamo il progetto
-                                    <ArrowUpRight className="w-4 h-4 shrink-0 stroke-[2.5]" />
-                                </Link>
 
-                                {/* PULSANTE SECONDARIO */}
-                                <Link
-                                    to="#"
-                                    className="w-full sm:w-auto inline-flex items-center justify-center bg-[#1e293b]/40 border border-white/10 text-white font-black uppercase text-[10px] sm:text-xs md:text-sm tracking-[0.2em] sm:tracking-[0.3em] px-8 py-4 sm:px-12 sm:py-5 rounded-full transition-all duration-300 hover:bg-white hover:text-slate-900"
-                                >
-                                    Prendiamo un caffè? ☕
-                                </Link>
+                                {/* PULSANTE PRINCIPALE CON CLICKSPARK */}
+                                <div className="w-full sm:w-auto">
+                                    <ClickSpark>
+                                        <Link
+                                            to="mailto:saraspano@live.it"
+                                            className="w-full inline-flex items-center justify-center gap-3 bg-pink-500 text-white font-black uppercase text-[10px] sm:text-xs md:text-sm tracking-[0.2em] sm:tracking-[0.3em] px-8 py-4 sm:px-12 sm:py-5 rounded-full shadow-lg shadow-pink-500/20 hover:shadow-pink-500/40 transition-all duration-300 hover:bg-pink-600 whitespace-nowrap"
+                                        >
+                                            Iniziamo il progetto
+                                            <ArrowUpRight className="w-4 h-4 shrink-0 stroke-[2.5]" />
+                                        </Link>
+                                    </ClickSpark>
+                                </div>
+
+                                {/* PULSANTE SECONDARIO CON CLICKSPARK */}
+                                <div className="w-full sm:w-auto">
+                                    <ClickSpark>
+                                        <Link
+                                            to="#"
+                                            className="w-full inline-flex items-center justify-center bg-[#1e293b]/40 border border-white/10 text-white font-black uppercase text-[10px] sm:text-xs md:text-sm tracking-[0.2em] sm:tracking-[0.3em] px-8 py-4 sm:px-12 sm:py-5 rounded-full transition-all duration-300 hover:bg-white hover:text-slate-900 whitespace-nowrap"
+                                        >
+                                            Prendiamo un caffè? ☕
+                                        </Link>
+                                    </ClickSpark>
+                                </div>
                             </div>
+
                         </div>
 
                         {/* PATTERN GEOMETRICO DI SFONDO*/}

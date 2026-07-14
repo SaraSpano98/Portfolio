@@ -1,7 +1,10 @@
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
+import ButtonSpark from '../../ui/ButtonSpark'; 
 
 export default function KeyProjectsSection() {
+    const navigate = useNavigate(); 
+
     return (
         <section className="relative w-full bg-white pt-4 pb-24 px-6 sm:px-12 md:px-16 lg:px-24 z-10 select-none">
             <div className="w-full flex flex-col items-start text-start">
@@ -31,25 +34,23 @@ export default function KeyProjectsSection() {
                             >
                                 <div className="relative w-full h-[180px] sm:h-[210px] md:h-[240px] bg-slate-100 rounded-[2.5rem] overflow-hidden border border-slate-200 shadow-sm">
                                     <div className="absolute inset-0 bg-[#e2e8f0]/50 group-hover:scale-105 transition-transform duration-1000" />
+                                    
+                                    {/* OVERLAY PERFETTO */}
                                     <div className="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                                        <Link 
-                                            to="/projects" 
-                                            className="px-10 py-4 bg-white text-slate-900 rounded-full font-black uppercase tracking-widest text-[10px] hover:bg-pink-500 hover:text-white transition-all shadow-md"
-                                        >
+                                        <ButtonSpark onClick={() => navigate('/projects')}>
                                             Vedi Case Study
-                                        </Link>
+                                        </ButtonSpark>
+
                                     </div>
                                 </div>
 
                                 {/* BLOCCO INFO UNDER CARDS */}
                                 <div className="flex flex-col gap-3 w-full pl-0">
-                                    {/* Riga Orizzontale */}
                                     <div className="flex flex-row justify-between items-center w-full gap-4">
                                         <h3 className="text-lg md:text-xl font-black text-slate-900 tracking-tighter lowercase">
                                             e-commerce engine v.0{project}
                                         </h3>
 
-                                        {/* TAG COMPATTI */}
                                         <div className="flex gap-1.5 flex-wrap shrink-0">
                                             <span className="text-[10px] font-black uppercase tracking-widest text-pink-500 border border-slate-300 px-2.5 py-0.5 rounded-md bg-slate-50/30">
                                                 NEXT.JS

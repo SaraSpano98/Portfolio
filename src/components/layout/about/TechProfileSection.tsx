@@ -1,8 +1,9 @@
 import { LayoutGrid, Code2, Paintbrush, ArrowUpRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 import SkillsSelectorDesign from './SkillsSelectorDesign';
 import SkillsSelectorCoder from './SkillsSelectorCoder';
-
+import ClickSpark from '../../ui/ClickSpark'; 
 
 export default function TechProfileSection() {
     return (
@@ -24,7 +25,7 @@ export default function TechProfileSection() {
 
                 <div className="w-full flex flex-col items-start gap-16 lg:gap-24 relative z-20">
 
-                    {/* 1. LA LINEA VERTICALE ANIMATA CENTRALE */}
+                    {/* 1. LINEA VERTICALE ANIMATA CENTRALE */}
                     <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-[2px] bg-slate-100 -translate-x-1/2 overflow-hidden z-10">
                         <div className="w-full h-40 bg-gradient-to-b from-transparent via-pink-500 to-indigo-500 animate-[pulse_3s_infinite] absolute top-0 left-0 right-0 rounded-full"
                             style={{
@@ -36,7 +37,6 @@ export default function TechProfileSection() {
                         />
                     </div>
 
-                    {/* Stile CSS nativo iniettato per l'animazione della linea senza librerie esterne */}
                     <style>{`
                     @keyframes scrollLine {
                         0% { transform: translateY(-100%); }
@@ -51,13 +51,10 @@ export default function TechProfileSection() {
                         <div className="flex flex-col justify-between items-start lg:pr-12 py-4 group/designer min-h-[400px]">
 
                             <div className="flex flex-col items-start gap-6 w-full">
-
-                                {/* Titoli grandi e d'impatto */}
                                 <div>
                                     <span className="text-[15px] font-black uppercase tracking-[0.4em] text-pink-500 block mb-2 mt-3">Creative Mind</span>
 
                                     <div className="flex items-center gap-3 mt-5">
-                                        {/* Icona Fluttuante Minimal */}
                                         <div className="w-12 h-12 rounded-2xl bg-pink-50/80 border border-pink-100 flex items-center justify-center text-pink-500 shadow-sm transition-transform duration-500 group-hover/designer:scale-110 group-hover/designer:rotate-3">
                                             <Paintbrush className="w-5 h-5" />
                                         </div>
@@ -77,31 +74,27 @@ export default function TechProfileSection() {
                                 </div>
                             </div>
 
-                            {/* Pulsante Esplora */}
-                            <div className="w-full mt-10">
-                                <a
-                                    href="/gallery"
-                                    className="inline-flex items-center justify-center gap-3 bg-pink-500 text-white hover:bg-pink-700 font-bold text-xs uppercase tracking-widest px-8 py-4 rounded-2xl shadow-md transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/20 group-hover/designer:-translate-y-0.5"
-                                >
-                                    Esplora la Galleria
-                                    <LayoutGrid className="w-4 h-4 text-white transition-transform duration-300 group-hover/designer:rotate-12" />
-                                </a>
+                            <div className="w-full mt-10 max-w-xs">
+                                <ClickSpark>
+                                    <Link
+                                        to="/gallery"
+                                        className="inline-flex items-center justify-center gap-3 bg-pink-500 text-white hover:bg-pink-700 font-bold text-xs uppercase tracking-widest px-8 py-4 rounded-2xl shadow-md transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/20 group-hover/designer:-translate-y-0.5 w-full"
+                                    >
+                                        Esplora la Galleria
+                                        <LayoutGrid className="w-4 h-4 text-white transition-transform duration-300 group-hover/designer:rotate-12" />
+                                    </Link>
+                                </ClickSpark>
                             </div>
 
                         </div>
 
                         {/* COLONNA DESTRA: PARTE CODER */}
                         <div className="flex flex-col justify-between items-start lg:pl-12 py-4 group/coder min-h-[400px]">
-
                             <div className="flex flex-col items-start gap-6 w-full">
-
-
-                                {/* Titoli grandi e d'impatto */}
                                 <div>
                                     <span className="text-[15px] font-black uppercase tracking-[0.4em] text-indigo-500 block mb-2 mt-3">Engineering</span>
 
                                     <div className="flex items-center gap-3 mt-5">
-                                        {/* Icona Fluttuante Minimal */}
                                         <div className="w-12 h-12 rounded-2xl bg-indigo-50/80 border border-indigo-100 flex items-center justify-center text-indigo-500 shadow-sm transition-transform duration-500 group-hover/coder:scale-110 group-hover/coder:rotate-3">
                                             <Code2 className="w-5 h-5" />
                                         </div>
@@ -122,17 +115,17 @@ export default function TechProfileSection() {
                                 </div>
                             </div>
 
-                            {/* Pulsante Progetti */}
-                            <div className="w-full mt-10">
-                                <a
-                                    href="/projects"
-                                    className="inline-flex items-center justify-center gap-3 bg-indigo-500 hover:bg-indigo-700 text-white font-bold text-xs uppercase tracking-widest px-8 py-4 rounded-2xl shadow-md transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/20 group-hover/coder:-translate-y-0.5"
-                                >
-                                    Guarda i Progetti
-                                    <ArrowUpRight className="w-4 h-4 text-white transition-transform duration-300 group-hover/coder:translate-x-0.5 group-hover/coder:-translate-y-0.5" />
-                                </a>
+                            <div className="w-full mt-10 max-w-xs">
+                                <ClickSpark>
+                                    <Link
+                                        to="/projects"
+                                        className="inline-flex items-center justify-center gap-3 bg-indigo-500 hover:bg-indigo-700 text-white font-bold text-xs uppercase tracking-widest px-8 py-4 rounded-2xl shadow-md transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/20 group-hover/coder:-translate-y-0.5 w-full"
+                                    >
+                                        Guarda i Progetti
+                                        <ArrowUpRight className="w-4 h-4 text-white transition-transform duration-300 group-hover/coder:translate-x-0.5 group-hover/coder:-translate-y-0.5" />
+                                    </Link>
+                                </ClickSpark>
                             </div>
-
                         </div>
                     </div>
                 </div>

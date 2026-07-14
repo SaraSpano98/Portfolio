@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Pattern from "../../../styles/Pattern";
 
+import ClickSpark from '../../ui/ClickSpark';
+import TextType from '../../ui/TextType';
+
 const Hero = () => {
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
 
@@ -28,7 +31,7 @@ const Hero = () => {
 
       {/* STRUTTURA TESTI LATERALI INTERATTIVI */}
       <div className="absolute inset-0 z-30 grid grid-cols-2 w-full h-full pointer-events-none pt-16">
-        
+
         {/* LATO SINISTRO: DESIGNER */}
         <div className="relative w-full h-full px-24 flex items-center justify-start">
           <div className="pointer-events-auto flex flex-col items-start group">
@@ -56,7 +59,7 @@ const Hero = () => {
 
             {/* BLOCCO TESTO + LINEA VERTICALE ANIMATA */}
             <div className="mt-6 flex items-stretch gap-4 sm:gap-5">
-              
+
               {/* Linea verticale sinistra*/}
               <motion.div
                 animate={{
@@ -127,7 +130,7 @@ const Hero = () => {
               <motion.h5
                 animate={{
                   color: hoveredLink === 'coder'
-                    ? '#f1f5f9' 
+                    ? '#f1f5f9'
                     : (hoveredLink === 'designer' ? '#475569' : '#475569')
                 }}
                 transition={{ duration: 0.3 }}
@@ -140,7 +143,7 @@ const Hero = () => {
               <motion.div
                 animate={{
                   backgroundColor: hoveredLink === 'coder'
-                    ? '#ec4899' 
+                    ? '#ec4899'
                     : (hoveredLink === 'designer' ? '#64748b' : '#ec4899')
                 }}
                 transition={{ duration: 0.3 }}
@@ -215,30 +218,38 @@ const Hero = () => {
             transition={{ duration: 0.3 }}
             className="text-xl sm:text-2xl md:text-4xl font-black tracking-[0.3em] sm:tracking-[0.5em] uppercase block w-full text-center"
           >
-            Sara Spano
+            {/* Integrazione dell'effetto scrittura sul nome */}
+            <TextType
+              text="SARA SPANO"
+              className="inline-flex items-center justify-center"
+            />
           </motion.h1>
           <div className="h-[2px] w-8 sm:w-12 bg-pink-500 mx-auto mt-2 sm:mt-3" />
         </div>
       </div>
 
+
       {/* BOTTONE SCARICA CV */}
       <div className="absolute bottom-[8%] sm:bottom-[10%] left-0 right-0 w-full z-50 flex justify-center pointer-events-none px-4">
         <div className="pointer-events-auto">
-          <motion.a
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            href="/cv-sara-spano.pdf"
-            download
-            className="relative px-8 py-4 sm:px-12 sm:py-5 bg-pink-500 hover:bg-pink-700 text-white text-[10px] sm:text-xs md:text-sm font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] rounded-[1rem] sm:rounded-[1.3rem] inline-block outline-none focus:ring-0 shadow-lg transition-colors duration-300"
-          >
-            <span className="relative z-30 flex items-center gap-3 sm:gap-4 pointer-events-none">
-              Scarica CV
-              <motion.span animate={{ y: [0, 5, 0] }} transition={{ repeat: Infinity, duration: 1.5 }}>↓</motion.span>
-            </span>
-          </motion.a>
+          <ClickSpark>
+            <motion.a
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              href="/cv-sara-spano.pdf"
+              download
+              className="relative px-8 py-4 sm:px-12 sm:py-5 bg-pink-500 hover:bg-pink-700 text-white text-[10px] sm:text-xs md:text-sm font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] rounded-[1rem] sm:rounded-[1.3rem] inline-block outline-none focus:ring-0 shadow-lg transition-colors duration-300"
+            >
+              <span className="relative z-30 flex items-center gap-3 sm:gap-4 pointer-events-none">
+                Scarica CV
+                <motion.span animate={{ y: [0, 5, 0] }} transition={{ repeat: Infinity, duration: 1.5 }}>↓</motion.span>
+              </span>
+            </motion.a>
+          </ClickSpark>
         </div>
       </div>
-    </motion.section>
+
+    </motion.section >
   );
 };
 

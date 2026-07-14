@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 
+import TextType from '../../ui/TextType';
+
 interface ContactsHeroProps {
     time: string;
     revealVariant: Variants;
@@ -29,11 +31,18 @@ const ContactsHero = ({ time, revealVariant }: ContactsHeroProps) => {
                     <div className="mb-8">
                         <motion.h1
                             initial="hidden" animate="visible" variants={revealVariant}
-                            className="text-4xl sm:text-5xl lg:text-6xl xl:text-[68px] font-black text-slate-900 tracking-tighter leading-none"
+                            className="text-4xl sm:text-5xl lg:text-6xl xl:text-[68px] font-black text-slate-900 tracking-tighter leading-none flex flex-row flex-nowrap items-center justify-start gap-x-3 whitespace-nowrap"
                         >
-                            Mettiamoci in <span className="text-pink-500">contatto</span>
+                            <span>Mettiamoci in</span>
+                            <span className="text-pink-500 inline-block">
+                                <TextType
+                                    text="contatto"
+                                    className="inline-flex items-center justify-center m-0 p-0"
+                                />
+                            </span>
                         </motion.h1>
                     </div>
+
 
                     <p className="text-xl md:text-2xl text-slate-500 leading-relaxed italic border-t-2 border-slate-100 pt-6 font-medium w-full">
                         "Credo che la comunicazione sia la base di ogni grande digital product. Trasformo le tue idee in user experiences umane e codice solido."
