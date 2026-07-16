@@ -2,7 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Player } from '@lordicon/react';
 
-// Interfaccia TypeScript per tutte le Props del componente
+import ClickSpark from '../../ui/ClickSpark';
+
 interface DirectInquirySectionProps {
     loadedIcons: { [key: string]: object };
     refs: {
@@ -17,17 +18,13 @@ interface DirectInquirySectionProps {
 }
 
 const DirectInquirySection = ({ loadedIcons, refs }: DirectInquirySectionProps) => {
-    // Estraiamo tutti i riferimenti per attivare le animazioni
     const { emailRef, whatsappRef, telephoneRef, meetingRef, globeRef, linkedinRef, githubRef } = refs;
 
     return (
         <>
             {/* SEZIONE  5: CONTATTI DIRETTI E NETWORK SOCIAL */}
             <div className="w-full px-10">
-                {/* AREA CONTATTI E SOCIAL */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 xl:gap-20 mb-40 border-t border-slate-100 pt-20 w-full">
-
-                    {/* COLONNA SINISTRA: DIRECT INQUIRY */}
                     <div className="lg:col-span-8 flex flex-col justify-between">
                         <div>
                             <h3 className="text-2xl font-black text-slate-900 uppercase tracking-tighter mb-12 italic">Direct Inquiry</h3>
@@ -42,14 +39,20 @@ const DirectInquirySection = ({ loadedIcons, refs }: DirectInquirySectionProps) 
                                 >
                                     <div>
                                         <span className="text-[10px] font-black uppercase tracking-[0.4em] text-pink-500 mb-3 block">Email Diretta</span>
-                                        <a href="mailto:saraspano@live.it" className="flex items-center gap-3 mb-3">
-                                            {loadedIcons.email && (
-                                                <Player ref={emailRef} icon={loadedIcons.email} size={40} colors="primary:#5c0632,secondary:#e6399b" />
-                                            )}
-                                            <span className="text-xl md:text-2xl xl:text-3xl font-black text-slate-900 tracking-tighter hover:text-pink-500 transition-all block truncate">
-                                                saraspano@live.it
-                                            </span>
-                                        </a>
+                                        <ClickSpark>
+                                            <a
+                                                href="mailto:saraspano@live.it"
+                                                className="flex items-center gap-3 mb-3 cursor-pointer w-full"
+                                            >
+                                                {loadedIcons.email && (
+                                                    <Player ref={emailRef} icon={loadedIcons.email} size={40} colors="primary:#5c0632,secondary:#e6399b" />
+                                                )}
+                                                <span className="text-xl md:text-2xl xl:text-3xl font-black text-slate-900 tracking-tighter hover:text-pink-500 transition-all block truncate">
+                                                    saraspano@live.it
+                                                </span>
+                                            </a>
+                                        </ClickSpark>
+
                                         <p className="text-slate-400 text-sm leading-relaxed italic max-w-sm">"Il canale preferito per preventivi formali e brief di progetto dettagliati."</p>
                                     </div>
                                     <div className="h-[2px] w-0 group-hover:w-full bg-pink-500 transition-all duration-700 mt-6" />
@@ -63,14 +66,22 @@ const DirectInquirySection = ({ loadedIcons, refs }: DirectInquirySectionProps) 
                                 >
                                     <div>
                                         <span className="text-[10px] font-black uppercase tracking-[0.4em] text-pink-500 mb-3 block">WhatsApp Business</span>
-                                        <a href="https://wa.me" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 mb-3">
-                                            {loadedIcons.whatsapp && (
-                                                <Player ref={whatsappRef} icon={loadedIcons.whatsapp} size={40} colors="primary:#5c0632,secondary:#e6399b" />
-                                            )}
-                                            <span className="text-xl md:text-2xl xl:text-3xl font-black text-slate-900 tracking-tighter hover:text-pink-500 transition-all block">
-                                                Chat Rapida
-                                            </span>
-                                        </a>
+                                        <ClickSpark>
+                                            <a
+                                                href="https://wa.me"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="flex items-center gap-3 mb-3 cursor-pointer w-full"
+                                            >
+                                                {loadedIcons.whatsapp && (
+                                                    <Player ref={whatsappRef} icon={loadedIcons.whatsapp} size={40} colors="primary:#5c0632,secondary:#e6399b" />
+                                                )}
+                                                <span className="text-xl md:text-2xl xl:text-3xl font-black text-slate-900 tracking-tighter hover:text-pink-500 transition-all block">
+                                                    Chat Rapida
+                                                </span>
+                                            </a>
+                                        </ClickSpark>
+
                                         <p className="text-slate-400 text-sm leading-relaxed italic max-w-sm">"Per una comunicazione immediata, feedback veloci o semplici domande tecniche."</p>
                                     </div>
                                     <div className="h-[2px] w-0 group-hover:w-full bg-pink-500 transition-all duration-700 mt-6" />
@@ -84,14 +95,17 @@ const DirectInquirySection = ({ loadedIcons, refs }: DirectInquirySectionProps) 
                                 >
                                     <div>
                                         <span className="text-[10px] font-black uppercase tracking-[0.4em] text-pink-500 mb-3 block">Contatto Telefonico</span>
-                                        <a href="tel:+393123456789" className="flex items-center gap-3 mb-3">
-                                            {loadedIcons.telephone && (
-                                                <Player ref={telephoneRef} icon={loadedIcons.telephone} size={40} colors="primary:#5c0632,secondary:#e6399b" />
-                                            )}
-                                            <span className="text-xl md:text-2xl xl:text-3xl font-black text-slate-900 tracking-tighter hover:text-pink-500 transition-all block">
-                                                +39 312 345 6789
-                                            </span>
-                                        </a>
+                                        <ClickSpark>
+                                            <a href="tel:+393123456789" className="flex items-center gap-3 mb-3">
+                                                {loadedIcons.telephone && (
+                                                    <Player ref={telephoneRef} icon={loadedIcons.telephone} size={40} colors="primary:#5c0632,secondary:#e6399b" />
+                                                )}
+                                                <span className="text-xl md:text-2xl xl:text-3xl font-black text-slate-900 tracking-tighter hover:text-pink-500 transition-all block">
+                                                    +39 312 345 6789
+                                                </span>
+                                            </a>
+                                        </ClickSpark>
+
                                         <p className="text-slate-400 text-sm leading-relaxed italic max-w-sm">"Disponibile per chiamate dirette e allineamenti rapidi sui progetti."</p>
                                     </div>
                                     <div className="h-[2px] w-0 group-hover:w-full bg-pink-500 transition-all duration-700 mt-6" />
@@ -105,14 +119,17 @@ const DirectInquirySection = ({ loadedIcons, refs }: DirectInquirySectionProps) 
                                 >
                                     <div>
                                         <span className="text-[10px] font-black uppercase tracking-[0.4em] text-pink-500 mb-3 block">Video Call</span>
-                                        <a href="https://calendly.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 mb-3">
-                                            {loadedIcons.meeting && (
-                                                <Player ref={meetingRef} icon={loadedIcons.meeting} size={40} colors="primary:#5c0632,secondary:#e6399b" />
-                                            )}
-                                            <span className="text-xl md:text-2xl xl:text-3xl font-black text-slate-900 tracking-tighter hover:text-pink-500 transition-all block">
-                                                Prenota una Call
-                                            </span>
-                                        </a>
+                                        <ClickSpark>
+                                            <a href="https://calendly.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 mb-3">
+                                                {loadedIcons.meeting && (
+                                                    <Player ref={meetingRef} icon={loadedIcons.meeting} size={40} colors="primary:#5c0632,secondary:#e6399b" />
+                                                )}
+                                                <span className="text-xl md:text-2xl xl:text-3xl font-black text-slate-900 tracking-tighter hover:text-pink-500 transition-all block">
+                                                    Prenota una Call
+                                                </span>
+                                            </a>
+                                        </ClickSpark>
+
                                         <p className="text-slate-400 text-sm leading-relaxed italic max-w-sm">"Pianifica una sessione conoscitiva su Meet o Zoom per il tuo brief."</p>
                                     </div>
                                     <div className="h-[2px] w-0 group-hover:w-full bg-pink-500 transition-all duration-700 mt-6" />
@@ -136,40 +153,44 @@ const DirectInquirySection = ({ loadedIcons, refs }: DirectInquirySectionProps) 
 
                         <div className="flex flex-col gap-8">
                             {/* LINKEDIN */}
-                            <motion.a
-                                href="#"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                whileHover={{ x: 10 }}
-                                onMouseEnter={() => linkedinRef.current?.playFromBeginning()}
-                                className="flex justify-between items-center group border-b border-slate-200 pb-6"
-                            >
-                                <div className="flex items-center gap-4">
-                                    {loadedIcons.linkedin && (
-                                        <Player ref={linkedinRef} icon={loadedIcons.linkedin} size={36} colors="primary:#5c0632,secondary:#e6399b" />
-                                    )}
-                                    <span className="text-lg font-bold text-slate-900 group-hover:text-pink-500 transition-colors uppercase tracking-tighter">LinkedIn</span>
-                                </div>
-                                <div className="w-9 h-9 rounded-full border border-slate-300 flex items-center justify-center group-hover:bg-slate-900 group-hover:text-white transition-all text-sm">→</div>
-                            </motion.a>
+                            <ClickSpark>
+                                <motion.a
+                                    href="https://www.linkedin.com/in/sara-spano-0a2315273/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    whileHover={{ x: 10 }}
+                                    onMouseEnter={() => linkedinRef.current?.playFromBeginning()}
+                                    className="flex justify-between items-center group border-b border-slate-200 pb-6 w-full cursor-pointer"
+                                >
+                                    <div className="flex items-center gap-4">
+                                        {loadedIcons.linkedin && (
+                                            <Player ref={linkedinRef} icon={loadedIcons.linkedin} size={36} colors="primary:#5c0632,secondary:#e6399b" />
+                                        )}
+                                        <span className="text-lg font-bold text-slate-900 group-hover:text-pink-500 transition-colors uppercase tracking-tighter">LinkedIn</span>
+                                    </div>
+                                    <div className="w-9 h-9 rounded-full border border-slate-300 flex items-center justify-center group-hover:bg-slate-900 group-hover:text-white transition-all text-sm shrink-0">→</div>
+                                </motion.a>
+                            </ClickSpark>
 
                             {/* GITHUB */}
-                            <motion.a
-                                href="#"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                whileHover={{ x: 10 }}
-                                onMouseEnter={() => githubRef.current?.playFromBeginning()}
-                                className="flex justify-between items-center group border-b border-slate-200 pb-6"
-                            >
-                                <div className="flex items-center gap-4">
-                                    {loadedIcons.github && (
-                                        <Player ref={githubRef} icon={loadedIcons.github} size={36} colors="primary:#5c0632,secondary:#e6399b" />
-                                    )}
-                                    <span className="text-lg font-bold text-slate-900 group-hover:text-pink-500 transition-colors uppercase tracking-tighter">GitHub</span>
-                                </div>
-                                <div className="w-9 h-9 rounded-full border border-slate-300 flex items-center justify-center group-hover:bg-slate-900 group-hover:text-white transition-all text-sm">→</div>
-                            </motion.a>
+                            <ClickSpark>
+                                <motion.a
+                                    href="https://github.com/SaraSpano98"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    whileHover={{ x: 10 }}
+                                    onMouseEnter={() => githubRef.current?.playFromBeginning()}
+                                    className="flex justify-between items-center group border-b border-slate-200 pb-6 w-full cursor-pointer"
+                                >
+                                    <div className="flex items-center gap-4">
+                                        {loadedIcons.github && (
+                                            <Player ref={githubRef} icon={loadedIcons.github} size={36} colors="primary:#5c0632,secondary:#e6399b" />
+                                        )}
+                                        <span className="text-lg font-bold text-slate-900 group-hover:text-pink-500 transition-colors uppercase tracking-tighter">GitHub</span>
+                                    </div>
+                                    <div className="w-9 h-9 rounded-full border border-slate-300 flex items-center justify-center group-hover:bg-slate-900 group-hover:text-white transition-all text-sm shrink-0">→</div>
+                                </motion.a>
+                            </ClickSpark>
                         </div>
                     </div>
                 </div>

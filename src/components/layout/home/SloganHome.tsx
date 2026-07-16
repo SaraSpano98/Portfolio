@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import ClickSpark from '../../ui/ClickSpark';
-import SoftAurora from '../../ui/SoftAurora';
+
 
 export default function SloganHome() {
     const [coords, setCoords] = useState({ x: 0, y: 0 });
@@ -28,9 +28,6 @@ export default function SloganHome() {
                         onMouseMove={handleMouseMove}
                         className="w-full bg-[#0c0d14] rounded-[3rem] py-20 sm:py-24 px-6 md:px-16 flex flex-col items-center text-center relative overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:shadow-[0_20px_50px_rgba(244,114,182,0.15)] border border-white/5 group"
                     >
-                        {/* LAYER 1: Sfondo liquido SoftAurora */}
-                        <SoftAurora />
-
                         <div
                             className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10"
                             style={{

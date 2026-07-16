@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 import { Folder, List, Settings } from 'lucide-react';
 
+import TextType from '../../ui/TextType';
+
 interface Project {
     id: string;
     title: string;
@@ -62,12 +64,21 @@ const ProjectsHero = ({ projects = [], revealVariant }: ProjectsHeroProps) => {
 
                         <div className="mb-8">
                             <motion.h1
-                                initial="hidden" animate="visible" variants={revealVariant}
-                                className="text-4xl sm:text-5xl lg:text-6xl xl:text-[68px] font-black text-slate-900 tracking-tighter leading-none"
+                                initial="hidden"
+                                animate="visible"
+                                variants={revealVariant}
+                                className="text-4xl sm:text-5xl lg:text-6xl xl:text-[68px] font-black text-slate-900 tracking-tighter leading-none flex flex-row flex-nowrap items-center justify-start gap-x-3 whitespace-nowrap"
                             >
-                                I miei <span className="text-pink-500">progetti</span>
+                                <span>I miei</span>
+                                <span className="text-pink-500 inline-block">
+                                    <TextType
+                                        text="Progetti"
+                                        className="inline-flex items-center justify-center m-0 p-0"
+                                    />
+                                </span>
                             </motion.h1>
                         </div>
+
 
                         {/* Descrizione e Card */}
                         <motion.div
@@ -91,7 +102,7 @@ const ProjectsHero = ({ projects = [], revealVariant }: ProjectsHeroProps) => {
 
                     {/* COLONNA DESTRA */}
                     <div className="w-full lg:w-auto flex flex-col items-start lg:items-end text-left lg:text-right shrink-0 lg:mt-24">
-                        <motion.div 
+                        <motion.div
                             initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }}
                             className="flex flex-col sm:flex-row lg:flex-col gap-10 w-full lg:w-auto justify-between lg:items-end"
                         >
