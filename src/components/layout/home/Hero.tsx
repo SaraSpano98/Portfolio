@@ -153,7 +153,7 @@ export default function Hero() {
         {/* LATO DESTRO: CODER */}
         <div className="relative w-full flex flex-col items-end text-right group pointer-events-auto">
           <Link
-            to="/coder"
+            to="https://github.com/SaraSpano98"
             onMouseEnter={() => setHoveredLink('coder')}
             onMouseLeave={() => setHoveredLink(null)}
             className="relative block outline-none cursor-pointer"

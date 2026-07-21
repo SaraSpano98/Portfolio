@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { Code2, ExternalLink, ArrowRight } from 'lucide-react';
-import ButtonSpark from '../../ui/ButtonSpark';
 import ClickSpark from '../../ui/ClickSpark';
 
 
@@ -118,14 +117,14 @@ export default function KeyProjectsSection() {
 
                                 {/* TAG TECNOLOGIE UTILIZZATE */}
                                 <div className="flex flex-col gap-2 mt-2">
-                                    <span className="text-[11px] font-black uppercase tracking-widest text-pink-700">
+                                    <span className="text-[13px] font-black uppercase tracking-widest text-pink-700">
                                         TECNOLOGIE UTILIZZATE
                                     </span>
                                     <div className="flex gap-1.5 flex-wrap">
                                         {currentProject.tags.map((tag) => (
                                             <span
                                                 key={tag}
-                                                className="text-[9px] sm:text-[10px] font-bold text-pink-500 border border-slate-200/80 px-2.5 mt-4 py-0.5 rounded-md bg-white shadow-sm"
+                                                className="text-[9px] sm:text-[11px] font-bold text-pink-500 border border-slate-300/80 px-2.5 mt-4 py-0.5 rounded-md bg-white shadow-sm"
                                             >
                                                 {tag}
                                             </span>
@@ -143,7 +142,7 @@ export default function KeyProjectsSection() {
                                         href={currentProject.demoUrl}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="px-6 py-3 bg-pink-500 hover:bg-pink-600 text-white text-[10px] sm:text-xs font-black uppercase tracking-widest rounded-xl shadow-md transition-colors flex items-center gap-2 cursor-pointer whitespace-nowrap"
+                                        className="px-6 py-3 bg-pink-500 hover:bg-pink-700 text-white text-[10px] sm:text-xs font-black uppercase tracking-widest rounded-xl shadow-md transition-colors flex items-center gap-2 cursor-pointer whitespace-nowrap"
                                     >
                                         <ExternalLink className="w-3.5 h-3.5" />
                                         Demo Live
@@ -156,7 +155,7 @@ export default function KeyProjectsSection() {
                                     href={currentProject.codeUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="px-6 py-3 bg-white hover:bg-slate-50 text-slate-400 hover:text-slate-900 border border-slate-200 text-[10px] sm:text-xs font-black uppercase tracking-widest rounded-xl transition-colors flex items-center gap-2 cursor-pointer shadow-sm whitespace-nowrap"
+                                    className="px-6 py-3 bg-slate-200 hover:bg-slate-900 text-slate-900 hover:text-white border border-slate-300 text-[10px] sm:text-xs font-black uppercase tracking-widest rounded-xl transition-colors flex items-center gap-2 cursor-pointer shadow-sm whitespace-nowrap"
                                 >
                                     <Code2 className="w-3.5 h-3.5" />
                                     Codice
@@ -180,7 +179,6 @@ export default function KeyProjectsSection() {
                                     transition={{ duration: 0.3 }}
                                     className="w-full h-full relative flex items-center justify-center"
                                 >
-                                    {/* Se l'immagine manca, mostra un elegante gradiente scuro di background senza rompersi */}
                                     <img
                                         src={currentProject.image}
                                         className="w-full h-full object-contain rounded-2xl z-10"
@@ -189,12 +187,6 @@ export default function KeyProjectsSection() {
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-tr from-slate-950 to-slate-900 flex items-center justify-center text-slate-700 font-bold text-xs uppercase tracking-widest">
                                         {currentProject.title} Preview
-                                    </div>
-
-                                    <div className="absolute inset-0 bg-slate-900/10 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-2xl z-20">
-                                        <ButtonSpark onClick={() => navigate('/projects')}>
-                                            Vedi Case Study
-                                        </ButtonSpark>
                                     </div>
                                 </motion.div>
                             </AnimatePresence>
@@ -208,8 +200,8 @@ export default function KeyProjectsSection() {
                                         key={proj.id}
                                         onClick={() => setActiveIndex(idx)}
                                         className={`relative h-16 w-20 sm:h-20 sm:w-24 rounded-2xl overflow-hidden border-2 shrink-0 transition-all cursor-pointer snap-center bg-slate-900 flex items-center justify-center text-center p-2 ${activeIndex === idx
-                                                ? "border-pink-500 scale-105 shadow-md"
-                                                : "border-slate-200 opacity-60 hover:opacity-100"
+                                            ? "border-pink-500 scale-105 shadow-md"
+                                            : "border-slate-200 opacity-60 hover:opacity-100"
                                             }`}
                                     >
                                         <img
@@ -228,7 +220,7 @@ export default function KeyProjectsSection() {
                             {/* INDICE DI PROGRESSO VISIVO DELLO SLIDER (LA LINEA IN BASSO ALLO SCREEN) */}
                             <div className="w-full h-[3px] bg-slate-200/60 rounded-full relative overflow-hidden hidden sm:block">
                                 <motion.div
-                                    className="absolute top-0 bottom-0 left-0 bg-pink-500 rounded-full"
+                                    className="absolute top-0 bottom-0 left-0 bg-pink-700 rounded-full"
                                     initial={false}
                                     animate={{
                                         width: `${((activeIndex + 1) / PROJECTS_DATA.length) * 100}%`
@@ -241,22 +233,24 @@ export default function KeyProjectsSection() {
 
                 </div>
 
-                {/* BOTTONE VEDI TUTTI I PROGETTI (SUL FONDO) */}
-                <div className="w-full flex flex-col items-center justify-center mt-14 gap-3">
+                {/* BOTTONE VEDI TUTTI I PROGETTI (SUL FONDO CENTRATO) */}
+
+                <div className="w-full flex flex-col items-center justify-center text-center mt-16 gap-4">
                     <ClickSpark>
                         <button
                             onClick={() => navigate('/projects')}
-                            className="px-8 py-4 bg-pink-500 hover:bg-pink-600 text-white text-xs font-black uppercase tracking-[0.15em] rounded-xl shadow-lg transition-colors flex items-center gap-3 cursor-pointer"
+                            className="px-8 py-4 bg-pink-500 hover:bg-pink-600 text-white text-xs font-black uppercase tracking-[0.15em] rounded-xl shadow-lg transition-colors flex items-center gap-3 cursor-pointer mx-auto"
                         >
                             Vedi Tutti i Progetti
                             <ArrowRight className="w-4 h-4" />
                         </button>
                     </ClickSpark>
-                    <span className="text-slate-400 text-[11px] font-medium tracking-wide">
-                        Naviga tra i progetti cliccando sulle anteprime delle schede
-                    </span>
-                </div>
 
+                    <span className="text-slate-900 text-xs font-bold tracking-wider uppercase opacity-80">
+                        Naviga tra i progetti cliccando sulle <span className="text-pink-500 font-black">anteprime</span> delle schede
+                    </span>
+
+                </div>
             </div>
         </section>
     );
