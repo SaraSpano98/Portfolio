@@ -46,8 +46,8 @@ export default function ProjectsSection() {
                     </span>
 
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter leading-none flex flex-row flex-nowrap items-center justify-start gap-x-3 whitespace-nowrap">
-                        <span>Progetti in</span>
-                        <span className="text-pink-500">evidenza</span>
+                        <span>My</span>
+                        <span className="text-pink-500">work</span>
                     </h2>
                     <div className="h-[3px] w-8 bg-pink-500 mt-4" />
                 </div>

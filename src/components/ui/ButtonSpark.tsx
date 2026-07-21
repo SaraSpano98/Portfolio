@@ -91,7 +91,7 @@ export default function ButtonSpark({ children, onClick }: { children: React.Rea
   return (
     <button
       ref={containerRef}
-      className="relative px-10 py-4 bg-white text-slate-900 rounded-full font-black uppercase tracking-widest text-[10px] hover:bg-pink-500 hover:text-white transition-all shadow-md overflow-hidden outline-none select-none block"
+      className="relative px-10 py-4 bg-pink-500 text-white rounded-full font-black uppercase tracking-widest text-[10px] hover:bg-pink-700 hover:text-white transition-all shadow-md overflow-hidden outline-none select-none block"
     >
       {/* Il canvas sta sopra a tutto (z-20) ma ignora i click fisici, così vedi le scintille volare sopra il testo */}
       <canvas ref={canvasRef} className="pointer-events-none absolute inset-0 z-20" />

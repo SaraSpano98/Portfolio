@@ -194,7 +194,7 @@ export default function Hero() {
           </div>
 
           <motion.a
-            href="https://github.com"
+            href="https://github.com/SaraSpano98"
             target="_blank"
             rel="noopener noreferrer"
             animate={{ color: hoveredLink === 'coder' ? '#7c3aed' : (hoveredLink === 'designer' ? '#475569' : '#94a3b8') }}
