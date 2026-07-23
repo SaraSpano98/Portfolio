@@ -82,174 +82,193 @@ export default function KeyProjectsSection() {
                     </p>
                 </div>
 
-                {/* CONTENITORE VETRINA (SHOWCASE COMPLETO) */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 xl:gap-16 w-full items-center bg-slate-50/60 rounded-[3rem] p-6 sm:p-10 md:p-12 border border-slate-100 shadow-sm relative overflow-hidden">
 
-                    {/* SOTTO-GRIGLIA SINISTRA (COLONNA INFO PROGETTO) */}
-                    <div className="lg:col-span-5 flex flex-col items-start w-full min-h-[380px] justify-between relative z-20 pr-0 lg:pr-6">
+                {/* CONTENITORE VETRINA CON BORDO ANIMATO GRADIENTE */}
+                <div className="relative w-full p-[2px] rounded-[3rem] overflow-hidden group">
+                    <motion.div
+                        className="absolute inset-0 w-[200%] h-[200%] top-[-50%] left-[-50%] bg-[conic-gradient(from_0deg,transparent_40%,#ec4899_70%,#64748b_90%,transparent_100%)]"
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+                    />
 
-                        <AnimatePresence mode="wait">
-                            <motion.div
-                                key={currentProject.id}
-                                initial={{ opacity: 0, x: -15 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                exit={{ opacity: 0, x: 15 }}
-                                transition={{ duration: 0.35, ease: "easeInOut" }}
-                                className="flex flex-col gap-4 w-full"
-                            >
-                                {/* CONTATORE (01 / 05) */}
-                                <div className="flex items-center gap-4 w-full">
-                                    <span className="text-[10px] font-black uppercase tracking-widest text-pink-500 bg-pink-50 border border-pink-100 px-3 py-1 rounded-full w-fit shrink-0">
-                                        {currentProject.counter}
-                                    </span>
-                                    <div className="h-[1px] bg-slate-200/80 flex-1 hidden sm:block" />
-                                </div>
+                    <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-10 xl:gap-16 w-full items-center bg-slate-100 rounded-[calc(3rem-2px)] p-6 sm:p-10 md:p-12 shadow-sm z-10">
 
-                                {/* TITOLO PROGETTO */}
-                                <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tighter capitalize mt-1">
-                                    {currentProject.title}
-                                </h3>
+                        {/* SOTTO-GRIGLIA SINISTRA (COLONNA INFO PROGETTO) */}
+                        <div className="lg:col-span-5 flex flex-col items-start w-full min-h-[380px] justify-between relative z-20 pr-0 lg:pr-6">
 
-                                {/* DESCRIZIONE */}
-                                <p className="text-slate-500 text-sm sm:text-base leading-relaxed font-medium max-w-[420px]">
-                                    {currentProject.description}
-                                </p>
-
-                                {/* TAG TECNOLOGIE UTILIZZATE */}
-                                <div className="flex flex-col gap-2 mt-2">
-                                    <span className="text-[13px] font-black uppercase tracking-widest text-pink-700">
-                                        TECNOLOGIE UTILIZZATE
-                                    </span>
-                                    <div className="flex gap-1.5 flex-wrap">
-                                        {currentProject.tags.map((tag) => (
-                                            <span
-                                                key={tag}
-                                                className="text-[9px] sm:text-[11px] font-bold text-pink-500 border border-slate-300/80 px-2.5 mt-4 py-0.5 rounded-md bg-white shadow-sm"
-                                            >
-                                                {tag}
-                                            </span>
-                                        ))}
-                                    </div>
-                                </div>
-                            </motion.div>
-                        </AnimatePresence>
-
-                        {/* PULSANTIERA AZIONI - Forzata la larghezza auto per tenerli affiancati e compatti */}
-                        <div className="flex flex-row flex-wrap gap-3 mt-8 w-full justify-start items-center">
-                            <div className="w-fit">
-                                <ClickSpark>
-                                    <a
-                                        href={currentProject.demoUrl}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="px-6 py-3 bg-pink-500 hover:bg-pink-700 text-white text-[10px] sm:text-xs font-black uppercase tracking-widest rounded-xl shadow-md transition-colors flex items-center gap-2 cursor-pointer whitespace-nowrap"
-                                    >
-                                        <ExternalLink className="w-3.5 h-3.5" />
-                                        Demo Live
-                                    </a>
-                                </ClickSpark>
-                            </div>
-
-                            <div className="w-fit">
-                                <a
-                                    href={currentProject.codeUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="px-6 py-3 bg-slate-200 hover:bg-slate-900 text-slate-900 hover:text-white border border-slate-300 text-[10px] sm:text-xs font-black uppercase tracking-widest rounded-xl transition-colors flex items-center gap-2 cursor-pointer shadow-sm whitespace-nowrap"
-                                >
-                                    <Code2 className="w-3.5 h-3.5" />
-                                    Codice
-                                </a>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    {/* SOTTO-GRIGLIA DESTRA (MAIN PREVIEW + MINIATURE) */}
-                    <div className="lg:col-span-7 flex flex-col gap-6 w-full relative z-20">
-
-                        {/* ANTEPRIMA GRANDE */}
-                        <div className="relative w-full h-[220px] sm:h-[300px] md:h-[380px] bg-slate-900 rounded-[2.5rem] overflow-hidden border border-slate-200/50 shadow-lg flex items-center justify-center p-6">
                             <AnimatePresence mode="wait">
                                 <motion.div
                                     key={currentProject.id}
-                                    initial={{ opacity: 0, scale: 0.97 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    exit={{ opacity: 0, scale: 1.03 }}
-                                    transition={{ duration: 0.3 }}
-                                    className="w-full h-full relative flex items-center justify-center"
+                                    initial={{ opacity: 0, x: -15 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    exit={{ opacity: 0, x: 15 }}
+                                    transition={{ duration: 0.35, ease: "easeInOut" }}
+                                    className="flex flex-col gap-4 w-full"
                                 >
-                                    <img
-                                        src={currentProject.image}
-                                        className="w-full h-full object-contain rounded-2xl z-10"
-                                        alt=""
-                                        onError={(e) => { (e.target as HTMLElement).style.display = 'none'; }}
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-tr from-slate-950 to-slate-900 flex items-center justify-center text-slate-700 font-bold text-xs uppercase tracking-widest">
-                                        {currentProject.title} Preview
+                                    {/* CONTATORE (01 / 05) */}
+                                    <div className="flex items-center gap-4 w-full">
+                                        <span className="text-[10px] font-black uppercase tracking-widest text-pink-500 bg-pink-50 border border-pink-200 px-3 py-1 rounded-full w-fit shrink-0">
+                                            {currentProject.counter}
+                                        </span>
+                                        <div className="h-[1px] bg-slate-300/80 flex-1 hidden sm:block" />
+                                    </div>
+
+                                    {/* TITOLO PROGETTO */}
+                                    <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tighter capitalize mt-1">
+                                        {currentProject.title}
+                                    </h3>
+
+                                    {/* DESCRIZIONE */}
+                                    <p className="text-slate-500 text-sm sm:text-base leading-relaxed font-medium max-w-[420px]">
+                                        {currentProject.description}
+                                    </p>
+
+                                    {/* TAG TECNOLOGIE UTILIZZATE */}
+                                    <div className="flex flex-col gap-2 mt-2">
+                                        <span className="text-[13px] font-black uppercase tracking-widest text-pink-700">
+                                            TECNOLOGIE UTILIZZATE
+                                        </span>
+                                        <div className="flex gap-1.5 flex-wrap">
+                                            {currentProject.tags.map((tag) => (
+                                                <span
+                                                    key={tag}
+                                                    className="text-[9px] sm:text-[11px] font-bold text-pink-500 border border-slate-300/80 px-2.5 mt-4 py-0.5 rounded-md bg-white shadow-sm"
+                                                >
+                                                    {tag}
+                                                </span>
+                                            ))}
+                                        </div>
                                     </div>
                                 </motion.div>
                             </AnimatePresence>
+
+                            {/* PULSANTIERA AZIONI */}
+                            <div className="flex flex-row flex-wrap gap-3 mt-8 w-full justify-start items-center">
+                                <div className="w-fit">
+                                    <ClickSpark>
+                                        <a
+                                            href={currentProject.demoUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="px-6 py-3 bg-pink-500 hover:bg-pink-700 text-white text-[10px] sm:text-xs font-black uppercase tracking-widest rounded-xl shadow-md transition-colors flex items-center gap-2 cursor-pointer whitespace-nowrap"
+                                        >
+                                            <ExternalLink className="w-3.5 h-3.5" />
+                                            Demo Live
+                                        </a>
+                                    </ClickSpark>
+                                </div>
+
+                                <div className="w-fit">
+                                    <a
+                                        href={currentProject.codeUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="px-6 py-3 bg-slate-300 hover:bg-slate-900 text-slate-900 hover:text-white border border-slate-400 text-[10px] sm:text-xs font-black uppercase tracking-widest rounded-xl transition-colors flex items-center gap-2 cursor-pointer shadow-sm whitespace-nowrap"
+                                    >
+                                        <Code2 className="w-3.5 h-3.5" />
+                                        Codice
+                                    </a>
+                                </div>
+                            </div>
+
                         </div>
 
-                        {/* SELETTORE MINIATURE CON FALLBACK ANTI-ERRORE VISIVO */}
-                        <div className="flex flex-col gap-4 w-full">
-                            <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-none w-full justify-start md:justify-between items-center snap-x">
-                                {PROJECTS_DATA.map((proj, idx) => (
-                                    <button
-                                        key={proj.id}
-                                        onClick={() => setActiveIndex(idx)}
-                                        className={`relative h-16 w-20 sm:h-20 sm:w-24 rounded-2xl overflow-hidden border-2 shrink-0 transition-all cursor-pointer snap-center bg-slate-900 flex items-center justify-center text-center p-2 ${activeIndex === idx
-                                            ? "border-pink-500 scale-105 shadow-md"
-                                            : "border-slate-200 opacity-60 hover:opacity-100"
-                                            }`}
+                        {/* SOTTO-GRIGLIA DESTRA (MAIN PREVIEW + MINIATURE) */}
+                        <div className="lg:col-span-7 flex flex-col gap-6 w-full relative z-20">
+
+                            {/* ANTEPRIMA GRANDE */}
+                            <div className="relative w-full h-[220px] sm:h-[300px] md:h-[380px] bg-slate-900 rounded-[2.5rem] overflow-hidden border border-slate-200/50 shadow-lg flex items-center justify-center p-6">
+                                <AnimatePresence mode="wait">
+                                    <motion.div
+                                        key={currentProject.id}
+                                        initial={{ opacity: 0, scale: 0.97 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        exit={{ opacity: 0, scale: 1.03 }}
+                                        transition={{ duration: 0.3 }}
+                                        className="w-full h-full relative flex items-center justify-center"
                                     >
                                         <img
-                                            src={proj.image}
-                                            className="absolute inset-0 w-full h-full object-cover z-10"
+                                            src={currentProject.image}
+                                            className="w-full h-full object-contain rounded-2xl z-10"
                                             alt=""
                                             onError={(e) => { (e.target as HTMLElement).style.display = 'none'; }}
                                         />
-                                        <span className="text-[8px] font-black text-slate-400 uppercase tracking-tight leading-tight line-clamp-2 relative z-0">
-                                            {proj.title.split(' ')[0]}
-                                        </span>
-                                    </button>
-                                ))}
+                                        <div className="absolute inset-0 bg-gradient-to-tr from-slate-950 to-slate-900 flex items-center justify-center text-slate-700 font-bold text-xs uppercase tracking-widest">
+                                            {currentProject.title} Preview
+                                        </div>
+                                    </motion.div>
+                                </AnimatePresence>
                             </div>
 
-                            {/* INDICE DI PROGRESSO VISIVO DELLO SLIDER (LA LINEA IN BASSO ALLO SCREEN) */}
-                            <div className="w-full h-[3px] bg-slate-200/60 rounded-full relative overflow-hidden hidden sm:block">
-                                <motion.div
-                                    className="absolute top-0 bottom-0 left-0 bg-pink-700 rounded-full"
-                                    initial={false}
-                                    animate={{
-                                        width: `${((activeIndex + 1) / PROJECTS_DATA.length) * 100}%`
-                                    }}
-                                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                                />
+                            {/* SELETTORE MINIATURE */}
+                            <div className="flex flex-col gap-4 w-full">
+                                <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-none w-full justify-start md:justify-between items-center snap-x">
+                                    {PROJECTS_DATA.map((proj, idx) => (
+                                        <button
+                                            key={proj.id}
+                                            onClick={() => setActiveIndex(idx)}
+                                            className={`relative h-16 w-20 sm:h-20 sm:w-24 rounded-2xl overflow-hidden border-2 shrink-0 transition-all cursor-pointer snap-center bg-slate-900 flex items-center justify-center text-center p-2 ${activeIndex === idx
+                                                ? "border-pink-500 scale-105 shadow-md"
+                                                : "border-slate-200 opacity-60 hover:opacity-100"
+                                                }`}
+                                        >
+                                            <img
+                                                src={proj.image}
+                                                className="absolute inset-0 w-full h-full object-cover z-10"
+                                                alt=""
+                                                onError={(e) => { (e.target as HTMLElement).style.display = 'none'; }}
+                                            />
+                                            <span className="text-[8px] font-black text-slate-400 uppercase tracking-tight leading-tight line-clamp-2 relative z-0">
+                                                {proj.title.split(' ')[0]}
+                                            </span>
+                                        </button>
+                                    ))}
+                                </div>
+
+                                {/* INDICE DI PROGRESSO VISIVO DELLO SLIDER (LA LINEA IN BASSO ALLO SCREEN) */}
+                                <div className="w-full h-[3px] bg-slate-200/60 rounded-full relative overflow-hidden hidden sm:block">
+                                    <motion.div
+                                        className="absolute top-0 bottom-0 left-0 bg-pink-700 rounded-full"
+                                        initial={false}
+                                        animate={{
+                                            width: `${((activeIndex + 1) / PROJECTS_DATA.length) * 100}%`
+                                        }}
+                                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                                    />
+                                </div>
                             </div>
                         </div>
+
                     </div>
 
-                </div>
+                    {/* BOTTONE VEDI TUTTI I PROGETTI (SUL FONDO CENTRATO) */}
 
-                {/* BOTTONE VEDI TUTTI I PROGETTI (SUL FONDO CENTRATO) */}
+                    <div className="w-full flex flex-col items-center justify-center text-center mt-16 gap-4">
+                        <ClickSpark>
+                            <button
+                                onClick={() => navigate('/projects')}
+                                className="px-8 py-4 bg-pink-500 hover:bg-pink-700 text-white text-xs font-black uppercase tracking-[0.15em] rounded-xl shadow-lg transition-colors flex items-center gap-3 cursor-pointer mx-auto"
+                            >
+                                Vedi Tutti i Progetti
+                                <motion.div
+                                    animate={{ x: [0, 5, 0] }}
+                                    transition={{
+                                        duration: 1.2,
+                                        repeat: Infinity,
+                                        ease: "easeInOut"
+                                    }}
+                                    className="flex items-center justify-center"
+                                >
+                                    <ArrowRight className="w-4 h-4" />
+                                </motion.div>
+                            </button>
+                        </ClickSpark>
 
-                <div className="w-full flex flex-col items-center justify-center text-center mt-16 gap-4">
-                    <ClickSpark>
-                        <button
-                            onClick={() => navigate('/projects')}
-                            className="px-8 py-4 bg-pink-500 hover:bg-pink-600 text-white text-xs font-black uppercase tracking-[0.15em] rounded-xl shadow-lg transition-colors flex items-center gap-3 cursor-pointer mx-auto"
-                        >
-                            Vedi Tutti i Progetti
-                            <ArrowRight className="w-4 h-4" />
-                        </button>
-                    </ClickSpark>
+                        <span className="text-slate-900 text-xs font-bold tracking-wider uppercase opacity-80">
+                            Naviga tra i progetti cliccando sulle <span className="text-violet-600 font-black uppercase tracking-wide">anteprime</span> delle schede
+                        </span>
 
-                    <span className="text-slate-900 text-xs font-bold tracking-wider uppercase opacity-80">
-                        Naviga tra i progetti cliccando sulle <span className="text-pink-500 font-black">anteprime</span> delle schede
-                    </span>
-
+                    </div>
                 </div>
             </div>
         </section>

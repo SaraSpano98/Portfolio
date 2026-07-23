@@ -1,27 +1,49 @@
-import { useMemo } from 'react';
-import { motion } from 'framer-motion';
+import { useMemo, useEffect, useRef } from 'react';
+import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 import { Folder, List, Settings } from 'lucide-react';
 
 import TextType from '../../ui/TextType';
-
-interface Project {
-    id: string;
-    title: string;
-    category: string;
-    technologies: string[];
-}
+import { FEATURED_PROJECTS } from '../../../data/projectsData'; 
 
 interface ProjectsHeroProps {
-    projects?: Project[];
     revealVariant: Variants;
 }
 
-const ProjectsHero = ({ projects = [], revealVariant }: ProjectsHeroProps) => {
+{/* MICRO-COMPONENTE PER L'ANIMAZIONE DI CONTEGGIO NUMERICO */}
+const AnimatedCounter = ({ value }: { value: number }) => {
+    const motionValue = useMotionValue(0);
+    const rounded = useTransform(motionValue, (latest) => Math.round(latest));
+    const textRef = useRef<HTMLSpanElement>(null);
+
+    useEffect(() => {
+        const controls = animate(motionValue, value, {
+            duration: 2,
+            ease: "easeOut",
+            delay: 1.2
+        });
+
+        const unsubscribe = rounded.on("change", (latest) => {
+            if (textRef.current) {
+                textRef.current.textContent = String(latest);
+            }
+        });
+
+        return () => {
+            controls.stop();
+            unsubscribe();
+        };
+    }, [value, motionValue, rounded]);
+
+    return <span ref={textRef} className="text-4xl md:text-5xl font-light text-slate-900 tabular-nums leading-none">0</span>;
+};
+
+const ProjectsHero = ({ revealVariant }: ProjectsHeroProps) => {
     const stats = useMemo(() => {
-        const totalProjects = projects.length;
-        const uniqueCategories = new Set(projects.map((p) => p.category)).size;
-        const uniqueTechs = new Set(projects.flatMap((p) => p.technologies)).size;
+        const totalProjects = FEATURED_PROJECTS.length;
+        const uniqueCategories = new Set(FEATURED_PROJECTS.map((p) => p.category)).size;
+        
+        const uniqueTechs = new Set(FEATURED_PROJECTS.flatMap((p) => p.tags.map(t => t.toLowerCase().trim()))).size;
 
         return [
             {
@@ -43,10 +65,10 @@ const ProjectsHero = ({ projects = [], revealVariant }: ProjectsHeroProps) => {
                 icon: Settings,
             },
         ];
-    }, [projects]);
+    }, []);
 
     return (
-        <section className="w-full bg-white text-slate-900 px-6 sm:px-12 md:px-16 lg:px-24 pt-40 lg:pt-48 pb-28 select-none overflow-hidden relative">
+       <section className="w-full bg-white text-slate-900 px-6 sm:px-12 md:px-16 lg:px-24 pt-40 lg:pt-48 pb-12 select-none overflow-hidden relative">
             <div className="w-full mb-20">
                 <div className="flex flex-col lg:flex-row justify-between gap-12 w-full items-start">
 
@@ -79,23 +101,27 @@ const ProjectsHero = ({ projects = [], revealVariant }: ProjectsHeroProps) => {
                             </motion.h1>
                         </div>
 
-
                         {/* Descrizione e Card */}
                         <motion.div
-                            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }}
-                            className="flex flex-col gap-8 w-full"
+                            initial={{ opacity: 0, y: 20 }} 
+                            animate={{ opacity: 1, y: 0 }} 
+                            transition={{ delay: 0.6 }}
+                            className="flex flex-col gap-14 w-full"
                         >
-                            <p className="text-xl md:text-2xl text-slate-500 leading-relaxed italic border-l-4 border-slate-100 pl-8 font-medium">
-                                "Ogni project è un viaggio unico, frutto di creatività, dedizione e passione per l'innovazione. Dai un'occhiata alle soluzioni che ho ingegnerizzato."
+                            <p className="text-xl md:text-2xl text-slate-500 leading-relaxed italic border-l-4 border-indigo-600 pl-8 font-medium">
+                                "Ogni progetto è un viaggio unico, frutto di creatività, dedizione e passione per l'innovazione. Dai un'occhiata alle soluzioni che ho ingegnerizzato."
                             </p>
 
-                            <div className="p-10 bg-slate-50/70 border border-slate-100 rounded-[2.5rem] w-full shadow-sm">
-                                <span className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 mb-4 block">
+                            {/* CARD IN VERSIONE DARK SLATE ELEGANTE */}
+                            <div className="p-10 bg-slate-900 border border-slate-800 rounded-[2.5rem] w-full shadow-xl shadow-slate-950/10 relative overflow-hidden group">
+                                <span className="text-[11px] font-black uppercase tracking-[0.3em] text-pink-500 mb-4 block">
                                     Dietro il codice
                                 </span>
-                                <p className="text-slate-600 text-base md:text-lg leading-relaxed">
+                                <p className="text-slate-300 text-base md:text-lg leading-relaxed relative z-10 font-medium">
                                     Dai progetti personali alle collaborazioni, esplora il mio portfolio per scoprire come trasformo idee in realtà. Scopri le sfide affrontate, le soluzioni innovative e i risultati ottenuti in ogni esperienza progettuale.
                                 </p>
+
+                                <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-pink-500/5 rounded-full blur-2xl pointer-events-none" />
                             </div>
                         </motion.div>
                     </div>
@@ -111,18 +137,16 @@ const ProjectsHero = ({ projects = [], revealVariant }: ProjectsHeroProps) => {
                                 return (
                                     <div key={stat.id} className="flex lg:flex-row-reverse items-center gap-5 text-left lg:text-right">
                                         {/* Icona Rosa */}
-                                        <div className="w-16 h-16 sm:w-20 sm:h-20 bg-pink-50 border border-pink-200 rounded-[22px] flex items-center justify-center text-pink-500 shadow-sm shadow-pink-100 transition-transform duration-300 hover:scale-105 shrink-0">
+                                        <div className="w-16 h-16 sm:w-20 sm:h-20 bg-pink-50 border border-pink-400 rounded-[22px] flex items-center justify-center text-pink-500 shadow-sm shadow-pink-100 transition-transform duration-300 hover:scale-105 shrink-0">
                                             <Icon className="w-8 h-8 stroke-[1.5]" />
                                         </div>
 
-                                        {/* Etichette e Contatori Tabulari */}
+                                        {/* Etichette e Contatori Tabulari Animati */}
                                         <div className="flex flex-col">
                                             <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-500 mb-1 whitespace-nowrap">
                                                 {stat.label}
                                             </p>
-                                            <span className="text-4xl md:text-5xl font-light text-slate-900 tabular-nums leading-none">
-                                                {stat.value}
-                                            </span>
+                                            <AnimatedCounter value={stat.value} />
                                         </div>
                                     </div>
                                 );
@@ -137,4 +161,3 @@ const ProjectsHero = ({ projects = [], revealVariant }: ProjectsHeroProps) => {
 };
 
 export default ProjectsHero;
-

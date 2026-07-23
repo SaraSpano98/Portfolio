@@ -1,7 +1,8 @@
 import React from 'react';
+import { motion } from 'framer-motion'; 
 import { Lightbulb, Handshake, Star, Heart } from 'lucide-react';
 
-{/* 1. DEFINIZIONE DELL'INTERFACCIA (TypeScript) */ }
+{/* 1. DEFINIZIONE DELL'INTERFACCIA (TypeScript) */}
 interface ValueItem {
     id: string;
     title: string;
@@ -10,10 +11,10 @@ interface ValueItem {
     themeColor: string;
     bgColor: string;
     textColor: string;
+    animDelay: number; 
 }
 
-
-{/* 2. COSTANTE CON I DATI DEI 4 VALORI */ }
+{/* 2. COSTANTE CON I DATI DEI 4 VALORI */}
 const valuesData: ValueItem[] = [
     {
         id: "innovazione",
@@ -22,7 +23,8 @@ const valuesData: ValueItem[] = [
         icon: Lightbulb,
         themeColor: "from-pink-500 via-purple-500 to-indigo-500",
         bgColor: "bg-purple-50/50",
-        textColor: "text-violet-600"
+        textColor: "text-violet-600",
+        animDelay: 0
     },
     {
         id: "collaborazione",
@@ -31,7 +33,8 @@ const valuesData: ValueItem[] = [
         icon: Handshake,
         themeColor: "from-blue-500 via-cyan-500 to-teal-400",
         bgColor: "bg-blue-50/50",
-        textColor: "text-blue-600"
+        textColor: "text-blue-600",
+        animDelay: 0.3
     },
     {
         id: "eccellenza",
@@ -40,7 +43,8 @@ const valuesData: ValueItem[] = [
         icon: Star,
         themeColor: "from-green-500 via-lime-500 to-yellow-500",
         bgColor: "bg-emerald-50/50",
-        textColor: "text-green-600"
+        textColor: "text-green-600",
+        animDelay: 0.6
     },
     {
         id: "passione",
@@ -49,10 +53,10 @@ const valuesData: ValueItem[] = [
         icon: Heart,
         themeColor: "from-yellow-500 via-orange-500 to-red-600",
         bgColor: "bg-amber-50/50",
-        textColor: "text-red-600"
+        textColor: "text-red-600",
+        animDelay: 0.9
     }
 ];
-
 
 export default function MyValuesSection() {
     return (
@@ -70,7 +74,6 @@ export default function MyValuesSection() {
                     <div className="h-[3px] w-8 bg-pink-500 mt-4" />
                 </div>
 
-
                 {/* GRIGLIA A 4 COLONNE */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 xl:gap-12 w-full">
                     {valuesData.map((value) => {
@@ -80,10 +83,38 @@ export default function MyValuesSection() {
                                 key={value.id}
                                 className="flex flex-col items-center lg:items-start text-center lg:text-left group/value"
                             >
-                                <div className={`w-24 h-24 rounded-[1.8rem] bg-gradient-to-b ${value.themeColor} p-[1.5px] shadow-sm transition-transform duration-500 group-hover/value:scale-105 group-hover/value:rotate-2 mb-6 shrink-0`}>
-                                    <div className={`w-full h-full ${value.bgColor} rounded-[1.7rem] backdrop-blur-sm flex items-center justify-center`}>
-                                        <IconComponent className={`w-9 h-9 ${value.textColor} stroke-[1.5]`} />
-                                    </div>
+                                {/* CONTENITORE ICONA ANIMATO IN AUTOMATICO */}
+                                <div className="relative mb-6 shrink-0">
+                                    <motion.div 
+                                        animate={{ y: [0, -6, 0] }}
+                                        transition={{
+                                            duration: 4,
+                                            repeat: Infinity,
+                                            ease: "easeInOut",
+                                            delay: value.animDelay
+                                        }}
+                                        className={`w-24 h-24 rounded-[1.8rem] bg-gradient-to-b ${value.themeColor} p-[1.5px] shadow-sm relative z-10`}
+                                    >
+                                        <div className={`w-full h-full ${value.bgColor} rounded-[1.7rem] backdrop-blur-sm flex items-center justify-center`}>
+                                            <IconComponent className={`w-9 h-9 ${value.textColor} stroke-[1.5]`} />
+                                        </div>
+                                    </motion.div>
+
+                                    {/* 2. Alone Luminoso (Glow) */}
+                                    <motion.div 
+                                        animate={{ 
+                                            y: [0, -6, 0],
+                                            opacity: [0.15, 0.4, 0.15],
+                                            scale: [0.9, 1.02, 0.9]
+                                        }}
+                                        transition={{
+                                            duration: 4,
+                                            repeat: Infinity,
+                                            ease: "easeInOut",
+                                            delay: value.animDelay
+                                        }}
+                                        className={`absolute inset-0 rounded-[1.8rem] bg-gradient-to-b ${value.themeColor} blur-xl z-0`}
+                                    />
                                 </div>
 
                                 <h3 className="text-pink-500 font-black uppercase tracking-[0.2em] text-xs sm:text-sm mb-3">

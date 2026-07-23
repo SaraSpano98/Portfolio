@@ -96,7 +96,7 @@ export default function Hero() {
         {/* LATO SINISTRO: DESIGNER */}
         <div className="relative w-full flex flex-col items-start text-left group pointer-events-auto">
           <Link
-            to="/designer"
+            to="/projects#design-showcase"
             onMouseEnter={() => setHoveredLink('designer')}
             onMouseLeave={() => setHoveredLink(null)}
             className="relative block outline-none cursor-pointer"

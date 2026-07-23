@@ -58,7 +58,7 @@ export default function Footer() {
   const socialLinks = [
     { icon: Github, href: 'https://github.com/SaraSpano98' },
     { icon: Linkedin, href: 'https://www.linkedin.com/in/sara-spano-0a2315273' },
-    { icon: Mail, href: 'mailto:saraspano@live.com' }
+    { icon: Mail, href: 'mailto:saraspano579@gmail.com' }
   ]
 
   /* MAPPATURA ROTTE CORRETTA */
@@ -66,7 +66,7 @@ export default function Footer() {
     { name: 'Home', path: '/' },
     { name: 'Chi Sono', path: '/about' },
     { name: 'Projects', path: '/projects' },
-    { name: 'Experience', path: '/experience' },
+    { name: 'Experiences', path: '/experiences' },
     { name: 'Contacts', path: '/contacts' }
   ]
 
@@ -109,7 +109,7 @@ export default function Footer() {
                 </div>
                 <div className="flex items-center gap-4">
                   <Mail size={16} className="text-pink-500" />
-                  <span className="lowercase font-semibold tracking-normal text-sm text-slate-600">saraspano@live.com</span>
+                  <span className="lowercase font-semibold tracking-normal text-sm text-slate-600">saraspano579@gmail.com</span>
                 </div>
               </div>
 

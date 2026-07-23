@@ -99,7 +99,7 @@ export default function TechProfileSection() {
                                             <Code2 className="w-5 h-5" />
                                         </div>
                                         <h3 className="text-4xl sm:text-5xl font-black tracking-tighter text-slate-950 uppercase">
-                                            Parte <span className="text-indigo-600">Coder</span>
+                                            Parte <span className="text-indigo-500">Coder</span>
                                         </h3>
                                     </div>
 

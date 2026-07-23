@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
 import Contacts from "./pages/Contacts";
-import Experience from "./pages/Experience";
+import Experiences from "./pages/Experiences";
 import ScrollToTop from "./components/ScrollToTop"
 
 export default function App() {
@@ -22,7 +22,7 @@ export default function App() {
         {location.pathname === "/" && <Home />}
         {location.pathname === "/about" && <About />}
         {location.pathname === "/projects" && <Projects />}
-        {location.pathname === "/experience" && <Experience />}
+        {location.pathname === "/experiences" && <Experiences />}
         {location.pathname === "/contacts" && <Contacts />}
        
       </main>
