@@ -21,9 +21,9 @@ export default function App() {
       <main className="flex-1 relative flex flex-col z-10"> 
         {location.pathname === "/" && <Home />}
         {location.pathname === "/about" && <About />}
-        {location.pathname === "/projects" && <Projects />}
-        {location.pathname === "/experiences" && <Experiences />}
-        {location.pathname === "/contacts" && <Contacts />}
+        {location.pathname === "/progetti" && <Projects />}
+        {location.pathname === "/esperienze" && <Experiences />}
+        {location.pathname === "/contatti" && <Contacts />}
        
       </main>
       <Footer />

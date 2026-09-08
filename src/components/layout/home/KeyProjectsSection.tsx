@@ -243,11 +243,11 @@ export default function KeyProjectsSection() {
 
                     {/* BOTTONE VEDI TUTTI I PROGETTI (SUL FONDO CENTRATO) */}
 
-                    <div className="w-full flex flex-col items-center justify-center text-center mt-16 gap-4">
+                    <div className="w-full flex flex-col items-center justify-center text-center my-12 md:my-16 gap-4 relative z-20">
                         <ClickSpark>
                             <button
-                                onClick={() => navigate('/projects')}
-                                className="px-8 py-4 bg-pink-500 hover:bg-pink-700 text-white text-xs font-black uppercase tracking-[0.15em] rounded-xl shadow-lg transition-colors flex items-center gap-3 cursor-pointer mx-auto"
+                                onClick={() => navigate('/progetti')}
+                                className="px-8 py-4 bg-pink-700 hover:bg-pink-700/70 text-white text-xs font-black uppercase tracking-[0.15em] rounded-xl shadow-lg transition-colors flex items-center gap-3 cursor-pointer mx-auto"
                             >
                                 Vedi Tutti i Progetti
                                 <motion.div
@@ -263,11 +263,6 @@ export default function KeyProjectsSection() {
                                 </motion.div>
                             </button>
                         </ClickSpark>
-
-                        <span className="text-slate-900 text-xs font-bold tracking-wider uppercase opacity-80">
-                            Naviga tra i progetti cliccando sulle <span className="text-violet-600 font-black uppercase tracking-wide">anteprime</span> delle schede
-                        </span>
-
                     </div>
                 </div>
             </div>
