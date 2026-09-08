@@ -18,7 +18,7 @@ export const FEATURED_PROJECTS: Project[] = [
         category: "Front-end",
         status: "in-corso",
         description: "Applicazione web interattiva per il calcolo di mappe numerologiche. Gestisce algoritmi complessi per generare grafici personalizzati su talenti, karma e relazioni, con un'interfaccia utente immersiva e responsive.",
-        tags: ["React", "Tailwind CSS", "Framer Motion", "TypeScript"],
+        tags: ["React", "Tailwind", "Redux", "Axios", "JavaScript", "Node.js"],
         liveLink: "https://tuo-link-soulmatrix.com",
         objectives: "Sviluppare un motore di calcolo numerologico istantaneo basato sulla data di nascita, eliminando la necessità di elaborazioni manuali e offrendo un'esperienza grafica immersiva sia in modalità chiara che scura.",
         process: "Architettura dei componenti logici strutturata per mappare gli algoritmi degli archetipi karmici. Ottimizzazione delle performance di rendering e implementazione di animazioni matematiche fluide per i nodi grafici.",

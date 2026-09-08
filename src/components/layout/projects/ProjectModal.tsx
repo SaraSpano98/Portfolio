@@ -21,7 +21,7 @@ interface ProjectModalProps {
 
 export default function ProjectModal({ project, onClose }: ProjectModalProps) {
     return (
-        <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 md:p-10 select-none">
+        <div className="fixed inset-0 z-[9999] w-screen h-screen flex items-center justify-center p-4 sm:p-6 md:p-10 select-none">
             
             {/* SFONDO SCURO SFOCATO */}
             <motion.div
@@ -57,14 +57,14 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                         <span className="text-pink-500 font-black uppercase tracking-[0.4em] text-[10px] mb-2 block">
                             Project Case Study
                         </span>
-                        <h3 className="text-3xl sm:text-4xl font-black text-slate-950 tracking-tighter uppercase leading-none">
+                        <h3 className="text-3xl sm:text-4xl font-black text-slate-950 tracking-tighter leading-none">
                             {project.title}
                         </h3>
                         
                         {/* Renderizzazione dinamica dei Tag delle Tecnologie */}
                         <div className="flex flex-wrap gap-2 mt-4">
                             {project.tags.map((tag, i) => (
-                                <span key={i} className="text-[10px] font-black uppercase tracking-wider px-3 py-1 bg-slate-50 border border-slate-200 text-slate-500 rounded-md">
+                                <span key={i} className="text-[9px] sm:text-[11px] font-bold uppercase text-pink-500 border border-slate-300/80 px-2.5 py-0.5 rounded-md bg-white shadow-sm">
                                     {tag}
                                 </span>
                             ))}
@@ -84,21 +84,21 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                         
                         {/* Descrizione Principale */}
                         <div className="flex flex-col gap-2 md:col-span-2">
-                            <h5 className="text-xs font-black text-slate-400 uppercase tracking-widest flex items-center gap-2">
+                            <h5 className="text-xs font-black text-pink-700 uppercase tracking-widest flex items-center gap-2">
                                 <Code className="w-4 h-4 text-pink-500" /> Informazioni e Panoramica
                             </h5>
-                            <p className="text-slate-600 text-sm sm:text-base font-light leading-relaxed">
+                            <p className="text-slate-950 text-sm sm:text-base font-base">
                                 {project.description}
                             </p>
                         </div>
 
                         {/* Blocco 1: Obiettivi */}
                         {project.objectives && (
-                            <div className="flex flex-col gap-2 p-5 bg-slate-50/50 border border-slate-100 rounded-2xl">
-                                <h5 className="text-xs font-black text-slate-800 uppercase tracking-widest flex items-center gap-2">
+                            <div className="flex flex-col gap-2 p-5 bg-slate-50/50 border border-pink-300 rounded-2xl">
+                                <h5 className="text-xs font-black text-slate-950 uppercase tracking-widest flex items-center gap-2">
                                     <Target className="w-4 h-4 text-pink-500" /> Obiettivi del Progetto
                                 </h5>
-                                <p className="text-slate-500 text-xs sm:text-sm font-light leading-relaxed">
+                                <p className="text-slate-950 text-xs sm:text-sm font-base">
                                     {project.objectives}
                                 </p>
                             </div>
@@ -106,11 +106,11 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
                         {/* Blocco 2: Processo di Sviluppo */}
                         {project.process && (
-                            <div className="flex flex-col gap-2 p-5 bg-slate-50/50 border border-slate-100 rounded-2xl">
-                                <h5 className="text-xs font-black text-slate-800 uppercase tracking-widest flex items-center gap-2">
+                            <div className="flex flex-col gap-2 p-5 bg-slate-50/50 border border-pink-300 rounded-2xl">
+                                <h5 className="text-xs font-black text-slate-950 uppercase tracking-widest flex items-center gap-2">
                                     <Cpu className="w-4 h-4 text-pink-500" /> Processo e Logica
                                 </h5>
-                                <p className="text-slate-500 text-xs sm:text-sm font-light leading-relaxed">
+                                <p className="text-slate-950 text-xs sm:text-sm font-base">
                                     {project.process}
                                 </p>
                             </div>
@@ -118,11 +118,11 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
                         {/* Blocco 3: Risultati Ottenuti */}
                         {project.results && (
-                            <div className="flex flex-col gap-2 p-5 bg-pink-50/20 border border-pink-100/50 rounded-2xl md:col-span-2">
-                                <h5 className="text-xs font-black text-pink-600 uppercase tracking-widest flex items-center gap-2">
+                            <div className="flex flex-col gap-2 p-5 bg-pink-50/20 border border-pink-300 rounded-2xl md:col-span-2">
+                                <h5 className="text-xs font-black text-pink-500 uppercase tracking-widest flex items-center gap-2">
                                     <Award className="w-4 h-4 text-pink-500" /> Risultati Finali
                                 </h5>
-                                <p className="text-slate-600 text-xs sm:text-sm font-light leading-relaxed">
+                                <p className="text-slate-950 text-xs sm:text-sm font-base">
                                     {project.results}
                                 </p>
                             </div>

@@ -21,7 +21,7 @@ export default function GalleryImages() {
     return (
         <section 
             id="design-showcase" 
-            className="relative w-full bg-slate-50/40 pt-24 pb-32 px-6 sm:px-12 md:px-16 lg:px-24 z-10 select-none border-t border-slate-100"
+            className="relative w-full bg-slate-50/40 pt-24 pb-32 px-6 sm:px-12 md:px-16 lg:px-24 select-none border-t border-slate-100"
         >
             <div className="w-full max-w-7xl mx-auto flex flex-col gap-12">
                 

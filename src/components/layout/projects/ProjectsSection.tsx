@@ -33,7 +33,7 @@ export default function ProjectsSection() {
     };
 
     return (
-        <section className="relative w-full bg-white pt-16 pb-24 px-6 sm:px-12 md:px-16 lg:px-24 z-10 select-none overflow-hidden">
+        <section className="relative w-full bg-white pt-16 pb-24 px-6 sm:px-12 md:px-16 lg:px-24 select-none overflow-hidden">
             <div className="w-full max-w-8xl mx-auto flex flex-col items-start text-start">
 
                 {/* INTESTAZIONE SEZIONE CON CONTROLLI CAROSELLO */}

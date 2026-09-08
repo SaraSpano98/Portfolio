@@ -4,14 +4,24 @@ import { useNavigate } from 'react-router-dom';
 import { Code2, ExternalLink, ArrowRight } from 'lucide-react';
 import ClickSpark from '../../ui/ClickSpark';
 
+interface ProjectItem {
+    id: number;
+    counter: string;
+    title: string;
+    description: string;
+    tags: string[];
+    image: string;
+    demoUrl: string;
+    codeUrl: string;
+}
 
-const PROJECTS_DATA = [
+const PROJECTS_DATA: ProjectItem[] = [
     {
         id: 1,
         counter: "01 / 05",
         title: "SoulMatrix Web App",
         description: "Applicazione web interattiva per il calcolo di mappe numerologiche. Gestisce algoritmi complessi per generare grafici personalizzati su talenti, karma e relazioni, con un'interfaccia utente immersiva e responsive.",
-        tags: ["REACT", "TAILWIND CSS", "FRAMER MOTION", "TS"],
+        tags: ["REACT", "TAILWIND", "REDUX", "AXIOS", "JAVASCRIPT", "NODE.JS"],
         image: "/images/matrix-demo.png",
         demoUrl: "https://example.com",
         codeUrl: "https://github.com/SaraSpano98/matrice"
@@ -51,24 +61,25 @@ const PROJECTS_DATA = [
         counter: "05 / 05",
         title: "App",
         description: "App veloci, efficienti e durature.",
-        tags: ["React", "TS", "React router", "Node Red"],
+        tags: ["REACT", "TS", "REACT ROUTER", "NODE RED"],
         image: "/images/project5.png",
         demoUrl: "https://example.com",
         codeUrl: "https://github.com"
     }
 ];
 
-export default function KeyProjectsSection() {
+export default function ProjectsSection(): React.ReactElement {
     const navigate = useNavigate();
-    const [activeIndex, setActiveIndex] = useState(0);
-    const currentProject = PROJECTS_DATA[activeIndex];
+    const [activeIndex, setActiveIndex] = useState<number>(0);
+
+    const currentProject: ProjectItem = PROJECTS_DATA[activeIndex];
 
     return (
-        <section className="relative w-full bg-white pt-4 pb-24 px-6 sm:px-12 md:px-16 lg:px-24 z-10 select-none">
+        <section className="relative w-full bg-white pt-2 pb-10 px-6 sm:px-12 md:px-16 lg:px-24 z-10 select-none">
             <div className="w-full flex flex-col items-start text-start">
 
                 {/* INTESTAZIONE SEZIONE */}
-                <div className="w-full mb-14 flex flex-col items-start">
+                <div className="w-full mb-6 flex flex-col items-start">
                     <span className="text-pink-500 font-black uppercase tracking-[0.4em] text-[11px] mb-3">
                         PROJECTS & WORKS
                     </span>
@@ -77,24 +88,22 @@ export default function KeyProjectsSection() {
                     </h2>
                     <div className="h-[3px] w-8 bg-pink-500 mt-4" />
 
-                    <p className="text-slate-500 text-sm sm:text-base font-medium max-w-2xl leading-relaxed mt-8 transition-all duration-300">
+                    <p className="text-slate-500 text-sm sm:text-base font-medium max-w-2xl leading-relaxed mt-4 transition-all duration-300">
                         Idee creative trasformate in prodotti digitali reali. Esplora i casi studio che uniscono estetica moderna, architettura tecnica solida e micro-interazioni curate nel dettaglio.
                     </p>
                 </div>
 
 
                 {/* CONTENITORE VETRINA CON BORDO ANIMATO GRADIENTE */}
-                <div className="relative w-full p-[2px] rounded-[3rem] overflow-hidden group">
+                <div className="relative w-full max-w-5xl md:max-w-6xl mx-auto p-[2px] rounded-[3rem] overflow-hidden group">
                     <motion.div
                         className="absolute inset-0 w-[200%] h-[200%] top-[-50%] left-[-50%] bg-[conic-gradient(from_0deg,transparent_40%,#ec4899_70%,#64748b_90%,transparent_100%)]"
                         animate={{ rotate: 360 }}
                         transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
                     />
 
-                    <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-10 xl:gap-16 w-full items-center bg-slate-100 rounded-[calc(3rem-2px)] p-6 sm:p-10 md:p-12 shadow-sm z-10">
-
-                        {/* SOTTO-GRIGLIA SINISTRA (COLONNA INFO PROGETTO) */}
-                        <div className="lg:col-span-5 flex flex-col items-start w-full min-h-[380px] justify-between relative z-20 pr-0 lg:pr-6">
+                    <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 xl:gap-12 w-full items-center bg-slate-100 rounded-[calc(3rem-2px)] p-6 md:p-8 shadow-sm z-10">
+                        <div className="lg:col-span-5 flex flex-col items-start w-full h-full justify-center relative z-20 pr-0 lg:pr-6 gap-6">
 
                             <AnimatePresence mode="wait">
                                 <motion.div
@@ -132,7 +141,7 @@ export default function KeyProjectsSection() {
                                             {currentProject.tags.map((tag) => (
                                                 <span
                                                     key={tag}
-                                                    className="text-[9px] sm:text-[11px] font-bold text-pink-500 border border-slate-300/80 px-2.5 mt-4 py-0.5 rounded-md bg-white shadow-sm"
+                                                    className="text-[9px] sm:text-[11px] font-bold text-pink-500 border border-slate-300/80 px-2.5 py-0.5 rounded-md bg-white shadow-sm"
                                                 >
                                                     {tag}
                                                 </span>
@@ -218,8 +227,8 @@ export default function KeyProjectsSection() {
                                                 alt=""
                                                 onError={(e) => { (e.target as HTMLElement).style.display = 'none'; }}
                                             />
-                                            <span className="text-[8px] font-black text-slate-400 uppercase tracking-tight leading-tight line-clamp-2 relative z-0">
-                                                {proj.title.split(' ')[0]}
+                                            <span className="text-[9px] md:text-xs font-black text-slate-400 uppercase tracking-tight leading-tight line-clamp-2 relative z-20 px-1">
+                                                {proj.title}
                                             </span>
                                         </button>
                                     ))}
@@ -238,16 +247,14 @@ export default function KeyProjectsSection() {
                                 </div>
                             </div>
                         </div>
-
                     </div>
 
-                    {/* BOTTONE VEDI TUTTI I PROGETTI (SUL FONDO CENTRATO) */}
-
-                    <div className="w-full flex flex-col items-center justify-center text-center my-12 md:my-16 gap-4 relative z-20">
+                    {/* BOTTONE VEDI TUTTI I PROGETTI */}
+                    <div className="w-full flex flex-col items-center justify-center text-center mt-4 mb-8 gap-3 relative z-20">
                         <ClickSpark>
                             <button
                                 onClick={() => navigate('/progetti')}
-                                className="px-8 py-4 bg-pink-700 hover:bg-pink-700/70 text-white text-xs font-black uppercase tracking-[0.15em] rounded-xl shadow-lg transition-colors flex items-center gap-3 cursor-pointer mx-auto"
+                                className="px-10 py-5 bg-pink-700 hover:bg-pink-700/70 text-white text-xs font-black uppercase tracking-[0.15em] rounded-2xl shadow-lg transition-colors flex items-center justify-center gap-3 cursor-pointer mx-auto w-full max-w-[280px] sm:max-w-[320px]"
                             >
                                 Vedi Tutti i Progetti
                                 <motion.div
@@ -263,10 +270,13 @@ export default function KeyProjectsSection() {
                                 </motion.div>
                             </button>
                         </ClickSpark>
+
+                        <p className="text-xs sm:text-sm font-semibold text-slate-700 tracking-wide max-w-xs sm:max-w-md mx-auto mt-1">
+                            Esplora l'archivio completo dei miei lavori, dai progetti personali alle soluzioni enterprise.
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
     );
 }
-
