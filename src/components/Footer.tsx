@@ -65,9 +65,9 @@ export default function Footer() {
   const quickLinks = [
     { name: 'Home', path: '/' },
     { name: 'Chi Sono', path: '/about' },
-    { name: 'Projects', path: '/projects' },
-    { name: 'Experiences', path: '/experiences' },
-    { name: 'Contacts', path: '/contacts' }
+    { name: 'Progetti', path: '/projects' },
+    { name: 'Esperienze', path: '/esperienze' },
+    { name: 'Contatti', path: '/contatti' }
   ]
 
   return (

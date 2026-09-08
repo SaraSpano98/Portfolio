@@ -21,7 +21,6 @@ export default function GalleryImages() {
     return (
         <section 
             id="design-showcase" 
-            /* Ottimizzato pt e pb per dare continuità e distacco perfetto dal carosello sopra */
             className="relative w-full bg-slate-50/40 pt-24 pb-32 px-6 sm:px-12 md:px-16 lg:px-24 z-10 select-none border-t border-slate-100"
         >
             <div className="w-full max-w-7xl mx-auto flex flex-col gap-12">
@@ -55,7 +54,7 @@ export default function GalleryImages() {
                     ))}
                 </div>
 
-                {/* CONTENITORE CASO STUDIO (Calibrati i padding interni p-8 sm:p-14 md:p-16) */}
+                {/* CONTENITORE CASO STUDIO */}
                 <AnimatePresence mode="wait">
                     <motion.div 
                         key={currentMockup.id}
@@ -66,7 +65,7 @@ export default function GalleryImages() {
                         className="grid grid-cols-1 lg:grid-cols-12 gap-12 xl:gap-20 items-center w-full bg-white rounded-[3rem] p-8 sm:p-14 md:p-16 border border-slate-200/60 shadow-sm relative overflow-hidden"
                     >
                         
-                        {/* COLONNA SINISTRA: CANVAS CON VIDEO DESKTOP + MOBILE (Aggiunto padding extra e gap) */}
+                        {/* COLONNA SINISTRA: CANVAS CON VIDEO DESKTOP + MOBILE */}
                         <div className="lg:col-span-7 bg-slate-50/60 border border-slate-100 rounded-[2.5rem] p-8 sm:p-10 flex flex-col md:flex-row gap-10 items-center justify-center relative overflow-hidden w-full min-h-[480px]">
                             
                             {/* 1. INTERFACCIA VIDEO DESKTOP */}
@@ -106,7 +105,7 @@ export default function GalleryImages() {
                             </div>
                         </div>
 
-                        {/* COLONNA DESTRA: PANNELLO SPECIFICHE UX/UI (Ottimizzato gap-10 e py-4) */}
+                        {/* COLONNA DESTRA: PANNELLO SPECIFICHE UX/UI */}
                         <div className="lg:col-span-5 flex flex-col justify-between items-start text-left gap-10 py-4 w-full h-full">
                             
                             <div className="flex flex-col gap-2.5 w-full">

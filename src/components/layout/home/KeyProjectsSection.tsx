@@ -12,9 +12,9 @@ const PROJECTS_DATA = [
         title: "SoulMatrix Web App",
         description: "Applicazione web interattiva per il calcolo di mappe numerologiche. Gestisce algoritmi complessi per generare grafici personalizzati su talenti, karma e relazioni, con un'interfaccia utente immersiva e responsive.",
         tags: ["REACT", "TAILWIND CSS", "FRAMER MOTION", "TS"],
-        image: "/images/dashboard-analytics.png",
+        image: "/images/matrix-demo.png",
         demoUrl: "https://example.com",
-        codeUrl: "https://github.com"
+        codeUrl: "https://github.com/SaraSpano98/matrice"
     },
     {
         id: 2,
@@ -177,7 +177,7 @@ export default function KeyProjectsSection() {
                         <div className="lg:col-span-7 flex flex-col gap-6 w-full relative z-20">
 
                             {/* ANTEPRIMA GRANDE */}
-                            <div className="relative w-full h-[220px] sm:h-[300px] md:h-[380px] bg-slate-900 rounded-[2.5rem] overflow-hidden border border-slate-200/50 shadow-lg flex items-center justify-center p-6">
+                            <div className="relative w-full aspect-video bg-slate-900 rounded-[1.5rem] sm:rounded-[2rem] md:rounded-[2.5rem] overflow-hidden border border-slate-200/50 shadow-lg flex items-center justify-center p-2 sm:p-4 md:p-6">
                                 <AnimatePresence mode="wait">
                                     <motion.div
                                         key={currentProject.id}
@@ -189,7 +189,7 @@ export default function KeyProjectsSection() {
                                     >
                                         <img
                                             src={currentProject.image}
-                                            className="w-full h-full object-contain rounded-2xl z-10"
+                                            className="w-full h-full object-cover object-top rounded-xl md:rounded-2xl z-10"
                                             alt=""
                                             onError={(e) => { (e.target as HTMLElement).style.display = 'none'; }}
                                         />

@@ -54,13 +54,13 @@ export default function ProjectsSection() {
                     <div className="hidden sm:flex items-center gap-3">
                         <button
                             onClick={() => handleScroll('left')}
-                            className="w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:text-pink-500 hover:border-pink-500 transition-all cursor-pointer bg-white shadow-sm"
+                            className="w-12 h-12 rounded-full border border-slate-300 flex items-center justify-center text-slate-600 hover:text-pink-700 hover:border-pink-700 transition-all cursor-pointer bg-white shadow-sm"
                         >
                             <ArrowLeft className="w-5 h-5" />
                         </button>
                         <button
                             onClick={() => handleScroll('right')}
-                            className="w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:text-pink-500 hover:border-pink-500 transition-all cursor-pointer bg-white shadow-sm"
+                            className="w-12 h-12 rounded-full border border-slate-300 flex items-center justify-center text-slate-600 hover:text-pink-700 hover:border-pink-700 transition-all cursor-pointer bg-white shadow-sm"
                         >
                             <ArrowRight className="w-5 h-5" />
                         </button>
@@ -117,14 +117,14 @@ export default function ProjectsSection() {
                                     {filteredProjects.map((project) => (
                                         <div
                                             key={project.id}
-                                            className="w-[310px] sm:w-[360px] md:w-[400px] shrink-0 snap-start bg-slate-50/50 border border-pink-500/20 rounded-[2.5rem] p-6 flex flex-col justify-between min-h-[480px] transition-all hover:shadow-xl hover:shadow-pink-500/5 hover:border-pink-500/40 group relative"
+                                            className="w-[310px] sm:w-[360px] md:w-[400px] shrink-0 snap-start bg-slate-100 border border-pink-500 rounded-[2.5rem] p-6 flex flex-col justify-between min-h-[480px] transition-all shadow-lg shadow-pink-300 hover:border-pink-500/40 group relative"
                                         >
                                             <div className="w-full flex flex-col gap-5">
                                                 {/* Zona Immagine con Stato Integrato */}
                                                 <div className="w-full aspect-[4/3] bg-white border border-slate-100 rounded-2xl overflow-hidden flex items-center justify-center relative shadow-inner">
 
                                                     {/* Badge dello Stato Dinamico */}
-                                                    <span className={`absolute top-3 left-3 text-[8px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md border z-10 ${project.status === 'finito' ? 'bg-emerald-50 text-emerald-600 border-emerald-200' :
+                                                    <span className={`absolute top-3 left-3 text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md border z-10 ${project.status === 'finito' ? 'bg-emerald-50 text-emerald-600 border-emerald-200' :
                                                             project.status === 'in-corso' ? 'bg-amber-50 text-amber-600 border-amber-200' :
                                                                 'bg-indigo-50 text-indigo-600 border-indigo-200'
                                                         }`}>
@@ -144,7 +144,7 @@ export default function ProjectsSection() {
 
                                                     <div className="flex flex-wrap gap-1.5 mb-1">
                                                         {project.tags.slice(0, 3).map((tag, index) => (
-                                                            <span key={index} className="text-[9px] font-black uppercase tracking-wider px-2.5 py-1 bg-white border border-slate-200 text-slate-500 rounded-md">
+                                                            <span key={index} className="text-[9px] sm:text-[11px] font-bold text-pink-500 border border-slate-300/80 px-2.5 mt-0 py-0.5 rounded-md bg-white shadow-sm uppercase">
                                                                 {tag}
                                                             </span>
                                                         ))}
@@ -155,7 +155,7 @@ export default function ProjectsSection() {
                                                         )}
                                                     </div>
 
-                                                    <p className="text-slate-500 text-sm font-light leading-relaxed line-clamp-3">
+                                                    <p className="text-slate-500 text-md font-light leading-relaxed line-clamp-3">
                                                         {project.description}
                                                     </p>
                                                 </div>

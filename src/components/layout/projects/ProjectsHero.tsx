@@ -143,7 +143,7 @@ const ProjectsHero = ({ revealVariant }: ProjectsHeroProps) => {
 
                                         {/* Etichette e Contatori Tabulari Animati */}
                                         <div className="flex flex-col">
-                                            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-500 mb-1 whitespace-nowrap">
+                                            <p className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-900 mb-1 whitespace-nowrap">
                                                 {stat.label}
                                             </p>
                                             <AnimatedCounter value={stat.value} />
