@@ -18,8 +18,8 @@ const SloganContacts = () => {
 
     return (
         <>
-            <section className="relative w-full bg-white px-6 sm:px-12 md:px-16 lg:px-24 pt-12 pb-16 select-none z-10">
-                <div className="w-full">
+            <section className="relative w-full bg-white py-16 lg:py-24 select-none z-10">
+                <div className="w-full max-w-8xl mx-auto px-6 sm:px-12 md:px-16 lg:px-24">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -27,7 +27,7 @@ const SloganContacts = () => {
                         transition={{ duration: 0.6, ease: "easeOut" }}
                         whileHover={{ y: -5, scale: 1.005 }}
                         onMouseMove={handleMouseMove}
-                        className="w-full bg-gradient-to-br from-[#11131e] via-[#0c0d14] to-[#161929]  hover:bg-white hover:text-slate-900 rounded-[3rem] py-14 sm:py-16 px-6 md:px-16 flex flex-col items-center text-center relative overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:shadow-[0_20px_50px_rgba(244,114,182,0.15)] border border-white/5 group"
+                        className="w-full bg-gradient-to-br from-[#11131e] via-[#0c0d14] to-[#161929] rounded-[3rem] py-14 sm:py-16 lg:py-20 px-6 md:px-16 flex flex-col items-center text-center relative overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:shadow-[0_20px_50px_rgba(244,114,182,0.15)] border border-white/5 group"
                     >
                         {/* BAGLIORI COREOGRAFICI FISSI SULLO SFONDO */}
                         <div className="absolute -top-24 -left-24 w-80 h-80 bg-pink-500/10 rounded-full blur-[80px] pointer-events-none" />
@@ -56,13 +56,13 @@ const SloganContacts = () => {
                                 {/* PULSANTE PRINCIPALE CON CLICKSPARK */}
                                 <div className="w-full sm:w-auto">
                                     <ClickSpark>
-                                        <Link
-                                            to="mailto:saraspano@live.it"
+                                        <a
+                                            href="mailto:saraspano@live.it"
                                             className="w-full inline-flex items-center justify-center gap-3 bg-pink-500 text-white font-black uppercase text-[10px] sm:text-xs md:text-sm tracking-[0.2em] sm:tracking-[0.3em] px-8 py-4 sm:px-12 sm:py-5 rounded-full shadow-lg shadow-pink-500/20 hover:shadow-pink-500/40 transition-all duration-300 hover:bg-pink-600 whitespace-nowrap"
                                         >
                                             Iniziamo il progetto
                                             <ArrowUpRight className="w-4 h-4 shrink-0 stroke-[2.5]" />
-                                        </Link>
+                                        </a>
                                     </ClickSpark>
                                 </div>
 
@@ -91,4 +91,3 @@ const SloganContacts = () => {
 };
 
 export default SloganContacts;
-

@@ -43,10 +43,10 @@ export default function GalleryImages() {
                         <button
                             key={mockup.id}
                             onClick={() => setActiveIndex(index)}
-                            className={`text-xs font-bold px-6 py-3 rounded-full border transition-all duration-300 cursor-pointer ${
+                            className={`text-xs font-bold px-5 py-2.5 rounded-full border transition-all duration-300 cursor-pointer ${
                                 activeIndex === index
                                     ? 'bg-slate-900 text-white border-slate-900 shadow-md shadow-slate-900/10'
-                                    : 'bg-white text-slate-500 border-slate-200 hover:bg-slate-50'
+                                    : 'bg-slate-50 text-slate-500 border-slate-200 hover:bg-slate-100'
                             }`}
                         >
                             {mockup.tabLabel}
@@ -172,4 +172,3 @@ export default function GalleryImages() {
         </section>
     );
 }
-

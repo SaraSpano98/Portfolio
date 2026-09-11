@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { motion } from 'framer-motion';
 import { X, ExternalLink, Code, Target, Cpu, Award } from 'lucide-react';
 
@@ -20,10 +22,20 @@ interface ProjectModalProps {
 }
 
 export default function ProjectModal({ project, onClose }: ProjectModalProps) {
-    return (
-        <div className="fixed inset-0 z-[9999] w-screen h-screen flex items-center justify-center p-4 sm:p-6 md:p-10 select-none">
+    // Blocca lo scroll della pagina sottostante finché il modal è aperto,
+    // ripristinandolo alla chiusura/unmount
+    useEffect(() => {
+        const originalOverflow = document.body.style.overflow;
+        document.body.style.overflow = 'hidden';
+        return () => {
+            document.body.style.overflow = originalOverflow;
+        };
+    }, []);
+
+    return createPortal(
+        <div className="fixed inset-0 z-[9999] w-screen h-screen select-none">
             
-            {/* SFONDO SCURO SFOCATO */}
+            {/* SFONDO SCURO SFOCATO — copre l'intero schermo, header incluso */}
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -32,15 +44,17 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 className="absolute inset-0 bg-slate-950/40 backdrop-blur-md cursor-pointer"
             />
 
-            {/* SCHEDA DEL POP-UP AGGIORNATA */}
-            <motion.div
-                initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                transition={{ type: 'spring', duration: 0.5 }}
-                className="relative bg-white border border-slate-100 w-full max-w-4xl rounded-[2.5rem] p-6 sm:p-10 md:p-12 shadow-2xl overflow-y-auto max-h-[85vh] z-10 flex flex-col justify-between gap-8"
-            >
-                
+            {/* WRAPPER DI CENTRAGGIO — parte sotto l'header, mai sopra di esso */}
+            <div className="absolute inset-x-0 bottom-0 top-[70px] sm:top-[85px] lg:top-[100px] flex items-center justify-center p-4 sm:p-6 md:p-10 pointer-events-none">
+
+                {/* SCHEDA DEL POP-UP AGGIORNATA */}
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                    transition={{ type: 'spring', duration: 0.5 }}
+                    className="relative bg-white border border-slate-100 w-full max-w-4xl rounded-[2.5rem] p-6 sm:p-10 md:p-12 shadow-2xl overflow-y-auto max-h-[80vh] flex flex-col justify-between gap-8 pointer-events-auto"
+                >                
                 {/* PULSANTE DI CHIUSURA (X) */}
                 <button
                     onClick={onClose}
@@ -87,7 +101,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                             <h5 className="text-xs font-black text-pink-700 uppercase tracking-widest flex items-center gap-2">
                                 <Code className="w-4 h-4 text-pink-500" /> Informazioni e Panoramica
                             </h5>
-                            <p className="text-slate-950 text-sm sm:text-base font-base">
+                            <p className="text-slate-950 text-sm sm:text-base">
                                 {project.description}
                             </p>
                         </div>
@@ -98,7 +112,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                                 <h5 className="text-xs font-black text-slate-950 uppercase tracking-widest flex items-center gap-2">
                                     <Target className="w-4 h-4 text-pink-500" /> Obiettivi del Progetto
                                 </h5>
-                                <p className="text-slate-950 text-xs sm:text-sm font-base">
+                                <p className="text-slate-950 text-xs sm:text-sm">
                                     {project.objectives}
                                 </p>
                             </div>
@@ -110,7 +124,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                                 <h5 className="text-xs font-black text-slate-950 uppercase tracking-widest flex items-center gap-2">
                                     <Cpu className="w-4 h-4 text-pink-500" /> Processo e Logica
                                 </h5>
-                                <p className="text-slate-950 text-xs sm:text-sm font-base">
+                                <p className="text-slate-950 text-xs sm:text-sm">
                                     {project.process}
                                 </p>
                             </div>
@@ -122,7 +136,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                                 <h5 className="text-xs font-black text-pink-500 uppercase tracking-widest flex items-center gap-2">
                                     <Award className="w-4 h-4 text-pink-500" /> Risultati Finali
                                 </h5>
-                                <p className="text-slate-950 text-xs sm:text-sm font-base">
+                                <p className="text-slate-950 text-xs sm:text-sm">
                                     {project.results}
                                 </p>
                             </div>
@@ -155,7 +169,9 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                     </div>
                 </div>
 
-            </motion.div>
-        </div>
+                </motion.div>
+            </div>
+        </div>,
+        document.body
     );
 }

@@ -30,7 +30,7 @@ export default function Hero() {
       </div>
 
       {/* NOME SARA SPANO */}
-      <div className="relative lg:absolute lg:top-[15vh] xl:top-[16vh] left-0 right-0 w-full z-40 flex flex-col items-center justify-center pointer-events-none px-4 mb-6 sm:mb-8 lg:mb-0 shrink-0">
+      <div className="relative lg:absolute lg:top-[15vh] xl:top-[16vh] left-0 right-0 w-full z-40 flex flex-col items-center justify-center pointer-events-none px-4 sm:px-12 md:px-16 lg:px-24 mb-6 sm:mb-8 lg:mb-0 shrink-0">
         <div className="w-full text-center">
           <motion.h1
             animate={{ color: hoveredLink === 'coder' ? '#ffffff' : '#0f172a' }}
@@ -96,7 +96,7 @@ export default function Hero() {
         {/* LATO SINISTRO: DESIGNER */}
         <div className="relative w-full flex flex-col items-start text-left group pointer-events-auto">
           <Link
-            to="/projects#design-showcase"
+            to="/progetti#design-showcase"
             onMouseEnter={() => setHoveredLink('designer')}
             onMouseLeave={() => setHoveredLink(null)}
             className="relative block outline-none cursor-pointer"
@@ -214,7 +214,7 @@ export default function Hero() {
       </div>
 
       {/* BOTTONE SCARICA CV */}
-      <div className="absolute bottom-[4%] sm:bottom-[5%] lg:absolute lg:bottom-[7%] left-0 right-0 w-full z-50 flex justify-center pointer-events-none px-4 order-4 lg:order-none">
+      <div className="absolute bottom-[4%] sm:bottom-[5%] lg:absolute lg:bottom-[7%] left-0 right-0 w-full z-50 flex justify-center pointer-events-none px-4 sm:px-12 md:px-16 lg:px-24 order-4 lg:order-none">
         <div className="pointer-events-auto">
           <ClickSpark>
             <motion.a

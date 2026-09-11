@@ -2,7 +2,7 @@ const PrerequisitiSection = () => {
     return (
         <>
             {/* SECTION 3 - PREREQUISITI */}
-            <div className="w-full mb-20">
+            <div className="w-full mb-20 px-6 sm:px-12 md:px-16 lg:px-24">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 xl:gap-16 bg-slate-900 rounded-[3rem] p-8 md:p-16 xl:p-20 text-white items-center overflow-hidden w-full relative">
                     
                     {/* Effetto luce soffusa interna per dare profondità premium alla card */}
@@ -48,4 +48,3 @@ const PrerequisitiSection = () => {
 };
 
 export default PrerequisitiSection;
-

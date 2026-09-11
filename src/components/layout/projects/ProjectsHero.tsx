@@ -68,7 +68,7 @@ const ProjectsHero = ({ revealVariant }: ProjectsHeroProps) => {
     }, []);
 
     return (
-       <section className="w-full bg-white text-slate-900 px-6 sm:px-12 md:px-16 lg:px-24 pt-40 lg:pt-48 pb-12 select-none overflow-hidden relative">
+       <section className="w-full bg-white text-slate-900 px-6 sm:px-12 md:px-16 lg:px-24 pt-32 sm:pt-36 lg:pt-40 pb-20 lg:pb-24 select-none overflow-hidden relative">
             <div className="w-full mb-20">
                 <div className="flex flex-col lg:flex-row justify-between gap-12 w-full items-start">
 

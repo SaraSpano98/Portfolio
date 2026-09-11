@@ -102,7 +102,7 @@ export default function IdentityHero({ revealVariant }: AboutHeroProps): React.R
 
     return (
         <>
-            <section className="w-full bg-white text-slate-900 px-6 md:px-12 lg:px-24 pt-32 lg:pt-36 pb-28 select-none overflow-hidden relative">
+            <section className="w-full bg-white text-slate-900 px-6 sm:px-12 md:px-16 lg:px-24 pt-32 sm:pt-36 lg:pt-40 pb-20 lg:pb-24 select-none overflow-hidden relative">
                 <div className="w-full max-w-3xl mx-auto mb-20 flex flex-col items-center text-center">
                     <div className="overflow-hidden mb-4">
                         <motion.p
@@ -114,7 +114,7 @@ export default function IdentityHero({ revealVariant }: AboutHeroProps): React.R
                         </motion.p>
                     </div>
 
-                    {/* TITOLO PRINCIPALE */}
+                     {/* TITOLO PRINCIPALE */}
                     <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-[68px] font-black uppercase tracking-tighter text-slate-950 flex flex-row flex-nowrap items-center justify-center gap-x-4 leading-none mb-6 whitespace-nowrap">
                         <span>CIAO,</span>
                         <span className="text-pink-500 inline-flex items-center gap-x-4">
@@ -197,5 +197,4 @@ export default function IdentityHero({ revealVariant }: AboutHeroProps): React.R
             </section >
         </>
     );
-
 }

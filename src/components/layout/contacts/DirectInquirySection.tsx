@@ -23,7 +23,7 @@ const DirectInquirySection = ({ loadedIcons, refs }: DirectInquirySectionProps) 
     return (
         <>
             {/* SEZIONE  5: CONTATTI DIRETTI E NETWORK SOCIAL */}
-            <div className="w-full px-10">
+            <div className="w-full px-6 sm:px-12 md:px-16 lg:px-24">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 xl:gap-20 mb-40 border-t border-slate-100 pt-20 w-full">
                     <div className="lg:col-span-8 flex flex-col justify-between">
                         <div>

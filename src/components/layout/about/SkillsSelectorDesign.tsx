@@ -48,10 +48,10 @@ export default function SkillsSelectorDesign() {
                         <button
                             key={tab}
                             onClick={() => setActiveDesignerTab(tab)}
-                            className={`text-xs font-bold px-6 py-2.5 rounded-full border transition-all duration-300 cursor-pointer ${
+                            className={`text-xs font-bold px-5 py-2.5 rounded-full border transition-all duration-300 cursor-pointer ${
                                 activeDesignerTab === tab
                                     ? 'bg-pink-500/10 text-slate-900 border-pink-300 shadow-sm'
-                                    : 'bg-slate-400/20 text-slate-500 border-slate-300 shadow-sm'
+                                    : 'bg-slate-50 text-slate-500 border-slate-200 hover:bg-slate-100 shadow-sm'
                             }`}
                         >
                             {tab}

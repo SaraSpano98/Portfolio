@@ -14,7 +14,7 @@ const TechStackPopover = () => {
       initial={{ opacity: 0, y: 15 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 15 }}
-      className="w-[280px] bg-white rounded-[1.5rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] border border-pink-700 p-8 cursor-none"
+      className="w-[280px] max-w-[calc(100vw-2rem)] bg-white rounded-[1.5rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] border border-pink-700 p-8"
     >
       <div className="flex items-center gap-3 mb-8 border-b border-pink-700 pb-4">
         <span className="text-pink-500 font-black text-xs uppercase tracking-[0.3em]">Stack</span>
@@ -22,7 +22,7 @@ const TechStackPopover = () => {
 
       <div className="flex flex-col gap-6">
         {techData.map((tech) => (
-          <div key={tech.name} className="flex items-center gap-5 group cursor-none">
+          <div key={tech.name} className="flex items-center gap-5 group">
             <div className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center text-slate-900 group-hover:bg-pink-500 group-hover:text-white transition-all duration-300">
               {tech.icon}
             </div>

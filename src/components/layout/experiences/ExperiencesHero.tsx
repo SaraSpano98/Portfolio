@@ -9,7 +9,7 @@ interface ExperiencesHeroProps {
 
 export default function ExperiencesHero({ revealVariant }: ExperiencesHeroProps) {
     return (
-        <div className="w-full bg-white pt-32 sm:pt-36 lg:pt-40 pb-6 px-6 sm:px-12 md:px-16 lg:px-24 select-none z-10">
+        <div className="w-full bg-white pt-32 sm:pt-36 lg:pt-40 pb-20 lg:pb-24 px-6 sm:px-12 md:px-16 lg:px-24 select-none z-10">
             <div className="w-full max-w-5xl mx-auto flex flex-col items-start text-start justify-start">
                 <span className="text-pink-500 font-black uppercase tracking-[0.4em] text-[11px] mb-4 block">
                     My Journey
@@ -39,3 +39,4 @@ export default function ExperiencesHero({ revealVariant }: ExperiencesHeroProps)
         </div>
     );
 }
+

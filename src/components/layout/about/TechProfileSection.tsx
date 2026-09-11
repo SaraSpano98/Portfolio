@@ -77,7 +77,7 @@ export default function TechProfileSection() {
                             <div className="w-full mt-10 max-w-xs">
                                 <ClickSpark>
                                     <Link
-                                        to="/gallery"
+                                        to="/progetti#design-showcase"
                                         className="inline-flex items-center justify-center gap-3 bg-pink-500 text-white hover:bg-pink-700 font-bold text-xs uppercase tracking-widest px-8 py-4 rounded-2xl shadow-md transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/20 group-hover/designer:-translate-y-0.5 w-full"
                                     >
                                         Esplora la Galleria
@@ -118,7 +118,7 @@ export default function TechProfileSection() {
                             <div className="w-full mt-10 max-w-xs">
                                 <ClickSpark>
                                     <Link
-                                        to="/projects"
+                                        to="/progetti"
                                         className="inline-flex items-center justify-center gap-3 bg-indigo-500 hover:bg-indigo-700 text-white font-bold text-xs uppercase tracking-widest px-8 py-4 rounded-2xl shadow-md transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/20 group-hover/coder:-translate-y-0.5 w-full"
                                     >
                                         Guarda i Progetti

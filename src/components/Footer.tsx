@@ -65,7 +65,7 @@ export default function Footer() {
   const quickLinks = [
     { name: 'Home', path: '/' },
     { name: 'Chi Sono', path: '/about' },
-    { name: 'Progetti', path: '/projects' },
+    { name: 'Progetti', path: '/progetti' },
     { name: 'Esperienze', path: '/esperienze' },
     { name: 'Contatti', path: '/contatti' }
   ]
@@ -87,7 +87,7 @@ export default function Footer() {
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          className="relative z-10 w-full px-24 py-20"
+          className="relative z-10 w-full px-6 sm:px-12 md:px-16 lg:px-24 py-16 lg:py-20"
         >
           {/* Griglia principale a 3 colonne */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 mb-16">
@@ -95,7 +95,7 @@ export default function Footer() {
             {/* BIO SECTION */}
             <div className="space-y-6 flex flex-col items-start w-full">
               <div>
-                <h3 className="text-4xl font-black tracking-tighter text-slate-900 mb-3 leading-none">Sara Spano</h3>
+                <h3 className="text-3xl sm:text-4xl font-black tracking-tighter text-slate-900 mb-3 leading-none">Sara Spano</h3>
                 <p className="text-slate-600 text-base leading-relaxed font-medium">
                   Progetto <span className="text-slate-900 font-bold italic">interfacce che emozionano</span>.
                   Sviluppatrice Front-end specializzata in <span className="text-pink-500 font-bold">experiences digitali</span>.
@@ -124,7 +124,7 @@ export default function Footer() {
             </div>
 
             {/* LINK RAPIDI */}
-            <div className="w-full md:pl-12">
+            <div className="w-full">
               <h5 className="text-[12px] font-black uppercase tracking-[0.3em] mb-6 text-pink-500">
                 <Star size={12} className="inline mr-2 fill-pink-600" /> Link Rapidi
               </h5>
@@ -149,7 +149,7 @@ export default function Footer() {
             </div>
 
             {/* SERVIZI */}
-            <div className="w-full md:pl-12">
+            <div className="w-full">
               <h4 className="text-[12px] font-black uppercase tracking-[0.3em] mb-6 text-pink-500">
                 <Zap size={12} className="inline mr-2 fill-pink-600" /> Servizi
               </h4>
@@ -167,14 +167,14 @@ export default function Footer() {
           </div>
 
           {/* FOOTER BOTTOM */}
-          <div className="pt-8 border-t border-slate-200 flex flex-row justify-between items-center w-full">
+          <div className="pt-8 border-t border-slate-200 flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-0 w-full">
             {/* Parte Sinistra */}
-            <p className="text-[11px] font-bold text-slate-800 flex items-center gap-2 tracking-wide text-left">
+            <p className="text-[11px] font-bold text-slate-800 flex items-center gap-2 tracking-wide text-center sm:text-left">
               © 2026 SARA SPANO. <Heart size={12} className="text-pink-500 fill-pink-500" /> FATTO CON PASSIONE
             </p>
 
             {/* Parte Destra */}
-            <p className="text-[11px] font-bold text-slate-800 uppercase tracking-[0.2em] text-right">
+            <p className="text-[11px] font-bold text-slate-800 uppercase tracking-[0.2em] text-center sm:text-right">
               Tutti i diritti riservati
             </p>
           </div>

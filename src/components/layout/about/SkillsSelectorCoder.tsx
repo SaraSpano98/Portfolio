@@ -57,10 +57,10 @@ export default function SkillsSelectorCoder() {
                         <button
                             key={tab}
                             onClick={() => setActiveCoderTab(tab)}
-                            className={`text-xs font-bold px-5 py-2.5 rounded-full border transition-all duration-300 ${
+                            className={`text-xs font-bold px-5 py-2.5 rounded-full border transition-all duration-300 cursor-pointer ${
                                 activeCoderTab === tab
                                     ? 'bg-indigo-500/10 text-slate-900 border-indigo-300 shadow-sm'
-                                    : 'bg-slate-400/20 text-slate-500 border-slate-300 shadow-sm'
+                                    : 'bg-slate-50 text-slate-500 border-slate-200 hover:bg-slate-100 shadow-sm'
                             }`}
                         >
                             {tab}

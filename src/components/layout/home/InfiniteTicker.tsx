@@ -10,9 +10,9 @@ const InfiniteTicker = () => {
   const duplicatedWords = [...words, ...words, ...words];
 
   return (
-    <div className="w-full bg-white py-14 cursor-none overflow-hidden lg:-mt-32 relative z-20">
+    <div className="w-full bg-white py-14 overflow-hidden lg:-mt-32 relative z-20">
       {/* CONTAINER ALLINEATO ALLA NAVBAR */}
-      <div className="w-full px-10 relative overflow-hidden">
+      <div className="w-full px-6 sm:px-12 md:px-16 lg:px-24 relative overflow-hidden">
         
         {/* SFUMATURE LATERALI */}
         <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white via-white/90 to-transparent z-10" />

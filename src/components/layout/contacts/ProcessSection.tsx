@@ -27,7 +27,7 @@ const ProcessSection = ({ loadedIcons, refs }: ProcessSectionProps) => {
     return (
         <>
             {/* SECTION 2 - PROCESSO */}
-            <div className="w-full -mt-6 mb-32 border-t border-slate-100 pt-16 relative">
+            <div className="w-full -mt-6 mb-32 border-t border-slate-100 pt-16 px-6 sm:px-12 md:px-16 lg:px-24 relative">
                 
                 {/* Intestazione principale della sezione */}
                 <div className="mb-20 pb-4">

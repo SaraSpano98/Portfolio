@@ -10,14 +10,14 @@ interface ContactsHeroProps {
 
 const ContactsHero = ({ time, revealVariant }: ContactsHeroProps) => {
     return (
-        <section className="w-full bg-white text-slate-900 pb-28 select-none overflow-hidden relative">
+        <section className="w-full bg-white text-slate-900 px-6 sm:px-12 md:px-16 lg:px-24 pt-32 sm:pt-36 lg:pt-40 pb-20 lg:pb-24 select-none overflow-hidden relative">
 
             {/* BAGLIORI COREOGRAFICI SFUMATI SULLO SFONDO */}
             <div className="absolute top-24 -left-40 w-[500px] h-[500px] bg-pink-500/[0.03] rounded-full blur-[120px] pointer-events-none" />
             <div className="absolute top-44 -right-40 w-[500px] h-[500px] bg-purple-600/[0.03] rounded-full blur-[120px] pointer-events-none" />
 
-            <div className="w-full max-w-7xl mx-auto flex flex-col items-center mb-20 relative z-10">
-                <div className="w-full lg:max-w-2xl flex flex-col items-center text-center px-6 mb-16">
+            <div className="w-full max-w-5xl mx-auto flex flex-col items-center mb-20 relative z-10">
+                <div className="w-full lg:max-w-2xl flex flex-col items-center text-center mb-16">
                     <div className="overflow-hidden mb-4">
                         <motion.p
                             initial="hidden" animate="visible" variants={revealVariant}
@@ -54,7 +54,7 @@ const ContactsHero = ({ time, revealVariant }: ContactsHeroProps) => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.8 }}
-                    className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full items-stretch px-6"
+                    className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full items-stretch"
                 >
                     {/* CARD 1: L'orario locale */}
                     <div className="flex flex-col items-center justify-center bg-slate-50/60 border border-slate-100 rounded-[2.5rem] p-8 shadow-sm text-center transition-all duration-300 hover:shadow-md hover:scale-[1.01]">

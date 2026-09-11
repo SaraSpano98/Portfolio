@@ -18,7 +18,7 @@ export default function SloganHome() {
 
     return (
         <>
-            <section className="relative w-full bg-white pb-16 pt-0 mt-6 mb-16 select-none z-10">
+            <section className="relative w-full bg-white py-16 lg:py-24 select-none z-10">
                 <div className="w-full max-w-8xl mx-auto px-6 sm:px-12 md:px-16 lg:px-24">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -29,7 +29,7 @@ export default function SloganHome() {
                         onMouseMove={handleMouseMove}
                         onMouseEnter={() => setIsHovered(true)}
                         onMouseLeave={() => setIsHovered(false)}
-                        className="w-full bg-[#07080d] rounded-[3.5rem] py-24 sm:py-28 px-6 md:px-16 flex flex-col items-center text-center relative overflow-hidden border border-white/[0.03] group transition-all duration-500 shadow-[0_30px_100px_rgba(0,0,0,0.8)]"
+                        className="w-full bg-[#07080d] rounded-[3rem] py-14 sm:py-16 lg:py-20 px-6 md:px-16 flex flex-col items-center text-center relative overflow-hidden border border-white/[0.03] group transition-all duration-500 shadow-[0_30px_100px_rgba(0,0,0,0.8)]"
                     >
                         {/* 1. BAGLIORE REATTIVO PREMIUM (Raggio di luce liquida iper-realistico) */}
                         <div
@@ -44,7 +44,7 @@ export default function SloganHome() {
 
                         {/* 2. BORDO NEON INTERNO ULTRA-SOTTILE (Si illumina in base a dove si trova il mouse) */}
                         <div
-                            className="absolute inset-0 rounded-[3.5rem] pointer-events-none z-20 border border-transparent transition-all duration-500"
+                            className="absolute inset-0 rounded-[3rem] pointer-events-none z-20 border border-transparent transition-all duration-500"
                             style={{
                                 backgroundImage: isHovered
                                     ? `radial-gradient(350px circle at ${coords.x}px ${coords.y}px, rgba(236, 72, 153, 0.4), transparent 80%)`
@@ -125,7 +125,7 @@ export default function SloganHome() {
                             <div className="w-full sm:w-auto">
                                 <ClickSpark>
                                     <Link
-                                        to="/contacts"
+                                        to="/contatti"
                                         className="group px-8 py-4 sm:px-12 sm:py-5 bg-[#121424] text-white hover:bg-white hover:text-slate-900 border border-white/[0.06] hover:border-transparent rounded-full font-black uppercase text-[10px] sm:text-xs md:text-sm tracking-[0.2em] sm:tracking-[0.3em] transition-all duration-300 relative flex items-center justify-center gap-2 cursor-pointer text-center"
                                     >
                                         Avvia la collaborazione

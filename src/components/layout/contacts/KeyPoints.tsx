@@ -84,7 +84,7 @@ export default function KeyPoints({ loadedIcons, refs }: KeyPointsProps) {
   }, [activeStep, steps, loadedIcons]);
 
   return (
-    <section className="w-full bg-white pt-10 pb-24">
+    <section className="w-full bg-white pt-10 pb-24 px-6 sm:px-12 md:px-16 lg:px-24">
       <div className="w-full mx-auto">
 
         {/* INTESTAZIONE SEZIONE CON FRECCE DI NAVIGAZIONE COMPATTE */}
@@ -104,7 +104,7 @@ export default function KeyPoints({ loadedIcons, refs }: KeyPointsProps) {
               onClick={handlePrev}
               className="w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-900 hover:text-white hover:border-slate-900 transition-all duration-300 outline-none cursor-pointer"
             >
-              <svg xmlns="http://w3.org" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
               </svg>
             </button>
@@ -112,7 +112,7 @@ export default function KeyPoints({ loadedIcons, refs }: KeyPointsProps) {
               onClick={handleNext}
               className="w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-900 hover:text-white hover:border-slate-900 transition-all duration-300 outline-none cursor-pointer"
             >
-              <svg xmlns="http://w3.org" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>
             </button>
