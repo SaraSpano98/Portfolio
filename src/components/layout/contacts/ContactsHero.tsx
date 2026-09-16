@@ -57,14 +57,14 @@ const ContactsHero = ({ time, revealVariant }: ContactsHeroProps) => {
                     className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full items-stretch"
                 >
                     {/* CARD 1: L'orario locale */}
-                    <div className="flex flex-col items-center justify-center bg-pink-300/10 border border-pink-200 rounded-[2.5rem] p-8 shadow-md shadow-pink-400 text-center transition-all duration-300 hover:shadow-md hover:scale-[1.01]">
-                        <p className="text-[11px] font-black uppercase tracking-[0.3em] text-pink-700 mb-2 whitespace-nowrap">Local Time / Italy</p>
+                    <div className="flex flex-col items-center justify-center bg-pink-300/10 border border-pink-200 rounded-[2.5rem] p-8 shadow-md shadow-pink-400 text-center">
+                        <p className="text-[11px] font-black uppercase tracking-[0.3em] text-pink-700 mb-2 whitespace-nowrap">Local Time / Italy</p> 
                         <span className="text-4xl md:text-5xl font-light text-slate-900 tabular-nums leading-none mb-2">{time}</span>
                         <p className="text-slate-600 text-[10px] uppercase tracking-[0.2em] font-bold whitespace-nowrap">Risposta entro 24h</p>
                     </div>
 
                     {/* CARD 2: Disponibilità */}
-                    <div className="flex flex-col items-center justify-center bg-pink-300/10 border border-pink-200 rounded-[2.5rem] p-8 shadow-md shadow-pink-400 text-center transition-all duration-300 hover:shadow-md hover:scale-[1.01]">
+                    <div className="flex flex-col items-center justify-center bg-pink-300/10 border border-pink-200 rounded-[2.5rem] p-8 shadow-md shadow-pink-400 text-center">
                         <p className="text-[11px] font-black uppercase tracking-[0.3em] text-pink-700 mb-3 whitespace-nowrap">Availability</p>
                         <div className="flex items-center gap-2 bg-emerald-50 text-emerald-600 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-wider mb-3">
                             <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-ping" />
@@ -76,7 +76,7 @@ const ContactsHero = ({ time, revealVariant }: ContactsHeroProps) => {
                     </div>
 
                     {/* CARD 3: Current Status */}
-                    <div className="flex flex-col items-center justify-center bg-pink-300/10 border border-pink-200 rounded-[2.5rem] p-8 shadow-md shadow-pink-400 text-center transition-all duration-300 hover:shadow-md hover:scale-[1.01]">
+                    <div className="flex flex-col items-center justify-center bg-pink-300/10 border border-pink-200 rounded-[2.5rem] p-8 shadow-md shadow-pink-400 text-center">
                         <span className="text-[11px] font-black uppercase tracking-[0.3em] text-pink-700 mb-3 block whitespace-nowrap">
                             Current Status
                         </span>

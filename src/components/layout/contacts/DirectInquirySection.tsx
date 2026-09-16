@@ -47,7 +47,7 @@ const DirectInquirySection = ({ loadedIcons, refs }: DirectInquirySectionProps) 
                                     onMouseEnter={() => emailRef.current?.playFromBeginning()}
                                 >
                                     <div>
-                                        <span className="text-[10px] font-black uppercase tracking-[0.4em] text-pink-500 mb-3 block">Email Diretta</span>
+                                        <span className="text-[11px] font-black uppercase tracking-[0.4em] text-pink-500 mb-3 block">Email Diretta</span>
                                         <ClickSpark>
                                             <a
                                                 href="mailto:saraspano@live.it"
@@ -62,9 +62,9 @@ const DirectInquirySection = ({ loadedIcons, refs }: DirectInquirySectionProps) 
                                             </a>
                                         </ClickSpark>
 
-                                        <p className="text-slate-400 text-sm leading-relaxed italic max-w-sm">"Il canale preferito per preventivi formali e brief di progetto dettagliati."</p>
+                                        <p className="text-slate-500 text-md leading-relaxed italic max-w-sm">"Il canale preferito per preventivi formali e brief di progetto dettagliati."</p>
                                     </div>
-                                    <div className="h-[2px] w-0 group-hover:w-full bg-pink-500 transition-all duration-700 mt-6" />
+                                    <div className="h-[2px] w-0 group-hover:w-full bg-pink-700 transition-all duration-700 mt-6" />
                                 </motion.div>
 
                                 {/* WHATSAPP BUSINESS */}
@@ -74,7 +74,7 @@ const DirectInquirySection = ({ loadedIcons, refs }: DirectInquirySectionProps) 
                                     onMouseEnter={() => whatsappRef.current?.playFromBeginning()}
                                 >
                                     <div>
-                                        <span className="text-[10px] font-black uppercase tracking-[0.4em] text-pink-500 mb-3 block">WhatsApp Business</span>
+                                        <span className="text-[11px] font-black uppercase tracking-[0.4em] text-pink-500 mb-3 block">WhatsApp Business</span>
                                         <ClickSpark>
                                             <a
                                                 href="https://wa.me"
@@ -91,9 +91,9 @@ const DirectInquirySection = ({ loadedIcons, refs }: DirectInquirySectionProps) 
                                             </a>
                                         </ClickSpark>
 
-                                        <p className="text-slate-400 text-sm leading-relaxed italic max-w-sm">"Per una comunicazione immediata, feedback veloci o semplici domande tecniche."</p>
+                                        <p className="text-slate-500 text-md leading-relaxed italic max-w-sm">"Per una comunicazione immediata, feedback veloci o semplici domande tecniche."</p>
                                     </div>
-                                    <div className="h-[2px] w-0 group-hover:w-full bg-pink-500 transition-all duration-700 mt-6" />
+                                    <div className="h-[2px] w-0 group-hover:w-full bg-pink-700 transition-all duration-700 mt-6" />
                                 </motion.div>
 
                                 {/* CONTATTO TELEFONICO */}
@@ -103,7 +103,7 @@ const DirectInquirySection = ({ loadedIcons, refs }: DirectInquirySectionProps) 
                                     onMouseEnter={() => telephoneRef.current?.playFromBeginning()}
                                 >
                                     <div>
-                                        <span className="text-[10px] font-black uppercase tracking-[0.4em] text-pink-500 mb-3 block">Contatto Telefonico</span>
+                                        <span className="text-[11px] font-black uppercase tracking-[0.4em] text-pink-500 mb-3 block">Contatto Telefonico</span>
                                         <ClickSpark>
                                             <a href="tel:+393123456789" className="flex items-center gap-3 mb-3">
                                                 {loadedIcons.telephone && (
@@ -115,9 +115,9 @@ const DirectInquirySection = ({ loadedIcons, refs }: DirectInquirySectionProps) 
                                             </a>
                                         </ClickSpark>
 
-                                        <p className="text-slate-400 text-sm leading-relaxed italic max-w-sm">"Disponibile per chiamate dirette e allineamenti rapidi sui progetti."</p>
+                                        <p className="text-slate-500 text-md leading-relaxed italic max-w-sm">"Disponibile per chiamate dirette e allineamenti rapidi sui progetti."</p>
                                     </div>
-                                    <div className="h-[2px] w-0 group-hover:w-full bg-pink-500 transition-all duration-700 mt-6" />
+                                    <div className="h-[2px] w-0 group-hover:w-full bg-pink-700 transition-all duration-700 mt-6" />
                                 </motion.div>
 
                                 {/* VIDEO CALL / MEETING */}
@@ -127,7 +127,7 @@ const DirectInquirySection = ({ loadedIcons, refs }: DirectInquirySectionProps) 
                                     onMouseEnter={() => meetingRef.current?.playFromBeginning()}
                                 >
                                     <div>
-                                        <span className="text-[10px] font-black uppercase tracking-[0.4em] text-pink-500 mb-3 block">Video Call</span>
+                                        <span className="text-[11px] font-black uppercase tracking-[0.4em] text-pink-500 mb-3 block">Video Call</span>
                                         <ClickSpark>
                                             <a href="https://calendly.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 mb-3">
                                                 {loadedIcons.meeting && (
@@ -139,9 +139,9 @@ const DirectInquirySection = ({ loadedIcons, refs }: DirectInquirySectionProps) 
                                             </a>
                                         </ClickSpark>
 
-                                        <p className="text-slate-400 text-sm leading-relaxed italic max-w-sm">"Pianifica una sessione conoscitiva su Meet o Zoom per il tuo brief."</p>
+                                        <p className="text-slate-500 text-md leading-relaxed italic max-w-sm">"Pianifica una sessione conoscitiva su Meet o Zoom per il tuo brief."</p>
                                     </div>
-                                    <div className="h-[2px] w-0 group-hover:w-full bg-pink-500 transition-all duration-700 mt-6" />
+                                    <div className="h-[2px] w-0 group-hover:w-full bg-pink-700 transition-all duration-700 mt-6" />
                                 </motion.div>
 
                             </div>
@@ -149,12 +149,12 @@ const DirectInquirySection = ({ loadedIcons, refs }: DirectInquirySectionProps) 
                     </div>
 
                     {/* COLONNA DESTRA: NETWORK SOCIAL */}
-                    <div className="lg:col-span-4 bg-slate-50 p-10 xl:p-12 rounded-[2.5rem] self-start">
+                    <div className="lg:col-span-4 bg-pink-300/10 border border-pink-700 shadow-md shadow-pink-700/60 p-10 xl:p-12 rounded-[2.5rem] self-start">
                         <div
                             className="flex items-center gap-3 mb-10 cursor-pointer w-fit"
                             onMouseEnter={() => globeRef.current?.playFromBeginning()}
                         >
-                            <h3 className="text-xl font-black text-slate-900 uppercase tracking-widest">Network</h3>
+                            <h3 className="text-xl font-black text-pink-700 uppercase tracking-widest">Network</h3>
                             {loadedIcons.globe && (
                                 <Player ref={globeRef} icon={loadedIcons.globe} size={26} colors="primary:#5c0632,secondary:#e6399b" />
                             )}
@@ -169,7 +169,7 @@ const DirectInquirySection = ({ loadedIcons, refs }: DirectInquirySectionProps) 
                                     rel="noopener noreferrer"
                                     whileHover={{ x: 10 }}
                                     onMouseEnter={() => linkedinRef.current?.playFromBeginning()}
-                                    className="flex justify-between items-center group border-b border-slate-200 pb-6 w-full cursor-pointer"
+                                    className="flex justify-between items-center group border-b border-slate-400 pb-6 w-full cursor-pointer"
                                 >
                                     <div className="flex items-center gap-4">
                                         {loadedIcons.linkedin && (
@@ -177,7 +177,7 @@ const DirectInquirySection = ({ loadedIcons, refs }: DirectInquirySectionProps) 
                                         )}
                                         <span className="text-lg font-bold text-slate-900 group-hover:text-pink-500 transition-colors uppercase tracking-tighter">LinkedIn</span>
                                     </div>
-                                    <div className="w-9 h-9 rounded-full border border-slate-300 flex items-center justify-center group-hover:bg-slate-900 group-hover:text-white transition-all text-sm shrink-0">→</div>
+                                    <div className="w-9 h-9 rounded-full flex items-center justify-center bg-pink-500 hover:bg-slate-900 text-white transition-all text-sm shrink-0">→</div>
                                 </motion.a>
                             </ClickSpark>
 
@@ -189,7 +189,7 @@ const DirectInquirySection = ({ loadedIcons, refs }: DirectInquirySectionProps) 
                                     rel="noopener noreferrer"
                                     whileHover={{ x: 10 }}
                                     onMouseEnter={() => githubRef.current?.playFromBeginning()}
-                                    className="flex justify-between items-center group border-b border-slate-200 pb-6 w-full cursor-pointer"
+                                    className="flex justify-between items-center group border-b border-slate-400 pb-6 w-full cursor-pointer"
                                 >
                                     <div className="flex items-center gap-4">
                                         {loadedIcons.github && (
@@ -197,7 +197,7 @@ const DirectInquirySection = ({ loadedIcons, refs }: DirectInquirySectionProps) 
                                         )}
                                         <span className="text-lg font-bold text-slate-900 group-hover:text-pink-500 transition-colors uppercase tracking-tighter">GitHub</span>
                                     </div>
-                                    <div className="w-9 h-9 rounded-full border border-slate-300 flex items-center justify-center group-hover:bg-slate-900 group-hover:text-white transition-all text-sm shrink-0">→</div>
+                                    <div className="w-9 h-9 rounded-full flex items-center justify-center bg-pink-500 hover:bg-slate-900 text-white transition-all text-sm shrink-0">→</div>
                                 </motion.a>
                             </ClickSpark>
                         </div>
