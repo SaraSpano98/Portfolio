@@ -107,7 +107,7 @@ export default function IdentityHero({ revealVariant }: AboutHeroProps): React.R
                     <div className="overflow-hidden mb-4">
                         <motion.p
                             initial="hidden" animate="visible" variants={revealVariant}
-                            className="text-pink-500 font-black uppercase tracking-[0.4em] text-[11px] flex items-center gap-3 mb-3"
+                            className="text-pink-700 font-black uppercase tracking-[0.4em] text-[12px] flex items-center gap-3 mb-3"
                         >
                             <span className="w-2 h-2 bg-pink-500 rounded-full animate-pulse" />
                             About Me

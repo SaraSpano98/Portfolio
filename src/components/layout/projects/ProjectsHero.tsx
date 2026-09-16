@@ -77,7 +77,7 @@ const ProjectsHero = ({ revealVariant }: ProjectsHeroProps) => {
                         <div className="overflow-hidden mb-4">
                             <motion.p
                                 initial="hidden" animate="visible" variants={revealVariant}
-                                className="text-pink-500 font-black uppercase tracking-[0.4em] text-[11px] flex items-center gap-3"
+                                className="text-pink-700 font-black uppercase tracking-[0.4em] text-[12px] flex items-center gap-3"
                             >
                                 <span className="w-2 h-2 bg-pink-500 rounded-full animate-pulse" />
                                 Explore my portfolio
@@ -114,10 +114,10 @@ const ProjectsHero = ({ revealVariant }: ProjectsHeroProps) => {
 
                             {/* CARD IN VERSIONE DARK SLATE ELEGANTE */}
                             <div className="p-10 bg-slate-900 border border-slate-800 rounded-[2.5rem] w-full shadow-xl shadow-slate-950/10 relative overflow-hidden group">
-                                <span className="text-[11px] font-black uppercase tracking-[0.3em] text-pink-500 mb-4 block">
+                                <span className="text-[11px] font-black uppercase tracking-[0.3em] text-pink-400 mb-4 block">
                                     Dietro il codice
                                 </span>
-                                <p className="text-slate-300 text-base md:text-lg leading-relaxed relative z-10 font-medium">
+                                <p className="text-white text-base md:text-lg leading-relaxed relative z-10 font-medium">
                                     Dai progetti personali alle collaborazioni, esplora il mio portfolio per scoprire come trasformo idee in realtà. Scopri le sfide affrontate, le soluzioni innovative e i risultati ottenuti in ogni esperienza progettuale.
                                 </p>
 
@@ -143,7 +143,7 @@ const ProjectsHero = ({ revealVariant }: ProjectsHeroProps) => {
 
                                         {/* Etichette e Contatori Tabulari Animati */}
                                         <div className="flex flex-col">
-                                            <p className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-900 mb-1 whitespace-nowrap">
+                                            <p className="text-[11px] font-extrabold uppercase tracking-[0.3em] text-pink-700 mb-1 whitespace-nowrap">
                                                 {stat.label}
                                             </p>
                                             <AnimatedCounter value={stat.value} />

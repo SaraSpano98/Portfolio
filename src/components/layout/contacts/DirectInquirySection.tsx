@@ -27,7 +27,16 @@ const DirectInquirySection = ({ loadedIcons, refs }: DirectInquirySectionProps) 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 xl:gap-20 mb-40 border-t border-slate-100 pt-20 w-full">
                     <div className="lg:col-span-8 flex flex-col justify-between">
                         <div>
-                            <h3 className="text-2xl font-black text-slate-900 uppercase tracking-tighter mb-12 italic">Direct Inquiry</h3>
+                            {/* Intestazione principale della sezione */}
+                            <div className="mb-20 pb-4">
+                                <span className="text-pink-700 font-black uppercase tracking-[0.4em] text-[11px] mb-3 block">
+                                    Scrivimi per qualsiasi richiesta o informazione
+                                </span>
+                                <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter leading-none">
+                                    Contatti <span className="text-pink-500">diretti</span>
+                                </h2>
+                                <div className="h-[3px] w-8 bg-pink-500 mt-4" />
+                            </div>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-14">
 

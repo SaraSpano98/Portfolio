@@ -11,9 +11,15 @@ export default function ExperiencesHero({ revealVariant }: ExperiencesHeroProps)
     return (
         <div className="w-full bg-white pt-32 sm:pt-36 lg:pt-40 pb-20 lg:pb-24 px-6 sm:px-12 md:px-16 lg:px-24 select-none z-10">
             <div className="w-full max-w-5xl mx-auto flex flex-col items-start text-start justify-start">
-                <span className="text-pink-500 font-black uppercase tracking-[0.4em] text-[11px] mb-4 block">
-                    My Journey
-                </span>
+                <div className="overflow-hidden mb-4">
+                        <motion.p
+                            initial="hidden" animate="visible" variants={revealVariant}
+                            className="text-pink-700 font-black uppercase tracking-[0.4em] text-[12px] flex items-center justify-center gap-3"
+                        >
+                            <span className="w-2 h-2 bg-pink-500 rounded-full animate-pulse" />
+                            My Journey & Experiences
+                        </motion.p>
+                    </div>
 
                 <motion.h1
                     initial="hidden"

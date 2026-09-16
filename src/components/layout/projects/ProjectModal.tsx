@@ -22,8 +22,6 @@ interface ProjectModalProps {
 }
 
 export default function ProjectModal({ project, onClose }: ProjectModalProps) {
-    // Blocca lo scroll della pagina sottostante finché il modal è aperto,
-    // ripristinandolo alla chiusura/unmount
     useEffect(() => {
         const originalOverflow = document.body.style.overflow;
         document.body.style.overflow = 'hidden';
@@ -35,7 +33,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
     return createPortal(
         <div className="fixed inset-0 z-[9999] w-screen h-screen select-none">
             
-            {/* SFONDO SCURO SFOCATO — copre l'intero schermo, header incluso */}
+            {/* SFONDO SCURO SFOCATO */}
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -44,10 +42,10 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 className="absolute inset-0 bg-slate-950/40 backdrop-blur-md cursor-pointer"
             />
 
-            {/* WRAPPER DI CENTRAGGIO — parte sotto l'header, mai sopra di esso */}
+            {/* WRAPPER DI CENTRAGGIO */}
             <div className="absolute inset-x-0 bottom-0 top-[70px] sm:top-[85px] lg:top-[100px] flex items-center justify-center p-4 sm:p-6 md:p-10 pointer-events-none">
 
-                {/* SCHEDA DEL POP-UP AGGIORNATA */}
+                {/* SCHEDA DEL POP-UP */}
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9, y: 20 }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -63,12 +61,12 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                     <X className="w-5 h-5" />
                 </button>
 
-                {/* CONTENUTO INFORMATIVO CORRETTO */}
+                {/* CONTENUTO INFORMATIVO */}
                 <div className="flex flex-col gap-8 w-full text-start">
                     
                     {/* Intestazione e Titolo */}
                     <div>
-                        <span className="text-pink-500 font-black uppercase tracking-[0.4em] text-[10px] mb-2 block">
+                        <span className="text-pink-700 font-black uppercase tracking-[0.4em] text-[12px] mb-2 block">
                             Project Case Study
                         </span>
                         <h3 className="text-3xl sm:text-4xl font-black text-slate-950 tracking-tighter leading-none">

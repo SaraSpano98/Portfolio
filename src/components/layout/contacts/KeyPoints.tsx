@@ -85,24 +85,25 @@ export default function KeyPoints({ loadedIcons, refs }: KeyPointsProps) {
 
   return (
     <section className="w-full bg-white pt-10 pb-24 px-6 sm:px-12 md:px-16 lg:px-24">
-      <div className="w-full mx-auto">
+      <div className="w-full max-w-8xl mx-auto">
 
         {/* INTESTAZIONE SEZIONE CON FRECCE DI NAVIGAZIONE COMPATTE */}
         <div className="flex justify-between items-end mb-16 border-b border-slate-100 pb-8">
           <div>
-            <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tighter lowercase leading-none">
-              punti <span className="text-pink-500">chiave</span>
+            <span className="text-pink-700 font-black uppercase tracking-[0.4em] text-[11px] mb-3 block">
+              Seleziona uno step per approfondire
+            </span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter leading-none">
+              Punti <span className="text-pink-500">chiave</span>
             </h2>
-            <p className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 mt-3">
-              // seleziona uno step per approfondire
-            </p>
+            <div className="h-[3px] w-8 bg-pink-500 mt-4" />
           </div>
 
           {/* PULSANTI FRECCE */}
           <div className="flex gap-3 pointer-events-auto">
             <button
               onClick={handlePrev}
-              className="w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-900 hover:text-white hover:border-slate-900 transition-all duration-300 outline-none cursor-pointer"
+              className="w-12 h-12 rounded-full flex items-center justify-center text-white bg-slate-900 hover:bg-pink-500 transition-all duration-300 outline-none cursor-pointer shadow-md shadow-slate-700 hover:shadow-pink-700"
             >
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
@@ -110,7 +111,7 @@ export default function KeyPoints({ loadedIcons, refs }: KeyPointsProps) {
             </button>
             <button
               onClick={handleNext}
-              className="w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-900 hover:text-white hover:border-slate-900 transition-all duration-300 outline-none cursor-pointer"
+              className="w-12 h-12 rounded-full flex items-center justify-center text-white bg-slate-900 hover:bg-pink-500 transition-all duration-300 outline-none cursor-pointer shadow-md shadow-slate-700 hover:shadow-pink-700"
             >
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
@@ -173,8 +174,8 @@ export default function KeyPoints({ loadedIcons, refs }: KeyPointsProps) {
                       transition={{ duration: 0.25, ease: "easeInOut" }}
                       className="flex flex-col flex-1 text-left"
                     >
-                      <span className="text-pink-500 text-[11px] font-black uppercase tracking-[0.4em] block mb-3">
-                        // {steps[activeStep].step}
+                      <span className="text-pink-700 text-[11px] font-black uppercase tracking-[0.4em] block mb-3">
+                         {steps[activeStep].step}
                       </span>
                       <h3 className="text-2xl md:text-4xl font-black text-slate-900 uppercase tracking-tighter mb-2 leading-none">
                         {steps[activeStep].title}

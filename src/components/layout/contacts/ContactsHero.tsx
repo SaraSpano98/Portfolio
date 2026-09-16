@@ -21,7 +21,7 @@ const ContactsHero = ({ time, revealVariant }: ContactsHeroProps) => {
                     <div className="overflow-hidden mb-4">
                         <motion.p
                             initial="hidden" animate="visible" variants={revealVariant}
-                            className="text-pink-500 font-black uppercase tracking-[0.4em] text-[11px] flex items-center justify-center gap-3"
+                            className="text-pink-700 font-black uppercase tracking-[0.4em] text-[12px] flex items-center justify-center gap-3"
                         >
                             <span className="w-2 h-2 bg-pink-500 rounded-full animate-pulse" />
                             Ready for a new project
@@ -45,7 +45,7 @@ const ContactsHero = ({ time, revealVariant }: ContactsHeroProps) => {
 
 
                     <p className="text-xl md:text-2xl text-slate-500 leading-relaxed italic border-t-2 border-slate-100 pt-6 font-medium w-full">
-                        "Credo che la comunicazione sia la base di ogni grande digital product. Trasformo le tue idee in user experiences umane e codice solido."
+                        "Credo che la comunicazione sia la base di ogni grande digital product. Trasformo le tue idee in user experiences formidabili e codice solido, con l'integrazione di sistemi AI e micro-animazioni avanzate. 
                     </p>
                 </div>
 
@@ -57,30 +57,30 @@ const ContactsHero = ({ time, revealVariant }: ContactsHeroProps) => {
                     className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full items-stretch"
                 >
                     {/* CARD 1: L'orario locale */}
-                    <div className="flex flex-col items-center justify-center bg-slate-50/60 border border-slate-100 rounded-[2.5rem] p-8 shadow-sm text-center transition-all duration-300 hover:shadow-md hover:scale-[1.01]">
-                        <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-pink-500 mb-2 whitespace-nowrap">Local Time / Italy</p>
+                    <div className="flex flex-col items-center justify-center bg-pink-300/10 border border-pink-200 rounded-[2.5rem] p-8 shadow-md shadow-pink-400 text-center transition-all duration-300 hover:shadow-md hover:scale-[1.01]">
+                        <p className="text-[11px] font-black uppercase tracking-[0.3em] text-pink-700 mb-2 whitespace-nowrap">Local Time / Italy</p>
                         <span className="text-4xl md:text-5xl font-light text-slate-900 tabular-nums leading-none mb-2">{time}</span>
-                        <p className="text-slate-400 text-[9px] uppercase tracking-[0.2em] font-bold whitespace-nowrap">Risposta entro 24h</p>
+                        <p className="text-slate-600 text-[10px] uppercase tracking-[0.2em] font-bold whitespace-nowrap">Risposta entro 24h</p>
                     </div>
 
                     {/* CARD 2: Disponibilità */}
-                    <div className="flex flex-col items-center justify-center bg-slate-50/60 border border-slate-100 rounded-[2.5rem] p-8 shadow-sm text-center transition-all duration-300 hover:shadow-md hover:scale-[1.01]">
-                        <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400 mb-3 whitespace-nowrap">Availability</p>
+                    <div className="flex flex-col items-center justify-center bg-pink-300/10 border border-pink-200 rounded-[2.5rem] p-8 shadow-md shadow-pink-400 text-center transition-all duration-300 hover:shadow-md hover:scale-[1.01]">
+                        <p className="text-[11px] font-black uppercase tracking-[0.3em] text-pink-700 mb-3 whitespace-nowrap">Availability</p>
                         <div className="flex items-center gap-2 bg-emerald-50 text-emerald-600 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-wider mb-3">
                             <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-ping" />
                             Disponibile
                         </div>
-                        <p className="text-slate-500 text-xs font-medium max-w-[200px] leading-relaxed">
+                        <p className="text-slate-600 text-xs font-medium max-w-[200px] leading-relaxed">
                             Aperta a progetti freelance, consulenze UI/UX e ruoli Full-Remote.
                         </p>
                     </div>
 
                     {/* CARD 3: Current Status */}
-                    <div className="flex flex-col items-center justify-center bg-slate-50/60 border border-slate-100 rounded-[2.5rem] p-8 shadow-sm text-center transition-all duration-300 hover:shadow-md hover:scale-[1.01]">
-                        <span className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 mb-3 block whitespace-nowrap">
+                    <div className="flex flex-col items-center justify-center bg-pink-300/10 border border-pink-200 rounded-[2.5rem] p-8 shadow-md shadow-pink-400 text-center transition-all duration-300 hover:shadow-md hover:scale-[1.01]">
+                        <span className="text-[11px] font-black uppercase tracking-[0.3em] text-pink-700 mb-3 block whitespace-nowrap">
                             Current Status
                         </span>
-                        <p className="text-slate-600 text-xs md:text-sm leading-relaxed font-medium max-w-[220px]">
+                        <p className="text-slate-600 text-xs md:text-sm leading-relaxed font-medium max-w-[200px]">
                             Sviluppo micro-animazioni in <span className="text-slate-900 font-bold">Framer Motion</span> per un e-commerce di ultima generazione.
                         </p>
                     </div>

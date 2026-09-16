@@ -12,7 +12,7 @@ export default function TechProfileSection() {
 
                 {/* Titolo Principale */}
                 <div className="w-full mb-14 flex flex-col items-start">
-                    <span className="text-pink-500 font-black uppercase tracking-[0.4em] text-[11px] mb-3">
+                    <span className="text-pink-700 font-black uppercase tracking-[0.4em] text-[12px] mb-3">
                         Skillset & Tools
                     </span>
 

@@ -39,7 +39,7 @@ export default function ProjectsSection() {
                 {/* INTESTAZIONE SEZIONE CON CONTROLLI CAROSELLO */}
                 <div className="w-full mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6">
                     <div className="flex flex-col items-start">
-                        <span className="text-pink-500 font-black uppercase tracking-[0.4em] text-[11px] mb-3">
+                        <span className="text-pink-700 font-black uppercase tracking-[0.4em] text-[12px] mb-3">
                             Projects & Works
                         </span>
 
@@ -54,13 +54,13 @@ export default function ProjectsSection() {
                     <div className="hidden sm:flex items-center gap-3">
                         <button
                             onClick={() => handleScroll('left')}
-                            className="w-12 h-12 rounded-full border border-slate-300 flex items-center justify-center text-slate-600 hover:text-pink-700 hover:border-pink-700 transition-all cursor-pointer bg-white shadow-sm"
+                            className="w-12 h-12 rounded-full flex items-center justify-center text-white bg-slate-900 hover:bg-pink-500 transition-all cursor-pointer shadow-md shadow-slate-700 hover:shadow-pink-700"
                         >
                             <ArrowLeft className="w-5 h-5" />
                         </button>
                         <button
                             onClick={() => handleScroll('right')}
-                            className="w-12 h-12 rounded-full border border-slate-300 flex items-center justify-center text-slate-600 hover:text-pink-700 hover:border-pink-700 transition-all cursor-pointer bg-white shadow-sm"
+                            className="w-12 h-12 rounded-full flex items-center justify-center text-white bg-slate-900 hover:bg-pink-500 transition-all cursor-pointer shadow-md shadow-slate-700 hover:shadow-pink-700"
                         >
                             <ArrowRight className="w-5 h-5" />
                         </button>
@@ -138,7 +138,7 @@ export default function ProjectsSection() {
 
                                                 {/* Dettagli Testuali */}
                                                 <div className="flex flex-col gap-3">
-                                                    <h4 className="text-xl md:text-2xl font-black text-slate-950 tracking-tight line-clamp-1 group-hover:text-pink-500 transition-colors">
+                                                    <h4 className="text-xl md:text-2xl font-black text-slate-950 tracking-tight line-clamp-1">
                                                         {project.title}
                                                     </h4>
 

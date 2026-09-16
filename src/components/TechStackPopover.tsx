@@ -23,7 +23,7 @@ const TechStackPopover = () => {
       <div className="flex flex-col gap-6">
         {techData.map((tech) => (
           <div key={tech.name} className="flex items-center gap-5 group">
-            <div className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center text-slate-900 group-hover:bg-pink-500 group-hover:text-white transition-all duration-300">
+            <div className="w-10 h-10 rounded-xl bg-pink-500/10 flex items-center justify-center text-pink-500 group-hover:bg-pink-500 group-hover:text-white transition-all duration-300">
               {tech.icon}
             </div>
             <div className="flex flex-col">

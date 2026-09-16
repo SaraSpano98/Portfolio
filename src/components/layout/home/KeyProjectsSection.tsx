@@ -80,7 +80,7 @@ export default function ProjectsSection(): React.ReactElement {
 
                 {/* INTESTAZIONE SEZIONE */}
                 <div className="w-full mb-6 flex flex-col items-start">
-                    <span className="text-pink-500 font-black uppercase tracking-[0.4em] text-[11px] mb-3">
+                    <span className="text-pink-700 font-black uppercase tracking-[0.4em] text-[12px] mb-3">
                         PROJECTS & WORKS
                     </span>
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter leading-none">

@@ -11,7 +11,7 @@ import DirectInquirySection from '../components/layout/contacts/DirectInquirySec
 import SloganContacts from '../components/layout/contacts/SloganContacts';
 
 const Contacts = () => {
-    {/* 1. STATO DELL'ORARIO (Richiesto da ContactHero) */}
+    {/* 1. STATO DELL'ORARIO (Richiesto da ContactHero) */ }
     const [time, setTime] = useState(new Date().toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' }));
 
     useEffect(() => {
@@ -21,13 +21,13 @@ const Contacts = () => {
         return () => clearInterval(timer);
     }, []);
 
-    {/* 2. LOGICA VARIANTI ANIMAZIONE (Richiesta da ContactHero) */}
+    {/* 2. LOGICA VARIANTI ANIMAZIONE (Richiesta da ContactHero) */ }
     const revealVariant = {
         hidden: { y: "100%" },
         visible: { y: 0, transition: { duration: 0.8, ease: [0.42, 0, 0.58, 1] } }
     };
 
-    {/* 3. RIFERIMENTI PER CONTROLLO ANIMAZIONI LORDICON */}
+    {/* 3. RIFERIMENTI PER CONTROLLO ANIMAZIONI LORDICON */ }
     const emailRef = useRef<Player>(null);
     const whatsappRef = useRef<Player>(null);
     const telephoneRef = useRef<Player>(null);
@@ -36,8 +36,8 @@ const Contacts = () => {
     const linkedinRef = useRef<Player>(null);
     const githubRef = useRef<Player>(null);
 
-    const searchRef = useRef<Player>(null); 
-    const computerRef = useRef<Player>(null); 
+    const searchRef = useRef<Player>(null);
+    const computerRef = useRef<Player>(null);
     const rocketRef = useRef<Player>(null);
 
     const starRef = useRef<Player>(null);
@@ -45,8 +45,8 @@ const Contacts = () => {
     const clockRef = useRef<Player>(null);
     const consultationRef = useRef<Player>(null);
 
-    {/* 4. LOGICA CARICAMENTO ASINCRONO ICONE JSON */}
-    const [loadedIcons, setLoadedIcons] = useState<{ [key: string]: object}>({});
+    {/* 4. LOGICA CARICAMENTO ASINCRONO ICONE JSON */ }
+    const [loadedIcons, setLoadedIcons] = useState<{ [key: string]: object }>({});
 
     useEffect(() => {
         const loadAllIcons = async () => {
@@ -60,9 +60,9 @@ const Contacts = () => {
             const github = await fetchIconData(LordIcons.github);
 
             // Processo di lavoro
-            const search = await fetchIconData(LordIcons.search); 
-            const computer = await fetchIconData(LordIcons.computer); 
-            const rocket = await fetchIconData(LordIcons.rocket); 
+            const search = await fetchIconData(LordIcons.search);
+            const computer = await fetchIconData(LordIcons.computer);
+            const rocket = await fetchIconData(LordIcons.rocket);
 
             // Punti Chiave
             const star = await fetchIconData(LordIcons.star);
@@ -71,16 +71,16 @@ const Contacts = () => {
             const consultation = await fetchIconData(LordIcons.consultation);
 
             // Salvataggio globale nello stato
-            setLoadedIcons({ 
-                email, whatsapp, telephone, meeting, globe, linkedin, github, 
-                search, computer, rocket, 
-                star, tool, clock, consultation 
+            setLoadedIcons({
+                email, whatsapp, telephone, meeting, globe, linkedin, github,
+                search, computer, rocket,
+                star, tool, clock, consultation
             });
         };
         loadAllIcons();
     }, []);
 
-    {/* AUTOMAZIONE ICONE DI CONTATT*/}
+    {/* AUTOMAZIONE ICONE DI CONTATT*/ }
     useEffect(() => {
         const timer = setTimeout(() => {
             if (emailRef.current) emailRef.current.playFromBeginning();
@@ -99,22 +99,22 @@ const Contacts = () => {
         <>
             <SEO title="Contatti" description="Parliamo del tuo prossimo progetto digitale." path="/contacts" />
 
-            <main className="w-full min-h-screen bg-white pt-40 lg:pt-44 pb-32 px-6 md:px-16 lg:px-24 overflow-x-hidden relative flex flex-col">
+            <main className="w-full min-h-screen bg-white pb-32 overflow-x-hidden relative flex flex-col">
 
                 {/* 1. HERO CONTATTI */}
                 <ContactsHero time={time} revealVariant={revealVariant} />
 
                 {/* 2. PROCESSO DI LAVORO */}
-                <ProcessSection 
-                    loadedIcons={loadedIcons} 
-                    refs={{ searchRef, computerRef, rocketRef }} 
+                <ProcessSection
+                    loadedIcons={loadedIcons}
+                    refs={{ searchRef, computerRef, rocketRef }}
                 />
 
                 {/* 3. PREREQUISITI PROGETTO */}
                 <PrerequisitiSection />
 
                 {/* 4. KEY POINTS: CAROUSEL DINAMICO */}
-                <KeyPoints 
+                <KeyPoints
                     loadedIcons={loadedIcons}
                     refs={{ starRef, toolRef, clockRef, consultationRef }}
                 />
@@ -134,4 +134,3 @@ const Contacts = () => {
 };
 
 export default Contacts;
-
