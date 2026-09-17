@@ -100,40 +100,46 @@ export default function SloganHome() {
                         </h2>
 
                         {/* PARAGRAFO DESCRITTIVO SARTORIALE */}
-                        <p className="text-slate-400 text-sm sm:text-base leading-relaxed max-w-2xl mb-14 font-medium relative z-20 opacity-85">
+                        <p className="text-white text-sm sm:text-base leading-relaxed max-w-2xl mb-14 font-medium relative z-20 opacity-85">
                             Hai in mente un'applicazione complessa, un e-commerce o una piattaforma digitale sartoriale?
-                            Uniamo logiche <span className="text-slate-200 font-bold transition-colors group-hover:text-pink-400">full-stack</span> e design <span className="text-slate-200 font-bold transition-colors group-hover:text-violet-400">d'avanguardia</span> per costruire una struttura scalabile, solida e pronta a crescere.
+                            Uniamo logiche <span className="text-white font-bold transition-colors group-hover:text-pink-400">full-stack</span> e design <span className="text-white font-bold transition-colors group-hover:text-violet-200">d'avanguardia</span> per costruire una struttura scalabile, solida e pronta a crescere.
                         </p>
 
                         {/* GRUPPO PULSANTI D'AZIONE IMMOBILI E PERFETTI */}
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-5 relative z-30 w-full sm:w-auto">
-
-                            {/* BOTTONE SINISTRO: SCOPRI CHI SONO */}
                             <div className="w-full sm:w-auto">
-                                <Link
-                                    to="/about"
-                                    className="group px-8 py-4 sm:px-12 sm:py-5 bg-pink-500 text-white hover:bg-pink-600 rounded-full font-black uppercase text-[10px] sm:text-xs md:text-sm tracking-[0.2em] sm:tracking-[0.3em] transition-all duration-300 relative flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-pink-500/20 hover:shadow-pink-500/40"
-                                >
-                                    Scopri chi sono
-                                    <span className="inline-block transform transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 font-normal text-white ml-1">
-                                        ↗
-                                    </span>
-                                </Link>
+                                <div className="relative group/button1">
+                                    <div className="absolute inset-0 rounded-full transition-all duration-300 opacity-0 group-hover/button1:opacity-100 shadow-[0_0_30px_rgba(236,72,153,0.6),0_0_15px_rgba(236,72,153,0.4)] pointer-events-none" />
+
+                                    <Link
+                                        to="/about"
+                                        className="px-8 py-4 sm:px-12 sm:py-5 bg-pink-500 text-white hover:bg-pink-600 rounded-full font-black uppercase text-[10px] sm:text-xs md:text-sm tracking-[0.2em] sm:tracking-[0.3em] transition-all duration-300 relative flex items-center justify-center gap-2 cursor-pointer"
+                                    >
+                                        Scopri chi sono
+                                        <span className="inline-block transform transition-transform duration-300 group-hover/button1:translate-x-1 group-hover/button1:-translate-y-1 font-normal text-white ml-1">
+                                            ↗
+                                        </span>
+                                    </Link>
+                                </div>
                             </div>
 
                             {/* BOTTONE DESTRO: AVVIA LA COLLABORAZIONE */}
                             <div className="w-full sm:w-auto">
-                                <ClickSpark>
-                                    <Link
-                                        to="/contatti"
-                                        className="group px-8 py-4 sm:px-12 sm:py-5 bg-[#121424] text-white hover:bg-white hover:text-slate-900 border border-white/[0.06] hover:border-transparent rounded-full font-black uppercase text-[10px] sm:text-xs md:text-sm tracking-[0.2em] sm:tracking-[0.3em] transition-all duration-300 relative flex items-center justify-center gap-2 cursor-pointer text-center"
-                                    >
-                                        Avvia la collaborazione
-                                        <span className="inline-block transform scale-0 opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 group-hover:animate-bounce origin-center ml-1 -translate-y-[1px]">
-                                            ☕
-                                        </span>
-                                    </Link>
-                                </ClickSpark>
+                                <div className="relative group/button2">
+                                    <div className="absolute inset-0 rounded-full transition-all duration-300 opacity-0 group-hover/button2:opacity-100 shadow-[0_0_30px_rgba(255,255,255,0.6),0_0_15px_rgba(255,255,255,0.4)] pointer-events-none" />
+
+                                    <ClickSpark>
+                                        <Link
+                                            to="/contatti"
+                                            className="px-8 py-4 sm:px-12 sm:py-5 bg-white text-slate-900 hover:bg-slate-200 rounded-full font-black uppercase text-[10px] sm:text-xs md:text-sm tracking-[0.2em] sm:tracking-[0.3em] transition-all duration-300 relative flex items-center justify-center gap-2 cursor-pointer"
+                                        >
+                                            Avvia collaborazione
+                                            <span className="inline-block transform scale-0 opacity-0 group-hover/button2:opacity-100 group-hover/button2:scale-110 transition-all duration-300 group-hover/button2:animate-bounce origin-center ml-1 -translate-y-[1px]">
+                                                💼
+                                            </span>
+                                        </Link>
+                                    </ClickSpark>
+                                </div>
                             </div>
                         </div>
                     </motion.div>

@@ -271,7 +271,7 @@ export default function ProjectsSection(): React.ReactElement {
                             </button>
                         </ClickSpark>
 
-                        <p className="text-xs sm:text-sm font-semibold text-slate-700 tracking-wide max-w-xs sm:max-w-md mx-auto mt-1">
+                        <p className="text-xs sm:text-sm font-semibold text-slate-900 tracking-wide max-w-xs sm:max-w-md mx-auto mt-1">
                             Esplora l'archivio completo dei miei lavori, dai progetti personali alle soluzioni enterprise.
                         </p>
                     </div>

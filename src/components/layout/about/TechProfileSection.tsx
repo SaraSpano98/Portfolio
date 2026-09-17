@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import SkillsSelectorDesign from './SkillsSelectorDesign';
 import SkillsSelectorCoder from './SkillsSelectorCoder';
-import ClickSpark from '../../ui/ClickSpark'; 
+import ClickSpark from '../../ui/ClickSpark';
 
 export default function TechProfileSection() {
     return (
@@ -64,7 +64,7 @@ export default function TechProfileSection() {
                                     </div>
                                 </div>
 
-                                <p className="text-slate-500 text-lg font-light leading-relaxed max-w-xl mt-5">
+                                <p className="text-slate-700 text-base md:text-lg leading-normal font-normal max-w-2xl mt-6">
                                     Curo l'estetica e l'esperienza utente fin dal primo schizzo. Trasformo concetti complessi in interfacce visive pulite, moderne e soprattutto funzionali, dove ogni singolo pixel ha un preciso motivo di esistere.
                                 </p>
 
@@ -78,14 +78,13 @@ export default function TechProfileSection() {
                                 <ClickSpark>
                                     <Link
                                         to="/progetti#design-showcase"
-                                        className="inline-flex items-center justify-center gap-3 bg-pink-500 text-white hover:bg-pink-700 font-bold text-xs uppercase tracking-widest px-8 py-4 rounded-2xl shadow-md transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/20 group-hover/designer:-translate-y-0.5 w-full"
+                                        className="flex items-center justify-center gap-3 bg-pink-500 text-white hover:bg-pink-700 font-bold text-xs uppercase tracking-widest px-8 h-[52px] rounded-2xl shadow-md transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/20 group-hover/designer:-translate-y-0.5 w-full distribution-center"
                                     >
-                                        Esplora la Galleria
-                                        <LayoutGrid className="w-4 h-4 text-white transition-transform duration-300 group-hover/designer:rotate-12" />
+                                        <span className="leading-none select-none">Esplora la Galleria</span>
+                                        <LayoutGrid className="w-4 h-4 text-white transition-transform duration-300 group-hover/designer:rotate-12 shrink-0" />
                                     </Link>
                                 </ClickSpark>
                             </div>
-
                         </div>
 
                         {/* COLONNA DESTRA: PARTE CODER */}
@@ -105,7 +104,7 @@ export default function TechProfileSection() {
 
                                 </div>
 
-                                <p className="text-slate-500 text-lg font-light leading-relaxed max-w-xl mt-5">
+                                <p className="text-slate-700 text-base md:text-lg leading-normal font-normal max-w-2xl mt-6">
                                     Scrivo codice pulito, scalabile e ottimizzato per le performance. Amo l'architettura dei componenti logici e l'accuratezza millimetrica nel tradurre il design grafico in codice moderno e reattivo.
                                 </p>
 
@@ -119,10 +118,10 @@ export default function TechProfileSection() {
                                 <ClickSpark>
                                     <Link
                                         to="/progetti"
-                                        className="inline-flex items-center justify-center gap-3 bg-indigo-500 hover:bg-indigo-700 text-white font-bold text-xs uppercase tracking-widest px-8 py-4 rounded-2xl shadow-md transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/20 group-hover/coder:-translate-y-0.5 w-full"
+                                        className="flex items-center justify-center gap-3 bg-indigo-500 hover:bg-indigo-700 text-white font-bold text-xs uppercase tracking-widest px-8 h-[52px] rounded-2xl shadow-md transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/20 group-hover/coder:-translate-y-0.5 w-full"
                                     >
-                                        Guarda i Progetti
-                                        <ArrowUpRight className="w-4 h-4 text-white transition-transform duration-300 group-hover/coder:translate-x-0.5 group-hover/coder:-translate-y-0.5" />
+                                        <span className="leading-none select-none">Guarda i Progetti</span>
+                                        <ArrowUpRight className="w-4 h-4 text-white transition-transform duration-300 group-hover/coder:translate-x-0.5 group-hover/coder:-translate-y-0.5 shrink-0" />
                                     </Link>
                                 </ClickSpark>
                             </div>

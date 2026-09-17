@@ -114,7 +114,7 @@ export default function IdentityHero({ revealVariant }: AboutHeroProps): React.R
                         </motion.p>
                     </div>
 
-                     {/* TITOLO PRINCIPALE */}
+                    {/* TITOLO PRINCIPALE */}
                     <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-[68px] font-black uppercase tracking-tighter text-slate-950 flex flex-row flex-nowrap items-center justify-center gap-x-4 leading-none mb-6 whitespace-nowrap">
                         <span>CIAO,</span>
                         <span className="text-pink-500 inline-flex items-center gap-x-4">
@@ -129,8 +129,8 @@ export default function IdentityHero({ revealVariant }: AboutHeroProps): React.R
                         </span>
                     </h1>
 
-                    <p className="text-slate-500 text-lg md:text-xl leading-relaxed font-light max-w-2xl mt-4">
-                        Dietro ogni linea di codice c'è un'evoluzione. Questo è un piccolo viaggio interattivo attraverso <span className="text-slate-900 font-medium">le tappe, le sfide e la visione</span> che hanno plasmato il mio approccio alla programmazione. Il mio non è stato un percorso lineare, ma un intreccio di strade difficili che poi mi hanno portato a mete grandiosamente inaspettate.
+                    <p className="text-slate-700 text-base md:text-lg leading-normal font-normal max-w-2xl mt-6 text-center mx-auto tracking-wide">
+                        Dietro ogni linea di codice c'è un'evoluzione. Questo è un piccolo viaggio interattivo attraverso <span className="text-pink-500 font-bold">le tappe, le sfide e la visione</span> che hanno plasmato il mio approccio alla programmazione. Il mio non è stato un percorso lineare, ma un intreccio di strade complesse che mi hanno guidato verso traguardi straordinari.
                     </p>
                 </div>
 
