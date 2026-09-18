@@ -50,19 +50,19 @@ const DirectInquirySection = ({ loadedIcons, refs }: DirectInquirySectionProps) 
                                         <span className="text-[11px] font-black uppercase tracking-[0.4em] text-pink-500 mb-3 block">Email Diretta</span>
                                         <ClickSpark>
                                             <a
-                                                href="mailto:saraspano@live.it"
+                                                href="mailto:saraspano579@gmail.com"
                                                 className="flex items-center gap-3 mb-3 cursor-pointer w-full"
                                             >
                                                 {loadedIcons.email && (
                                                     <Player ref={emailRef} icon={loadedIcons.email} size={40} colors="primary:#5c0632,secondary:#e6399b" />
                                                 )}
                                                 <span className="text-xl md:text-2xl xl:text-3xl font-black text-slate-900 tracking-tighter hover:text-pink-500 transition-all block truncate">
-                                                    saraspano@live.it
+                                                   G-mail Sara Spano
                                                 </span>
                                             </a>
                                         </ClickSpark>
 
-                                        <p className="text-slate-500 text-md leading-relaxed italic max-w-sm">"Il canale preferito per preventivi formali e brief di progetto dettagliati."</p>
+                                        <p className="text-slate-700 text-base leading-normal font-normal max-w-sm">"Il canale preferito per preventivi formali e brief di progetto dettagliati."</p>
                                     </div>
                                     <div className="h-[2px] w-0 group-hover:w-full bg-pink-700 transition-all duration-700 mt-6" />
                                 </motion.div>
@@ -91,7 +91,7 @@ const DirectInquirySection = ({ loadedIcons, refs }: DirectInquirySectionProps) 
                                             </a>
                                         </ClickSpark>
 
-                                        <p className="text-slate-500 text-md leading-relaxed italic max-w-sm">"Per una comunicazione immediata, feedback veloci o semplici domande tecniche."</p>
+                                        <p className="text-slate-700 text-base leading-normal font-normal max-w-sm">"Per una comunicazione immediata, feedback veloci o semplici domande tecniche."</p>
                                     </div>
                                     <div className="h-[2px] w-0 group-hover:w-full bg-pink-700 transition-all duration-700 mt-6" />
                                 </motion.div>
@@ -115,7 +115,7 @@ const DirectInquirySection = ({ loadedIcons, refs }: DirectInquirySectionProps) 
                                             </a>
                                         </ClickSpark>
 
-                                        <p className="text-slate-500 text-md leading-relaxed italic max-w-sm">"Disponibile per chiamate dirette e allineamenti rapidi sui progetti."</p>
+                                        <p className="text-slate-700 text-base leading-normal font-normal max-w-sm">"Disponibile per chiamate dirette e allineamenti rapidi sui progetti."</p>
                                     </div>
                                     <div className="h-[2px] w-0 group-hover:w-full bg-pink-700 transition-all duration-700 mt-6" />
                                 </motion.div>
@@ -139,7 +139,7 @@ const DirectInquirySection = ({ loadedIcons, refs }: DirectInquirySectionProps) 
                                             </a>
                                         </ClickSpark>
 
-                                        <p className="text-slate-500 text-md leading-relaxed italic max-w-sm">"Pianifica una sessione conoscitiva su Meet o Zoom per il tuo brief."</p>
+                                        <p className="text-slate-700 text-base leading-normal font-normal max-w-sm">"Pianifica una sessione conoscitiva su Meet o Zoom per il tuo brief."</p>
                                     </div>
                                     <div className="h-[2px] w-0 group-hover:w-full bg-pink-700 transition-all duration-700 mt-6" />
                                 </motion.div>

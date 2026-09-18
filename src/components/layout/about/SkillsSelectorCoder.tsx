@@ -1,10 +1,12 @@
 import { useState } from 'react';
 
-import { coderSkills, SkillItem } from '../data/skillsCoderData';; 
+import { coderSkills } from '../../../data/skillsCoderData';
+import type { SkillItem } from '../../../data/skillsCoderData';
+
 
 export default function SkillsSelectorCoder() {
     const [activeCoderTab, setActiveCoderTab] = useState<string>("Front-end");
-    const [selectedTech, setSelectedTech] = useState<SkillItem>(coderSkills["Front-end"].items[0]);
+    const [selectedTech, setSelectedTech] = useState<SkillItem | null>(coderSkills["Front-end"].items[0]);
 
     return (
         <div className="w-full flex flex-col gap-6 mt-2">
@@ -53,8 +55,8 @@ export default function SkillsSelectorCoder() {
                             >
                                 <div className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 border transition-all duration-300 shadow-[inset_0_2px_4px_rgba(255,255,255,0.9),_0_4px_6px_-1px_rgba(0,0,0,0.06)] ${
                                     isSelected
-                                        ? 'bg-gradient-to-br from-indigo-400 to-indigo-600 text-white border-indigo-400 scale-110 shadow-md shadow-indigo-500/20'
-                                        : 'bg-gradient-to-br from-slate-50 to-slate-200/80 text-slate-700 border-slate-200/40 group-hover/item:scale-105'
+                                        ? 'bg-gradient-to-br from-indigo-100 to-indigo-300 text-white border-indigo-400 scale-110 shadow-md shadow-indigo-500/20'
+                                        : 'bg-gradient-to-br from-slate-100 to-slate-300/80 text-slate-700 border-slate-200/40 group-hover/item:scale-105'
                                 }`}>
                                     <span className={`text-xl filter drop-shadow-[0_2px_3px_rgba(0,0,0,0.12)] transform transition-transform group-hover/item:rotate-6 ${
                                         isSelected ? 'brightness-120' : ''
@@ -63,7 +65,7 @@ export default function SkillsSelectorCoder() {
                                     </span>
                                 </div>
                                 <span className={`text-base tracking-tight transition-colors duration-300 ${
-                                    isSelected ? 'text-indigo-600 font-bold' : 'text-slate-700 font-semibold group-hover/item:text-slate-950'
+                                    isSelected ? 'text-indigo-500 font-bold' : 'text-slate-700 font-semibold group-hover/item:text-slate-950'
                                 }`}>
                                     {item.name}
                                 </span>
@@ -80,7 +82,7 @@ export default function SkillsSelectorCoder() {
                                 <span className="text-xs font-black tracking-[0.2em] uppercase opacity-60 mb-2">
                                     {selectedTech.name}
                                 </span>
-                                <span className="text-2xl font-black tracking-tight mb-3 text-indigo-200">
+                                <span className="text-2xl font-black tracking-tight mb-3 text-indigo-100">
                                     {selectedTech.level}
                                 </span>
                                 <p className="text-xs font-medium tracking-wide leading-relaxed opacity-90 px-2 max-w-[220px]">

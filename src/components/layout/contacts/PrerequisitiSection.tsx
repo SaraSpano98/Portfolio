@@ -10,6 +10,10 @@ const PrerequisitiSection = () => {
 
                     {/* COLONNA TESTO SINISTRA */}
                     <div className="lg:col-span-5 flex flex-col justify-center relative z-10">
+                        <span className="text-pink-950 font-black uppercase tracking-[0.45em] text-[11px] sm:text-[11px] mb-6 relative z-20 opacity-90">
+                            Prerequisiti
+                        </span>
+                        
                         <h3 className="text-4xl md:text-5xl font-black tracking-tighter leading-none mb-6">
                             Prima di <span className="text-pink-700">iniziare</span>
                         </h3>

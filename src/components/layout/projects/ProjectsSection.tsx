@@ -94,7 +94,7 @@ export default function ProjectsSection() {
                         {filteredProjects.length === 0 ? (
                             <motion.p
                                 initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-                                className="text-slate-400 text-sm font-medium italic py-12 pl-2"
+                                className="text-slate-700 text-base md:text-lg leading-normal font-normal py-12 pl-2"
                             >
                                 Nessun progetto presente in questa categoria al momento.
                             </motion.p>
@@ -155,7 +155,7 @@ export default function ProjectsSection() {
                                                         )}
                                                     </div>
 
-                                                    <p className="text-slate-500 text-md font-light leading-relaxed line-clamp-3">
+                                                    <p className="text-slate-700 text-base md:text-lg leading-normal font-normal line-clamp-3">
                                                         {project.description}
                                                     </p>
                                                 </div>

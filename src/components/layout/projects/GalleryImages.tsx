@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react'; 
-import { useLocation } from 'react-router-dom'; 
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Monitor, Smartphone, Compass, Shuffle, Palette } from 'lucide-react'; 
-import { DESIGN_MOCKUPS } from '../../../data/mockupsData'; 
+import { Monitor, Smartphone, Compass, Shuffle, Palette } from 'lucide-react';
+import { DESIGN_MOCKUPS } from '../../../data/mockupsData';
 import PhoneMockup from '../../ui/PhoneMockup';
 import MacbookMockUp from '../../ui/MacbookMockUp';
 
@@ -11,6 +11,8 @@ export default function GalleryImages() {
     const [activeIndex, setActiveIndex] = useState(0);
     const [activeDevice, setActiveDevice] = useState<'desktop' | 'mobile'>('desktop');
     const currentMockup = DESIGN_MOCKUPS[activeIndex];
+    const [copiedColor, setCopiedColor] = useState<string | null>(null);
+
 
     useEffect(() => {
         if (hash === '#design-showcase') {
@@ -22,12 +24,12 @@ export default function GalleryImages() {
     }, [hash]);
 
     return (
-        <section 
-            id="design-showcase" 
+        <section
+            id="design-showcase"
             className="relative w-full bg-slate-50/40 pt-24 pb-32 px-6 sm:px-12 md:px-16 lg:px-24 select-none border-t border-slate-100"
         >
             <div className="w-full max-w-8xl mx-auto flex flex-col gap-12">
-                
+
                 {/* INTESTAZIONE SEZIONE */}
                 <div className="w-full flex flex-col items-start">
                     <span className="text-pink-700 font-black uppercase tracking-[0.4em] text-[12px] mb-3">
@@ -46,11 +48,10 @@ export default function GalleryImages() {
                         <button
                             key={mockup.id}
                             onClick={() => setActiveIndex(index)}
-                            className={`text-xs font-bold px-5 py-2.5 rounded-full border transition-all duration-300 cursor-pointer ${
-                                activeIndex === index
+                            className={`text-xs font-bold px-5 py-2.5 rounded-full border transition-all duration-300 cursor-pointer ${activeIndex === index
                                     ? 'bg-slate-900 text-white border-slate-900 shadow-md shadow-slate-900/10'
                                     : 'bg-slate-50 text-slate-500 border-slate-200 hover:bg-slate-100'
-                            }`}
+                                }`}
                         >
                             {mockup.tabLabel}
                         </button>
@@ -59,7 +60,7 @@ export default function GalleryImages() {
 
                 {/* CONTENITORE CASO STUDIO */}
                 <AnimatePresence mode="wait">
-                    <motion.div 
+                    <motion.div
                         key={currentMockup.id}
                         initial={{ opacity: 0, y: 15 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -67,7 +68,7 @@ export default function GalleryImages() {
                         transition={{ duration: 0.4, ease: "easeInOut" }}
                         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 xl:gap-20 items-center w-full bg-white rounded-[3rem] p-8 sm:p-14 md:p-16 border border-slate-200/60 shadow-sm relative overflow-hidden"
                     >
-                        
+
                         {/* COLONNA SINISTRA: CANVAS UNICO — un mockup alla volta, con toggle Desktop/Mobile */}
                         <div className="md:col-span-1 lg:col-span-7 bg-slate-50/60 border border-slate-100 rounded-[2.5rem] p-8 sm:p-10 relative overflow-hidden w-full min-h-[370px] sm:min-h-[420px] lg:min-h-[480px] flex flex-col">
 
@@ -95,9 +96,8 @@ export default function GalleryImages() {
                                         scale: activeDevice === 'desktop' ? 1 : 0.96,
                                     }}
                                     transition={{ duration: 0.35, ease: 'easeInOut' }}
-                                    className={`absolute inset-0 flex items-center justify-center ${
-                                        activeDevice === 'desktop' ? 'pointer-events-auto' : 'pointer-events-none'
-                                    }`}
+                                    className={`absolute inset-0 flex items-center justify-center ${activeDevice === 'desktop' ? 'pointer-events-auto' : 'pointer-events-none'
+                                        }`}
                                 >
                                     <MacbookMockUp className="w-full max-w-[640px]">
                                         <video
@@ -115,9 +115,8 @@ export default function GalleryImages() {
                                         scale: activeDevice === 'mobile' ? 1 : 0.96,
                                     }}
                                     transition={{ duration: 0.35, ease: 'easeInOut' }}
-                                    className={`absolute inset-0 flex items-center justify-center ${
-                                        activeDevice === 'mobile' ? 'pointer-events-auto' : 'pointer-events-none'
-                                    }`}
+                                    className={`absolute inset-0 flex items-center justify-center ${activeDevice === 'mobile' ? 'pointer-events-auto' : 'pointer-events-none'
+                                        }`}
                                 >
                                     <div className="h-[240px] sm:h-[280px] lg:h-[340px] w-fit mx-auto">
                                         <PhoneMockup>
@@ -137,22 +136,20 @@ export default function GalleryImages() {
                                 <button
                                     onClick={() => setActiveDevice('desktop')}
                                     aria-label="Mostra demo desktop"
-                                    className={`w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 cursor-pointer ${
-                                        activeDevice === 'desktop'
+                                    className={`w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 cursor-pointer ${activeDevice === 'desktop'
                                             ? 'bg-slate-900 text-white shadow-sm'
                                             : 'text-slate-400 hover:text-slate-700 hover:bg-slate-50'
-                                    }`}
+                                        }`}
                                 >
                                     <Monitor className="w-4 h-4" />
                                 </button>
                                 <button
                                     onClick={() => setActiveDevice('mobile')}
                                     aria-label="Mostra demo mobile"
-                                    className={`w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 cursor-pointer ${
-                                        activeDevice === 'mobile'
+                                    className={`w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 cursor-pointer ${activeDevice === 'mobile'
                                             ? 'bg-slate-900 text-white shadow-sm'
                                             : 'text-slate-400 hover:text-slate-700 hover:bg-slate-50'
-                                    }`}
+                                        }`}
                                 >
                                     <Smartphone className="w-4 h-4" />
                                 </button>
@@ -161,7 +158,7 @@ export default function GalleryImages() {
 
                         {/* COLONNA DESTRA: PANNELLO SPECIFICHE UX/UI */}
                         <div className="md:col-span-1 lg:col-span-5 flex flex-col justify-between items-start text-left gap-10 py-4 w-full h-full">
-                            
+
                             <div className="flex flex-col gap-2.5 w-full">
                                 <span className="text-[10px] font-black uppercase tracking-widest text-pink-500">
                                     Analisi Visiva & UX
@@ -174,7 +171,7 @@ export default function GalleryImages() {
 
                             {/* Info UX/UI */}
                             <div className="flex flex-col gap-8 w-full flex-1">
-                                
+
                                 <div className="flex gap-4 items-start">
                                     <div className="w-9 h-9 rounded-xl bg-pink-50 border border-pink-100 flex items-center justify-center text-pink-500 shrink-0 mt-0.5">
                                         <Compass className="w-4 h-4" />
@@ -201,25 +198,61 @@ export default function GalleryImages() {
                                     </div>
                                     <div className="flex flex-col gap-2.5 w-full">
                                         <h4 className="text-xs font-black tracking-wider text-slate-900 uppercase">Brand Palette Cromatica</h4>
-                                        <div className="flex gap-3 items-center mt-1">
-                                            {currentMockup.colorPalette.map((color, idx) => (
-                                                <div key={idx} className="flex flex-col items-center gap-1.5">
+                                    
+                                        <div className="flex flex-wrap gap-4 items-center mt-1">
+                                            {currentMockup.colorPalette.map((color, idx) => {
+                                                const isJustCopied = copiedColor === color;
 
-                                                    <div 
-                                                        className="w-8 h-8 rounded-full border border-slate-200/80 shadow-inner transition-transform duration-300 hover:scale-110"
-                                                        style={{ backgroundColor: color }}
-                                                        title={color}
-                                                    />
-                                                    <span className="text-[9px] font-black uppercase tracking-tight text-slate-400 tabular-nums">{color}</span>
-                                                </div>
-                                            ))}
+                                                const getRoleName = (index: number) => {
+                                                    if (index === 0) return 'Primario';
+                                                    if (index === 1) return 'Accento';
+                                                    if (index === 2) return 'Sfondo Dark';
+                                                    if (index === 3) return 'Sfondo Light';
+                                                    return 'Palette';
+                                                };
+
+                                                const isColorLight = ['#ffffff', '#f8fafc', '#f1f5f9', '#fbcfe8', '#818cf8', '#c084fc'].includes(color.toLowerCase());
+
+                                                return (
+                                                    <div key={idx} className="flex flex-col items-center gap-1">
+                                                        {/* Cerchio Colore: Diventato pulsante interattivo per il copia-incolla */}
+                                                        <button
+                                                            onClick={() => {
+                                                                navigator.clipboard.writeText(color);
+                                                                setCopiedColor(color);
+                                                                setTimeout(() => setCopiedColor(null), 1500);
+                                                            }}
+                                                            className="w-8 h-8 rounded-full border border-slate-200/80 shadow-inner transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer flex items-center justify-center relative group"
+                                                            style={{ backgroundColor: color }}
+                                                            title="Clicca per copiare il codice HEX"
+                                                        >
+                                                            {/* Scritta di anteprima interna al cerchio (appare solo all'hover) */}
+                                                            <span className={`text-[8px] font-black uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-200 select-none ${isColorLight ? 'text-slate-900' : 'text-white'
+                                                                }`}>
+                                                                {isJustCopied ? '✓' : 'Copy'}
+                                                            </span>
+                                                        </button>
+
+                                                        {/* Testi Informativi Sotto il Cerchio */}
+                                                        <div className="flex flex-col items-center text-center leading-none">
+                                                            <span className={`text-[9px] font-black uppercase tracking-tight tabular-nums transition-colors duration-200 ${isJustCopied ? 'text-emerald-500 font-bold' : 'text-slate-400'
+                                                                }`}>
+                                                                {isJustCopied ? 'Copiato!' : color}
+                                                            </span>
+
+                                                            {/* Etichetta del ruolo cromatico */}
+                                                            <span className="text-[7.5px] text-slate-500 font-bold uppercase tracking-tighter mt-0.5 opacity-80">
+                                                                {getRoleName(idx)}
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                );
+                                            })}
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
-
                     </motion.div>
                 </AnimatePresence>
             </div>

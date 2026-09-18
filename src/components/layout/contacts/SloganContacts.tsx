@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowUpRight } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 
 import ClickSpark from '../../ui/ClickSpark';
 
 const SloganContacts = () => {
     const [coords, setCoords] = useState({ x: 0, y: 0 });
+    const [isHovered, setIsHovered] = useState(false);
 
     const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
         const bounds = e.currentTarget.getBoundingClientRect();
@@ -24,66 +25,125 @@ const SloganContacts = () => {
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.6, ease: "easeOut" }}
-                        whileHover={{ y: -5, scale: 1.005 }}
+                        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                        whileHover={{ y: -4 }}
                         onMouseMove={handleMouseMove}
-                        className="w-full bg-gradient-to-br from-[#11131e] via-[#0c0d14] to-[#161929] rounded-[3rem] py-14 sm:py-16 lg:py-20 px-6 md:px-16 flex flex-col items-center text-center relative overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:shadow-[0_20px_50px_rgba(244,114,182,0.15)] border border-white/5 group"
+                        onMouseEnter={() => setIsHovered(true)}
+                        onMouseLeave={() => setIsHovered(false)}
+                        className="w-full bg-[#07080d] rounded-[3rem] py-14 sm:py-16 lg:py-20 px-6 md:px-16 flex flex-col items-center text-center relative overflow-hidden border border-white/[0.03] group transition-all duration-500 shadow-[0_30px_100px_rgba(0,0,0,0.8)]"
                     >
-                        {/* BAGLIORI COREOGRAFICI FISSI SULLO SFONDO */}
-                        <div className="absolute -top-24 -left-24 w-80 h-80 bg-pink-500/10 rounded-full blur-[80px] pointer-events-none" />
-                        <div className="absolute -bottom-24 -right-24 w-80 h-80 bg-violet-600/10 rounded-full blur-[80px] pointer-events-none" />
-
-                        {/* LINEA SOTTILE DI GRADIENTE SUL BORDO SUPERIORE */}
-                        <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-pink-500/30 to-transparent" />
-
-                        {/* BAGLIORE ROSA DINAMICO AL PASSAGGIO DEL MOUSE */}
+                        {/* 1. BAGLIORE REATTIVO PREMIUM (Raggio di luce liquida iper-realistico) */}
                         <div
-                            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0"
+                            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-0"
                             style={{
-                                background: `radial-gradient(600px circle at ${coords.x}px ${coords.y}px, rgba(236, 72, 153, 0.12), transparent 45%)`
+                                background: `
+                                    radial-gradient(450px circle at ${coords.x}px ${coords.y}px, rgba(236, 72, 153, 0.12), transparent 65%),
+                                    radial-gradient(200px circle at ${coords.x}px ${coords.y}px, rgba(124, 58, 237, 0.1), transparent 50%)
+                                `
                             }}
                         />
 
-                        {/* CONTENUTO PRINCIPALE */}
-                        <div className="z-10 max-w-3xl mx-auto text-center w-full flex flex-col items-center justify-center">
-                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tighter leading-[1.1] mb-8">
-                                Non cerchi solo un dev. <br /> Cerchi <span className="text-pink-500 italic font-medium">visione</span> e <span className="text-pink-500">metodo</span>.
-                            </h2>
+                        {/* 2. BORDO NEON INTERNO ULTRA-SOTTILE (Si illumina in base a dove si trova il mouse) */}
+                        <div
+                            className="absolute inset-0 rounded-[3rem] pointer-events-none z-20 border border-transparent transition-all duration-500"
+                            style={{
+                                backgroundImage: isHovered
+                                    ? `radial-gradient(350px circle at ${coords.x}px ${coords.y}px, rgba(236, 72, 153, 0.4), transparent 80%)`
+                                    : 'none',
+                                WebkitMask: 'linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0)',
+                                WebkitMaskComposite: 'xor',
+                                maskComposite: 'exclude',
+                                padding: '1px'
+                            }}
+                        />
 
-                            {/* CONTENITORE PULSANTI AFFIANCATI */}
-                            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full sm:w-auto mt-4">
+                        {/* 3. EFFETTO AMBIENTALE DI PROFONDITÀ (Griglia a micro-punti futuristica sfumata) */}
+                        <div
+                            className="absolute inset-0 opacity-[0.03] group-hover:opacity-[0.05] transition-opacity duration-700 pointer-events-none z-0"
+                            style={{
+                                backgroundImage: 'radial-gradient(rgba(236, 72, 153, 0.6) 1.2px, transparent 1.2px)',
+                                backgroundSize: '32px 32px'
+                            }}
+                        />
 
-                                {/* PULSANTE PRINCIPALE CON CLICKSPARK */}
-                                <div className="w-full sm:w-auto">
-                                    <ClickSpark>
-                                        <a
-                                            href="mailto:saraspano@live.it"
-                                            className="w-full inline-flex items-center justify-center gap-3 bg-pink-500 text-white font-black uppercase text-[10px] sm:text-xs md:text-sm tracking-[0.2em] sm:tracking-[0.3em] px-8 py-4 sm:px-12 sm:py-5 rounded-full shadow-lg shadow-pink-500/20 hover:shadow-pink-500/40 transition-all duration-300 hover:bg-pink-600 whitespace-nowrap"
-                                        >
-                                            Iniziamo il progetto
-                                            <ArrowUpRight className="w-4 h-4 shrink-0 stroke-[2.5]" />
-                                        </a>
-                                    </ClickSpark>
-                                </div>
+                        {/* 4. LINEA LASER SUPERIORE DINAMICA */}
+                        <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-pink-500/40 to-transparent z-20 opacity-70 group-hover:via-pink-500/80 transition-all duration-500" />
 
-                                {/* PULSANTE SECONDARIO CON CLICKSPARK */}
-                                <div className="w-full sm:w-auto">
+                        {/* ICONA STELLINA PREMIUM IN ORO AMBRATO ANIMATA IN FRAMER MOTION */}
+                        <motion.div
+                            animate={{
+                                rotate: 360,
+                                scale: [1, 1.15, 1],
+                                filter: [
+                                    "drop-shadow(0 0 2px rgba(245,158,11,0.2))",
+                                    "drop-shadow(0 0 8px rgba(245,158,11,0.6))",
+                                    "drop-shadow(0 0 2px rgba(245,158,11,0.2))"
+                                ]
+                            }}
+                            transition={{
+                                rotate: { repeat: Infinity, duration: 8, ease: "linear" },
+                                scale: { repeat: Infinity, duration: 2, ease: "easeInOut" },
+                                filter: { repeat: Infinity, duration: 2, ease: "easeInOut" }
+                            }}
+                            className="text-amber-400 mb-3 flex items-center justify-center z-20"
+                        >
+                            <Sparkles className="w-5 h-5 fill-amber-400/20" />
+                        </motion.div>
+
+                        {/* ETICHETTA SOPRA-TITOLO */}
+                        <span className="text-pink-500 font-black uppercase tracking-[0.45em] text-[10px] sm:text-[11px] mb-6 relative z-20 opacity-90">
+                            Next Step
+                        </span>
+
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tighter leading-[1.1] mb-8">
+                            Il primo passo verso il tuo prossimo <span className="text-pink-500">successo.</span>
+                        </h2>
+
+                        <p className="text-sm sm:text-base text-white max-w-2xl mx-auto mb-8 font-medium leading-relaxed"> Che si tratti di un e-commerce sartoriale, di un'applicazione complessa o di una consulenza UI/UX, partiamo da una chiacchierata per definire la rotta migliore per il tuo business.</p>
+
+                        {/* GRUPPO PULSANTI D'AZIONE */}
+                        <div className="flex flex-col sm:flex-row items-center justify-center gap-5 relative z-30 w-full sm:w-auto">
+                            <div className="w-full sm:w-auto">
+                                <div className="relative group/button1">
+                                    <div className="absolute inset-0 rounded-full transition-all duration-300 opacity-0 group-hover/button1:opacity-100 shadow-[0_0_30px_rgba(236,72,153,0.6),0_0_15px_rgba(236,72,153,0.4)] pointer-events-none" />
                                     <ClickSpark>
                                         <Link
-                                            to="#"
-                                            className="w-full inline-flex items-center justify-center bg-[#1e293b]/40 border border-white/10 text-white font-black uppercase text-[10px] sm:text-xs md:text-sm tracking-[0.2em] sm:tracking-[0.3em] px-8 py-4 sm:px-12 sm:py-5 rounded-full transition-all duration-300 hover:bg-white hover:text-slate-900 whitespace-nowrap"
+                                            to="mailto:saraspano579@gmail.com"
+                                            className="px-8 py-4 sm:px-12 sm:py-5 bg-pink-500 text-white hover:bg-pink-600 rounded-full font-black uppercase text-[10px] sm:text-xs md:text-sm tracking-[0.2em] sm:tracking-[0.3em] transition-all duration-300 relative flex items-center justify-center gap-2 cursor-pointer"
                                         >
-                                            Prendiamo un caffè? ☕
+                                            Scrivimi una mail
+                                            <span className="inline-block transform transition-transform duration-300 group-hover/button1:translate-x-1 group-hover/button1:-translate-y-1 font-normal text-white ml-1">
+                                                ↗
+                                            </span>
+                                        </Link>
+                                    </ClickSpark>
+
+                                </div>
+                            </div>
+
+                            {/* BOTTONE DESTRO: AVVIA LA COLLABORAZIONE */}
+                            <div className="w-full sm:w-auto">
+                                <div className="relative group/button2">
+                                    <div className="absolute inset-0 rounded-full transition-all duration-300 opacity-0 group-hover/button2:opacity-100 shadow-[0_0_30px_rgba(255,255,255,0.6),0_0_15px_rgba(255,255,255,0.4)] pointer-events-none" />
+
+                                    <ClickSpark>
+                                        <Link
+                                            to="/https://calendly.com/saraspano579/30min"
+                                            className="px-8 py-4 sm:px-12 sm:py-5 bg-white text-slate-900 hover:bg-slate-200 rounded-full font-black uppercase text-[10px] sm:text-xs md:text-sm tracking-[0.2em] sm:tracking-[0.3em] transition-all duration-300 relative flex items-center justify-center gap-2 cursor-pointer"
+                                        >
+                                            Prenota una call
+                                            <span className="inline-block transform scale-0 opacity-0 group-hover/button2:opacity-100 group-hover/button2:scale-110 transition-all duration-300 group-hover/button2:animate-bounce origin-center ml-1 -translate-y-[1px]">
+                                                ☕
+                                            </span>
                                         </Link>
                                     </ClickSpark>
                                 </div>
                             </div>
-
                         </div>
-
-                        {/* PATTERN GEOMETRICO DI SFONDO*/}
-                        <div className="absolute inset-0 opacity-[0.02] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#ec4899 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
                     </motion.div>
+
+                    {/* PATTERN GEOMETRICO DI SFONDO*/}
+                    <div className="absolute inset-0 opacity-[0.02] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#ec4899 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
                 </div>
             </section>
         </>
